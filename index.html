@@ -9,21 +9,19 @@
 </head>
 
 <body>
-    <!-- <h1>Basic Fantasy RPG Character Sheet</h2> -->
+    <h1>Basic Fantasy RPG Character Sheet</h1>
     <div class="content">
         <div><b>Info</b></div>
         <div class="box">
             <div class="row">
                 <div class="block">
-                    <div class="form-group">
-                        <div class="block">Name</div>
-                        <span><input type=text name="attr_name" /></span>
-                    </div>
+                    Name
+                    <input type=text name="attr_name" />
                 </div>
             </div>
             <div class="row">
                 <div class="block">
-                    <div class="block">Race</div>
+                    Race
                     <select id="character_race_select">
                         <option value="Human" selected>Human</option>
                         <option value="Elf">Elf</option>
@@ -32,7 +30,7 @@
                     </select>
                 </div>
                 <div class="block">
-                    <div class="block">Class</div>
+                    Class
                     <select id="character_class_select">
                         <option value="Fighter" selected>Fighter</option>
                         <option value="Mage">Mage</option>
@@ -42,13 +40,11 @@
                     </select>
                 </div>
                 <div class="block">
-                    <div class="form-group">
-                        Experience
-                        <input name="attr_currentxp" type="text">
-                    </div>
+                    Experience
+                    <input name="attr_currentxp" type="text">
                 </div>
                 <div class="block">
-                    <div class="block">Level</div>
+                    Level
                     <select id="character_level_select">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
@@ -73,53 +69,8 @@
                     </select>
                 </div>
             </div>
-                <!-- </ol>
-                <b>Combat</b>
-                <table width=100% height=100%>
-                    <tr>
-                        <td>Armour Class:</td>
-                        <td>
-                            <input name="attr_ac" style="width: 14em;" type="text">
-                            &nbsp;
-                            <td><span id="ac_bonus">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Hit Points:</td>
-                        <td>
-                            <input name="attr_hp" style="width: 7em;" type="text">
-                            &nbsp;
-                            <td><span id="hit_points">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Attack Bonus:</td>
-                        <td>
-                            <td><span id="base_attack_bonus">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="sheet-nowrap">&nbsp; Melee:</td>
-                        <td>
-                            <td><span id="melee_attack_bonus">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="sheet-nowrap">&nbsp; Missile:</td>
-                        <td>
-                            <td><span id="ranged_attack_bonus">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Movement</td>
-                        <td colspan=2>
-                            <input name="attr_movement" type="text">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr> -->
-            </div>
+        </div>
+        <div class="box">
             <div class="row">
                 <div class="block">
                     <b>Attributes</b>
@@ -127,7 +78,7 @@
                         <ul>
                             <li>
                                 <div class=row>
-                                    <b>Strength</b>
+                                    Strength
                                     <select id="character_strength_select">
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -150,7 +101,7 @@
                             </li>
                             <li>
                                 <div class=row>
-                                    <b>Intelligence</b>
+                                    Intelligence
                                     <select id="character_intelligence_select">
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -173,7 +124,7 @@
                             </li>
                             <li>
                                 <div class=row>
-                                    <b>Wisdom</b>
+                                    Wisdom
                                     <select id="character_wisdom_select">
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -196,7 +147,7 @@
                             </li>
                             <li>
                                 <div class=row>
-                                    <b>Dexterity</b>
+                                    Dexterity
                                     <select id="character_dexterity_select">
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -219,7 +170,7 @@
                             </li>
                             <li>
                                 <div class=row>
-                                    <div class="block"><b>Constitution</b></div>
+                                    Constitution
                                     <select id="character_constitution_select">
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -242,7 +193,7 @@
                             </li>
                             <li>
                                 <div class=row>
-                                    <b>Charisma</b>
+                                    Charisma
                                     <select id="character_charisma_select">
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -273,410 +224,219 @@
                             <li>
                                 <div class="row">
                                     Armour Class:
-                                    <input name="attr_ac" style="width: 14em;" type="text">
-                                        &nbsp;
                                     <span id="ac_bonus">0</span>
                                 </div>
                             </li>
                             <li>
                                 <div class="row">
                                     Hit Points:
-                                    <input name="attr_hp" style="width: 7em;" type="text">
-                                    &nbsp;
                                     <span id="hit_points">0</span>
                                 </div>
                             </li>
                             <li>
-                                Attack Bonus:
-                                <span id="base_attack_bonus">0</span>
+                                <div class="row">
+                                    Attack Bonus:
+                                    <span id="base_attack_bonus">0</span>
+                                </div>
                             </li>
                             <li>
-                                &nbsp; Melee:
-                                <span id="melee_attack_bonus">0</span>
+                                <div class="row">
+                                    &nbsp; Melee:
+                                    <span id="melee_attack_bonus">0</span>
+                                </div>
                             </li>
                             <li>
-                                &nbsp; Missile:
-                                <span id="ranged_attack_bonus">0</span>
+                                <div class="row">
+                                    &nbsp; Missile:
+                                    <span id="ranged_attack_bonus">0</span>
+                                </div>
                             </li>
                             <li>
-                                Movement
-                                <input name="attr_movement" type="text">
+                                <div class="row">
+                                    Movement
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="block">
+                    <b>Equipment</b>
+                    <br>
+                    <textarea name="attr_equipment"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="block">
+                    Thief Abilities
+                    <div class="box">
+                        <ul>
+                            <li>
+                                <div class="row">
+                                    Open Locks:
+                                    <span id="openLocks">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Remove Traps:
+                                    <span id="removeTraps">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Pick Pockets:
+                                    <span id="pickPockets">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Move Silently:
+                                    <span id="moveSilently">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Climb Walls:
+                                    <span id="climbWalls">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Hide:
+                                    <span id="hide">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Listen:
+                                    <span id="listen">0</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="block">
+                    Saving Throws
+                    <div class="box">
+                        <ul>
+                            <li>
+                                <div class="row">
+                                    Death Ray or Poison:
+                                    <span id="death">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Magic Wands:
+                                    <span id="wands">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Paralysis or Turn to Stone:
+                                    <span id="paralysis">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Dragon Breath:
+                                    <span id="breath">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Dragon Breath:
+                                    <span id="breath">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Rods, Staves, and Spells:
+                                    <span id="spells">0</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="block">
+                    Spells
+                    <div class="box">
+                        Spells per Level:
+                        <span id="spells_per_level">None</span>
+                        <textarea name="attr_spells"></textarea>
+                    </div>
+                </div>
+                <div class="block">
+                    Turn Undead:
+                    <div class="box">
+                        <div class="block">
+                            <ul>
+                                <li>
+                                    <div class="row">
+                                        Skeleton:
+                                        <span id="skeleton">0</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        Zombie:
+                                        <span id="zombie">0</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        Ghoul:
+                                        <span id="ghoul">0</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        Wight:
+                                        <span id="wight">0</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        Wraith:
+                                        <span id="wraith">0</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        Mummy:
+                                        <span id="mummy">0</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        Spectre:
+                                        <span id="spectre">0</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        Vampire:
+                                        <span id="vampire">0</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="block">
+                    <b>Special Abilities</b>
+                    <br>
+                    <div class="callout" id="special_abilities"></div>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- <table>
-        <tr><td colspan=2><br></td></tr>
-        <tr>
-            <td>
-                <b>Attributes</b>
-                <table width=100% height=100%>
-                    <tr>
-                        <td>Strength</td>
-                        <td>
-                            <select id="character_strength_select">
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10" selected>10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                            </select>
-                        </td>
-                        <td><input type=number width=5 style='width: 5em;' name="attr_STRbonus" /></td>
-                    </tr>
-                    <tr>
-                        <td>Intelligence</td>
-                        <td>
-                            <select id="character_intelligence_select">
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10" selected>10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                            </select>
-                        </td>
-                        <td><input type=number width=5 style='width: 5em;' name="attr_INTbonus" /></td>
-                    </tr>
-                    <tr>
-                        <td>Wisdom</td>
-                        <td>
-                            <select id="character_wisdom_select">
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10" selected>10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                            </select>
-                        </td>
-                        <td><input type=number width=5 style='width: 5em;' name="attr_WISbonus" /></td>
-                    </tr>
-                    <tr>
-                        <td>Dexterity</td>
-                        <td>
-                            <select id="character_dexterity_select">
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10" selected>10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                            </select>
-                        </td>
-                        <td><input type=number width=5 style='width: 5em;' name="attr_DEXbonus" /></td>
-                    </tr>
-                    <tr>
-                        <td>Constitution</td>
-                        <td>
-                            <select id="character_constitution_select">
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10" selected>10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                            </select>
-                        </td>
-                        <td><input type=number width=5 style='width: 5em;' name="attr_CONbonus" /></td>
-                    </tr>
-                    <tr>
-                        <td>Charisma</td>
-                        <td>
-                            <select id="character_charisma_select">
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10" selected>10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                            </select>
-                        </td>
-                        <td><input type=number width=5 style='width: 5em;' name="attr_CHAbonus" /></td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <b>Combat</b>
-                <table width=100% height=100%>
-                    <tr>
-                        <td>Armour Class:</td>
-                        <td>
-                            <input name="attr_ac" style="width: 14em;" type="text">
-                            &nbsp;
-                            <td><span id="ac_bonus">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Hit Points:</td>
-                        <td>
-                            <input name="attr_hp" style="width: 7em;" type="text">
-                            &nbsp;
-                            <td><span id="hit_points">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Attack Bonus:</td>
-                        <td>
-                            <td><span id="base_attack_bonus">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="sheet-nowrap">&nbsp; Melee:</td>
-                        <td>
-                            <td><span id="melee_attack_bonus">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="sheet-nowrap">&nbsp; Missile:</td>
-                        <td>
-                            <td><span id="ranged_attack_bonus">0</span></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Movement</td>
-                        <td colspan=2>
-                            <input name="attr_movement" type="text">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr><td colspan=2><br></td></tr>
-        <tr>
-            <td colspan=2>
-                <b>Equipment</b>
-                <br>
-                <textarea name="attr_equipment"></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>Thief Abilities</b>
-                <table width=100% class=thiefabilities>
-                    <tbody>
-                        <tr>
-                            <td><strong>Open Locks:</strong></td>
-                            <td><span id="openLocks">0</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Remove Traps:</strong></td>
-                            <td><span id="removeTraps">0</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Pick Pockets:</strong></td>
-                            <td><span id="pickPockets">0</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Move Silently:</strong></td>
-                            <td><span id="moveSilently">0</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Climb Walls:</strong></td>
-                            <td><span id="climbWalls">0</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hide:</strong></td>
-                            <td><span id="hide">0</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Listen:</strong></td>
-                            <td><span id="listen">0</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <b>Spells per Level</b>
-                <div class="callout" id="spells_list">
-                    <span id="spells_per_level">None</span>
-                </div>
-                <textarea name="attr_spells"></textarea>
-        </td>
-        <td>
-            <b>Saving Throws</b>
-            <table class="sheet-savingthrows" style="width: 100%;">
-                <tr>
-                    <td width="99%">
-                        Death Ray or Poison:
-                    </td>
-                    <td width="1">
-                    <td><span id="death">0</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        Magic Wands:
-                    </td>
-                    <td>
-                    <td><span id="wands">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Paralysis or Turn to Stone:
-                    </td>
-                    <td>
-                    <td><span id="paralysis">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Dragon Breath:
-                    </td>
-                    <td>
-                    <td><span id="breath">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Rods, Staves, and Spells:
-                    </td>
-                    <td>
-                    <td><span id="spells">0</span></td>
-                    </td>
-                </tr>
-            </table>
-
-            <b>Turn Undead:</b>
-            <table class="sheet-turnundead" style="width: 100%;">
-                <tr>
-                    <td width="99%">
-                        Skeleton:
-                    </td>
-                    <td width="1">
-                    <td><span id="skeleton">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Zombie:
-                    </td>
-                    <td>
-                    <td><span id="zombie">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Ghoul:
-                    </td>
-                    <td>
-                    <td><span id="ghoul">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Wight:
-                    </td>
-                    <td>
-                    <td><span id="wight">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Wraith:
-                    </td>
-                    <td>
-                    <td><span id="wraith">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Mummy:
-                    </td>
-                    <td>
-                    <td><span id="mummy">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Spectre:
-                    </td>
-                    <td>
-                    <td><span id="spectre">0</span></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Vampire:
-                    </td>
-                    <td>
-                    <td><span id="vampire">0</span></td>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td colspan=2>
-            <b>Special Abilities</b>
-            <div class="callout" id="special_abilities">
-        </td>
-    </tr>
-    <tr><td colspan=2><br></td></tr>
-    </table> -->
     <br>
     <div>
         <input type="button" class="button" id="roll_ability_scores" value="Roll Scores" />
@@ -684,7 +444,7 @@
             for="switch_primary">Switch highest score with Primary attribute.</label>
     </div>
     <div>
-        <p>created by vori</p>
+        <p>created by <b>vori</b></p>
     </div>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/BasicFantasyCharGenerator.js"></script>
