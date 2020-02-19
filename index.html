@@ -5,73 +5,310 @@
     <title>Basic Fantasy RPG Character Sheet</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/new_design.css">
 </head>
 
 <body>
-    <h2>Basic Fantasy Character Generator</h2>
-    <table>
-        <tr>
-            <td colspan=2>
-                <b><br>Info</b>
-                <table>
+    <!-- <h1>Basic Fantasy RPG Character Sheet</h2> -->
+    <div class="content">
+        <div><b>Info</b></div>
+        <div class="box">
+            <div class="row">
+                <div class="block">
+                    <div class="form-group">
+                        <div class="block">Name</div>
+                        <span><input type=text name="attr_name" /></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="block">
+                    <div class="block">Race</div>
+                    <select id="character_race_select">
+                        <option value="Human" selected>Human</option>
+                        <option value="Elf">Elf</option>
+                        <option value="Dwarf">Dwarf</option>
+                        <option value="Halfling">Halfling</option>
+                    </select>
+                </div>
+                <div class="block">
+                    <div class="block">Class</div>
+                    <select id="character_class_select">
+                        <option value="Fighter" selected>Fighter</option>
+                        <option value="Mage">Mage</option>
+                        <option value="Thief">Thief</option>
+                        <option value="Cleric">Cleric</option>
+                        <option value="FighterMage" disabled>FighterMage</option>
+                    </select>
+                </div>
+                <div class="block">
+                    <div class="form-group">
+                        Experience
+                        <input name="attr_currentxp" type="text">
+                    </div>
+                </div>
+                <div class="block">
+                    <div class="block">Level</div>
+                    <select id="character_level_select">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+            </div>
+                <!-- </ol>
+                <b>Combat</b>
+                <table width=100% height=100%>
                     <tr>
-                        <td><b>Name</b></td>
-                        <td colspan=7><input type=text style='width: 75%;' name="attr_name" /></td>
+                        <td>Armour Class:</td>
+                        <td>
+                            <input name="attr_ac" style="width: 14em;" type="text">
+                            &nbsp;
+                            <td><span id="ac_bonus">0</span></td>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Race</td>
+                        <td>Hit Points:</td>
                         <td>
-                            <select id="character_race_select">
-                                <option value="Human" selected>Human</option>
-                                <option value="Elf">Elf</option>
-                                <option value="Dwarf">Dwarf</option>
-                                <option value="Halfling">Halfling</option>
-                            </select>
+                            <input name="attr_hp" style="width: 7em;" type="text">
+                            &nbsp;
+                            <td><span id="hit_points">0</span></td>
                         </td>
-                        <td>Class</td>
+                    </tr>
+                    <tr>
+                        <td>Attack Bonus:</td>
                         <td>
-                            <select id="character_class_select">
-                                <option value="Fighter" selected>Fighter</option>
-                                <option value="Mage">Mage</option>
-                                <option value="Thief">Thief</option>
-                                <option value="Cleric">Cleric</option>
-                                <option value="FighterMage" disabled>FighterMage</option>
-                            </select>
+                            <td><span id="base_attack_bonus">0</span></td>
                         </td>
-                        <td>Experience</td>
+                    </tr>
+                    <tr>
+                        <td class="sheet-nowrap">&nbsp; Melee:</td>
                         <td>
-                            <input name="attr_currentxp" type="text">
+                            <td><span id="melee_attack_bonus">0</span></td>
                         </td>
-                        <td>Level</td>
+                    </tr>
+                    <tr>
+                        <td class="sheet-nowrap">&nbsp; Missile:</td>
                         <td>
-                            <select id="character_level_select">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                            </select>
+                            <td><span id="ranged_attack_bonus">0</span></td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Movement</td>
+                        <td colspan=2>
+                            <input name="attr_movement" type="text">
                         </td>
                     </tr>
                 </table>
             </td>
-        </tr>
+        </tr> -->
+            </div>
+            <div class="row">
+                <div class="block">
+                    <b>Attributes</b>
+                    <div class="box">
+                        <ul>
+                            <li>
+                                <div class=row>
+                                    <b>Strength</b>
+                                    <select id="character_strength_select">
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=row>
+                                    <b>Intelligence</b>
+                                    <select id="character_intelligence_select">
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=row>
+                                    <b>Wisdom</b>
+                                    <select id="character_wisdom_select">
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=row>
+                                    <b>Dexterity</b>
+                                    <select id="character_dexterity_select">
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=row>
+                                    <div class="block"><b>Constitution</b></div>
+                                    <select id="character_constitution_select">
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=row>
+                                    <b>Charisma</b>
+                                    <select id="character_charisma_select">
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="block">
+                    <b>Combat</b>
+                    <div class="box">
+                        <ul>
+                            <li>
+                                <div class="row">
+                                    Armour Class:
+                                    <input name="attr_ac" style="width: 14em;" type="text">
+                                        &nbsp;
+                                    <span id="ac_bonus">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    Hit Points:
+                                    <input name="attr_hp" style="width: 7em;" type="text">
+                                    &nbsp;
+                                    <span id="hit_points">0</span>
+                                </div>
+                            </li>
+                            <li>
+                                Attack Bonus:
+                                <span id="base_attack_bonus">0</span>
+                            </li>
+                            <li>
+                                &nbsp; Melee:
+                                <span id="melee_attack_bonus">0</span>
+                            </li>
+                            <li>
+                                &nbsp; Missile:
+                                <span id="ranged_attack_bonus">0</span>
+                            </li>
+                            <li>
+                                Movement
+                                <input name="attr_movement" type="text">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <table>
         <tr><td colspan=2><br></td></tr>
         <tr>
             <td>
@@ -439,7 +676,7 @@
         </td>
     </tr>
     <tr><td colspan=2><br></td></tr>
-    </table>
+    </table> -->
     <br>
     <div>
         <input type="button" class="button" id="roll_ability_scores" value="Roll Scores" />
