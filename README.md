@@ -1,2 +1,2 @@
 # basic
-basic fantasy rpg chracter sheet
+basic fantasy rpg character sheet
