@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="block">
                     Name
-                    <input type=text name="attr_name" />
+                    <input type=text id="attr_name" />
                 </div>
             </div>
             <div class="row">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="block">
                     Experience
-                    <input name="attr_currentxp" type="text">
+                    <input id="attr_currentxp" type="text">
                 </div>
                 <div class="block">
                     Level
@@ -493,6 +493,8 @@
 
         function storeSheet() {
             var obj = {
+                'name': $("#attr_name").val(),
+                'xp': $("#attr_currentxp").val(),
                 'race': cg.race,
                 'class': cg.class,
                 'level': cg.level,
@@ -522,6 +524,8 @@
             cg.setAttribute("Charisma", json.attributes.charisma);
             cg.setClass(json.class.name)
             cg.setLevel(json.level)
+            $("#attr_name").val(json.name);
+            $("#attr_currentxp").val(json.xp);
             $("#character_race_select").val(json.race);
             $("#character_strength_select").val(json.attributes.strength);
             $("#character_dexterity_select").val(json.attributes.dexterity);
@@ -692,6 +696,14 @@
 
             $("#character_charisma_select").change(function () {
                 cg.setAttribute("Charisma", $("#character_charisma_select").val());
+                updateSheet();
+            });
+
+            $('#attr_name').on('input',function(){
+                updateSheet();
+            });
+
+            $('#attr_currentxp').on('input',function(){
                 updateSheet();
             });
 
