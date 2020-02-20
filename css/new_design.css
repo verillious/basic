@@ -105,10 +105,14 @@ textarea {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    resize: vertical;
+    resize: none;
     margin-top: 0.25em;
     margin-bottom: 0.25em;
     border: solid 2px black;
+    text-align: justify;
+    line-height: 1.2;
+    font-size: 1.4rem;
+    overflow: hidden;
 }
 
 ul {
@@ -124,6 +128,10 @@ span {
 select {
     margin-left: 0.5em;
 }
+
+#editor-container {
+    height: 375px;
+  }
 
 .row {
     display: flex;

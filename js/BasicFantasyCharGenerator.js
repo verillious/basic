@@ -1,7 +1,7 @@
 class BasicFantasyCharGenerator {
     constructor() {
         this.switchPrimary = false;
-        this.abilityBonuses = [0,0,0,-3,-2,-2,-1,-1,-1,0,0,0,0,1,1,1,2,2,3]; 
+        this.abilityBonuses = [0,0,0,-3,-2,-2,-1,-1,-1,0,0,0,0,1,1,1,2,2,3];
         this.classes = {
             None: {
                 name: "Not Set",
@@ -231,7 +231,7 @@ class BasicFantasyCharGenerator {
                 }
             }
         };
-        
+
         this.races = {
             Human: {
                 specialAbilities: [
@@ -266,7 +266,7 @@ class BasicFantasyCharGenerator {
                 allowedClasses: ["Fighter", "Thief", "Cleric"]
             }
         };
-        
+
         this.class = this.classes["Fighter"];
         this.level = 0;
         this.race = "Human";
@@ -276,7 +276,7 @@ class BasicFantasyCharGenerator {
         this.spells = "None";
         this.specialAbilities = new Array();
         this.setThiefSkills();
-        
+
         this.attributes = {
             Strength: {score: 10, bonus: 0},
             Dexterity: {score: 10, bonus: 0},
@@ -285,7 +285,7 @@ class BasicFantasyCharGenerator {
             Wisdom: {score: 10, bonus: 0},
             Charisma: {score: 10, bonus: 0}
         };
-        
+
         this.savingThrows = {
             deathRay: 0,
             magicWands: 0,
@@ -293,7 +293,7 @@ class BasicFantasyCharGenerator {
             dragonBreath: 0,
             spells: 0
         };
-        
+
         this.turnUndead = {
             skeleton: "No",
             zombie: "No",
@@ -345,18 +345,20 @@ class BasicFantasyCharGenerator {
 
 
     setClass(className) {
-        if (this.classAllowed(className) === false && !this.switchPrimary) return false;
-        
+        if (this.classAllowed(className) === false && !this.switchPrimary) {
+            console.log("set class failed");
+            return false;
+        }
         this.class = this.classes[className];
-        
+
         this.calculateInfo();
         this.classChanged();
     }
-    
+
     classChanged() {
         //Do stuff here.
     }
-    
+
     setLevel(level) {
         if (level >= 0 && level <= 20) {
             this.level = level;
@@ -366,28 +368,28 @@ class BasicFantasyCharGenerator {
         this.calculateInfo();
         this.levelChanged();
     }
-    
+
     levelChanged() {
         //Do stuff here.
     }
-    
+
     setRace(race) {
         if (!(race in this.races)) return;
         if (this.races[race].allowedClasses.indexOf(this.class.name) === -1) return;
-        
+
         this.race = race;
         this.specialAbilities = this.races[race].specialAbilities;
         this.determineHitDieType();
         this.raceChanged();
     }
-    
+
     raceChanged() {
         //Do stuff here.
     }
-    
+
     calculateInfo(rerollHitPoints) {
         rerollHitPoints = true;
-        
+
         this.determineHitDieType();
         if (rerollHitPoints) {
             this.hitPoints = this.rollHitPoints();
@@ -399,40 +401,42 @@ class BasicFantasyCharGenerator {
         this.setSavingThrows();
         this.setTurnUndead();
     }
-    
+
     classAllowed(className) {
-        if (!(className in this.classes)) return false;
-        
+        if (!(className in this.classes)) {
+            console.log("classname " + className + " not in classes")
+            return false;
+        }
         for (var attr in this.classes[className].minAbilities) {
             if (attr in this.classes[className].minAbilities) {
                 if (this.attributes[attr].score < this.classes[className].minAbilities[attr]) return false;
             }
         }
-        
+
         if (this.races[this.race].allowedClasses.indexOf(className) === -1) return false;
-        
+
         return true;
     }
-            
+
     abilityAllowed (attr, score) {
         if (attr in this.class.minAbilities) {
             if (score < this.class.minAbilities[attr]) return false;
         }
-        
+
         return true;
     }
-    
+
     determineHitDieType() {
         this.hitDieType = this.class.hitDie;
         if (this.race === "Elf" || this.race === "Halfling") {
             if(this.hitDieType > 6) this.hitDieType = 6;
         }
     }
-    
+
     setBaseAttackBonus() {
         this.baseAttackBonus = this.class.attackBonus[this.level];
     }
-    
+
     setThiefSkills() {
         this.thiefSkills = {
             openLocks: this.class.thiefSkills.openLocks[this.level],
@@ -444,7 +448,7 @@ class BasicFantasyCharGenerator {
             listen: this.class.thiefSkills.listen[this.level]
         };
     }
-    
+
     setSavingThrows() {
         this.savingThrows.deathRay = this.class.savingThrows.deathRay[this.level];
         this.savingThrows.magicWands = this.class.savingThrows.magicWands[this.level];
@@ -452,7 +456,7 @@ class BasicFantasyCharGenerator {
         this.savingThrows.dragonBreath = this.class.savingThrows.dragonBreath[this.level];
         this.savingThrows.spells = this.class.savingThrows.spells[this.level];
     }
-            
+
     setTurnUndead() {
         this.turnUndead.skeleton = this.class.turnUndead.skeleton[this.level];
         this.turnUndead.zombie = this.class.turnUndead.zombie[this.level];
@@ -464,15 +468,15 @@ class BasicFantasyCharGenerator {
         this.turnUndead.vampire = this.class.turnUndead.vampire[this.level];
         this.turnUndead.ghost = this.class.turnUndead.ghost[this.level];
     }
-            
+
     setSpells() {
         this.spells = this.class.spells[this.level];
     }
-    
+
     rollHitPoints() {
         var value = 0;
         var tmp = 0;
-        
+
         for (var x = 1; x <= this.level; ++x) {
             tmp = this.rollDie(this.hitDieType) + this.attributes.Constitution.bonus;
             if (tmp < 1) tmp = 1;
@@ -480,24 +484,24 @@ class BasicFantasyCharGenerator {
         }
         return value;
     }
-    
+
     getTotalHP() {
         return this.hitPoints;
     }
-    
+
     setAttribute(attribute, value) {
         if (!(attribute in this.attributes)) return;
-        
+
         if (value >= 3 && value <= 18) {
             this.attributes[attribute].score = value;
         } else {
             this.attributes[attribute].score = 0;
         }
         this.attributes[attribute].bonus = this.abilityBonuses[this.attributes[attribute].score];
-        
+
         this.calculateInfo(false);
     }
-    
+
     generateScores() {
         this.generateAttribute("Strength");
         this.generateAttribute("Dexterity");
@@ -506,11 +510,11 @@ class BasicFantasyCharGenerator {
         this.generateAttribute("Intelligence");
         this.generateAttribute("Charisma");
     }
-    
+
     generateAttribute(attr) {
         var oldValue = 0;
         var valid;
-        
+
         oldValue = this.attributes[attr].score;
         do {
             this.setAttribute(attr, this.rollScore());
@@ -522,66 +526,66 @@ class BasicFantasyCharGenerator {
             }
         } while (!valid);
     }
-    
+
     rollScore() {
         return this.rollDie(6) + this.rollDie(6) + this.rollDie(6);
     }
-    
+
     rollDie(sides) {
         if (sides === 0) return 0;
         let value = Math.floor((Math.random() * sides) + 1);
         return value;
     }
-    
+
     getMeleeAttackBonus() {
         return this.baseAttackBonus + this.attributes.Strength.bonus;
     }
-    
+
     getRangedAttackBonus() {
         var result = 0;
         result = this.baseAttackBonus + this.attributes.Dexterity.bonus;
         if (this.race === "Halfling") result += 1;
         return result;
     }
-    
+
     getAC() {
         return 10 + this.attributes.Dexterity.bonus;
     }
-    
+
     getDeathRaySave() {
         var result = this.savingThrows.deathRay;
         if(this.race === "Dwarf" || this.race === "Halfling") result -= 4;
         return result;
     }
-    
+
     getMagicWandsSave() {
         var result = this.savingThrows.magicWands;
         if(this.race === "Dwarf" || this.race === "Halfling") result -= 4;
         return result;
     }
-    
+
     getParalysisSave() {
         var result = this.savingThrows.paralysis;
-        
+
         if(this.race === "Dwarf" || this.race === "Halfling") result -= 4;
         if(this.race === "Elf") result -= 1;
-        
+
         return result;
     }
-    
+
     getDragonBreathSave() {
         var result = this.savingThrows.dragonBreath;
         if(this.race === "Dwarf" || this.race === "Halfling") result -= 3;
         return result;
     }
-    
+
     getSpellsSave() {
         var result = this.savingThrows.spells;
-        
+
         if(this.race === "Halfling") result -= 4;
         if(this.race === "Dwarf") result -= 3;
         if(this.race === "Elf") result -= 2;
-        
+
         return result;
     }
 }
