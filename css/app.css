@@ -213,6 +213,10 @@ input[type=number] {
         float: right;
     }
 
+    input {
+        float: right;
+    }
+
     .container {
         flex-direction: column;
         display: flex;
@@ -221,6 +225,7 @@ input[type=number] {
         vertical-align: top;
         flex-wrap: wrap;
         width: 100%;
+        background-color: mediumaquamarine;
     }
 
     .box {
