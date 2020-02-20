@@ -1,25 +1,28 @@
-@font-face{
+@font-face {
     font-family: "Soutane";
     src: url(Soutane_Regular.ttf);
-    }
-
-@font-face{
-    font-family: "Soutane Black";
-    src: url(SoutaneBlack_Regular.ttf);
-    }
-
-html {
-    font-size: 62.5%;
 }
 
-body{
+@font-face {
+    font-family: "Soutane Black";
+    src: url(SoutaneBlack_Regular.ttf);
+}
+
+/* * {
+    font-family: Arial, Helvetica, sans-serif;
+  } */
+
+html {
+    font-size: 60%;
+}
+
+body {
+    margin:0 auto;
+    width: 60%;
     font-family: "Soutane";
     font-size: 18px;
     font-size: 1.8rem;
-    margin-left: 370px;
-    padding: 20px;
-    display: table-cell;
-    vertical-align: middle;
+    padding: 0.2em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
     clear: both;
 }
 
-h1{
+h1 {
     font-family: "Soutane Black";
     font-size: 42px;
     font-size: 4.2rem;
@@ -36,7 +39,7 @@ h1{
     font-weight: normal;
 }
 
-h2{
+h2 {
     font-family: "Soutane Black";
     font-size: 32px;
     font-size: 3.2rem;
@@ -47,7 +50,7 @@ h2{
     page-break-before: always;
 }
 
-h3{
+h3 {
     font-family: "Soutane Black";
     font-size: 26px;
     font-size: 2.6rem;
@@ -56,7 +59,7 @@ h3{
     margin: 0in;
 }
 
-h4{
+h4 {
     font-family: "Soutane Black";
     font-size: 22px;
     font-size: 2.2rem;
@@ -67,7 +70,7 @@ h4{
     font-weight: normal;
 }
 
-h5{
+h5 {
     font-family: "Soutane Black";
     font-size: 18px;
     font-size: 1.8rem;
@@ -76,48 +79,23 @@ h5{
     font-weight: normal;
 }
 
-p{
+p {
     margin: 30px 0;
     margin: 3rem 0;
     text-align: justify;
     line-height: 1.2;
 }
 
-table{
-    border-collapse: collapse;
-    text-align: left;
-    border-spacing: 150px;
-    border: solid 2px black;
-}
-
-td{
-    font-size: 16px;
-    font-size: 1.6rem;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
-    vertical-align: top;
-}
-
-li{
-    margin: 0em;
-    margin-left: 2em;
-    }
-
-a{
+a {
     text-decoration: none;
     -ms-word-break: break-all;
-
-     /* Be VERY careful with this, breaks normal words wh_erever */
-     word-break: break-all;
-
-     /* Non standard for webkit */
-     word-break: break-word;
-
--webkit-hyphens: auto;
-   -moz-hyphens: auto;
-        hyphens: auto;
+    /* Be VERY careful with this, breaks normal words wh_erever */
+    word-break: break-all;
+    /* Non standard for webkit */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 
 p.range,
@@ -127,81 +105,131 @@ p.duration {
     border-bottom: 1px solid #efefef;
 }
 
-table {
-    max-width: 100%;
-}
-
-.hz-scroll {
-    margin-bottom: 30px;
-}
-
-.ll-table .hz-scroll:after, .sidebar:after {
-    content: 'Scroll for additional content.';
-    position: absolute;
-    bottom: 4px;
-    left: 0px;
-    font-size: 1em;
-    color: #333;
-    font-style: italic;
-}
-
-/* Tablet */
-@media only screen and (max-width: 1024px) {
-    body {
-        margin: 0;
-        width: 100%;
-        overflow-x: hidden;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-
-    .ll-table {
-        margin: 20px auto;
-        float: none;
-        clear: both;
-        max-width: 80%;
-    }
-
-    table {
-        width: 100%;
-    }
-
-    .back-to-top {
-        display: block;
-    }
-}
-
-/* Mobile */
-@media only screen and (max-width: 640px) {
-    table {
-        float: none;
-        clear: both;
-    }
-}
-
-html, body {
-    height: 100%;
-}
-
-html {
-    display: table;
-    margin: auto;
-}
-
 textarea {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    resize: vertical;
+    resize: none;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    border: solid 2px black;
+    text-align: justify;
+    line-height: 1.2;
+    font-size: 1.4rem;
+    overflow: hidden;
 }
 
+ul {
+    list-style-type: none;
+    display: contents;
+}
+
+span {
+    float: right;
+    margin-left: 0.5em;
+    white-space:nowrap;
+}
+
+select {
+    margin-left: 0.5em;
+}
 .container {
-    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    vertical-align: top;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
-.section {
-      width: auto;
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    vertical-align: top;
+    flex-wrap: wrap;
+    width: 100%;
   }
+
+
+.block {
+    display: inline-block;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+    align-content: right;
+}
+
+.content {
+    border: solid 2px black;
+    padding: 0.5em;
+}
+
+.box {
+    border-collapse: separate;
+    border: solid 2px black;
+    padding: 0.25em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+input.num_span {
+    border: none;
+    font-family: "Soutane";
+    font-size: 1.8rem;
+    width:  1.5em;
+    text-align: right;
+    margin: 0em;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+/* small screens */
+@media only screen and (max-width: 800px) {
+    html {
+        font-size: 70%;
+    }
+
+    body {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    select {
+        float: right;
+    }
+
+    .container {
+        flex-direction: column;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: baseline;
+        vertical-align: top;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .box {
+        display: block;
+    }
+
+    .block {
+        width: 100%;
+        display: block;
+        margin: 0em;
+    }
+}
