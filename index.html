@@ -597,6 +597,7 @@
                 $("#climbWalls").html(cg.thiefSkills.climbWalls);
                 $("#hide").html(cg.thiefSkills.hide);
                 $("#listen").html(cg.thiefSkills.listen);
+                setAC();
                 setSpecialAbilities();
                 storeSheet();
             }
@@ -650,6 +651,10 @@
                 $("#character_intelligence_select").val(cg.attributes.Intelligence.score);
                 $("#character_wisdom_select").val(cg.attributes.Wisdom.score);
                 $("#character_charisma_select").val(cg.attributes.Charisma.score);
+            }
+
+            function setAC() {
+                $("#attr_currentac").text(Number(cg.attributes.Dexterity.bonus) + Number($("#attr_armourac").val()))
             }
 
             $(document).ready(function () {
