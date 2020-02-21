@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Basic Fantasy RPG Character Sheet</title>
+        <title>BFRPG Character Sheet</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/app.css">
@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <h1>Basic Fantasy RPG Character Sheet</h1>
+        <h1>BFRPG Character Sheet</h1>
         <div class="content">
             <div><b>Info</b></div>
             <div class="box">
@@ -29,7 +29,7 @@
                         <div class="container">
                             <div class="block">
                                 Race
-                                <select id="character_race_select">
+                                <select id="character_race_select" class="info_select">
                                     <option value="Human" selected>Human</option>
                                     <option value="Elf">Elf</option>
                                     <option value="Dwarf">Dwarf</option>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="block">
                                 Class
-                                <select id="character_class_select">
+                                <select id="character_class_select" class="info_select">
                                     <option value="Fighter" selected>Fighter</option>
                                     <option value="Mage">Mage</option>
                                     <option value="Thief">Thief</option>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="block">
                                 Level
-                                <select id="character_level_select">
+                                <select id="character_level_select" class="info_select">
                                     <option value="1" selected>1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -88,139 +88,157 @@
                                 <li>
                                     <div class=row>
                                         Strength
-                                        <select id="character_strength_select">
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10" selected>10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                        </select>
+                                        <span>
+                                            <select id="character_strength_select">
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10" selected>10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                            </select>
+                                            <span id="character_strength_mod" class="mod_span">0</span>
+                                        </span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class=row>
                                         Intelligence
-                                        <select id="character_intelligence_select">
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10" selected>10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                        </select>
+                                        <span>
+                                            <select id="character_intelligence_select">
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10" selected>10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                            </select>
+                                            <span id="character_intelligence_mod" class="mod_span">0</span>
+                                        </span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class=row>
                                         Wisdom
-                                        <select id="character_wisdom_select">
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10" selected>10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                        </select>
+                                        <span>
+                                            <select id="character_wisdom_select">
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10" selected>10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                            </select>
+                                            <span id="character_wisdom_mod" class="mod_span">0</span>
+                                        </span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class=row>
                                         Dexterity
-                                        <select id="character_dexterity_select">
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10" selected>10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                        </select>
+                                        <span>
+                                            <select id="character_dexterity_select">
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10" selected>10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                            </select>
+                                            <span id="character_dexterity_mod" class="mod_span">0</span>
+                                        </span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class=row>
                                         Constitution
-                                        <select id="character_constitution_select">
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10" selected>10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                        </select>
+                                        <span>
+                                            <select id="character_constitution_select">
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10" selected>10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                            </select>
+                                            <span id="character_constitution_mod" class="mod_span">0</span>
+                                        </span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class=row>
                                         Charisma
-                                        <select id="character_charisma_select">
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10" selected>10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                        </select>
+                                        <span>
+                                            <select id="character_charisma_select">
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10" selected>10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                            </select>
+                                            <span id="character_charisma_mod" class="mod_span">0</span>
+                                        </span>
                                     </div>
                                 </li>
                             </ul>
@@ -468,13 +486,17 @@
         <br>
         <div>
             <input type="button" class="button" id="roll_ability_scores" value="Roll Scores" />
+            <input type="button" class="button" id="toggle_dark_mode" value="Toggle Dark Mode" />
             <input type="checkbox" id="switch_primary" style="margin-left: 15px" onclick="toggleSwitchPrimary()"><label
                 for="switch_primary">Switch highest score with Primary attribute.</label>
         </div>
+
         <div>
             <p>created by <b>vori</b></p>
         </div>
+
         <script>
+            var dark = false;
             var toolbarOptions = [
                 ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
                 [{ 'list': 'ordered'}, { 'list': 'bullet' }]
@@ -528,8 +550,10 @@
                         'charisma': cg.attributes.Charisma.score
                     },
                     'equipment': editor_equipment.getContents(),
-                    'spells': editor_spells.getContents()
+                    'spells': editor_spells.getContents(),
+                    'dark': dark
                 }
+                console.log(obj)
                 json = JSON.stringify(obj)
                 localStorage.setItem('cgJSON', json);
             }
@@ -564,6 +588,10 @@
                 editor_spells.setContents(json.spells);
                 $("#ta_equipment").height( $("#ta_equipment")[0].scrollHeight );
                 $("#ta_spells").height( $("#ta_spells")[0].scrollHeight );
+
+                if (json.dark === true) {
+                    toggleDarkMode();
+                }
             }
 
             function updateSheet() {
@@ -598,6 +626,7 @@
                 $("#hide").html(cg.thiefSkills.hide);
                 $("#listen").html(cg.thiefSkills.listen);
                 setAC();
+                setMods();
                 setSpecialAbilities();
                 storeSheet();
             }
@@ -644,6 +673,15 @@
                 setAttributes();
             }
 
+            function setMods() {
+                $("#character_strength_mod").text(cg.attributes.Strength.bonus).change();
+                $("#character_dexterity_mod").text(cg.attributes.Dexterity.bonus);
+                $("#character_constitution_mod").text(cg.attributes.Constitution.bonus);
+                $("#character_intelligence_mod").text(cg.attributes.Intelligence.bonus);
+                $("#character_wisdom_mod").text(cg.attributes.Wisdom.bonus);
+                $("#character_charisma_mod").text(cg.attributes.Charisma.bonus);
+            }
+
             function setAttributes() {
                 $("#character_strength_select").val(cg.attributes.Strength.score).change();
                 $("#character_dexterity_select").val(cg.attributes.Dexterity.score);
@@ -655,6 +693,12 @@
 
             function setAC() {
                 $("#attr_currentac").text(Number(cg.attributes.Dexterity.bonus) + Number($("#attr_armourac").val()))
+            }
+
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+                dark = !dark;
+                updateSheet();
             }
 
             $(document).ready(function () {
@@ -678,6 +722,10 @@
                     if (cg.switchPrimary) cg.switchPrimaryAttribute();
                     setAttributes();
                     updateSheet();
+                });
+
+                $("#toggle_dark_mode").click(function () {
+                    toggleDarkMode();
                 });
 
                 $("#character_class_select").change(function () {
