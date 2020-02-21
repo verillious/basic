@@ -11,7 +11,6 @@
 /* * {
     font-family: Arial, Helvetica, sans-serif;
   } */
-
 html {
     font-size: 60%;
 }
@@ -26,6 +25,8 @@ body {
     background-color: white;
     color: black;
     border-color: black;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing:antialiased !important;
 }
 
 .dark-mode {
