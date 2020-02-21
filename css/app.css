@@ -136,6 +136,8 @@ span {
 }
 
 select {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
     margin-left: 0.7em;
     background: inherit;
     color: inherit;
@@ -218,7 +220,7 @@ input.num_span {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
+  /* margin: 0; */
 }
 
 /* Firefox */
