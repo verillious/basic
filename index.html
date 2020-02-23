@@ -11,7 +11,7 @@
         <script src="js/vendor/quill.min.js"></script>
     </head>
 
-    <body class="noisy">
+    <body>
         <h1>BFRPG Character Sheet</h1>
         <div class="content">
             <div><b>Info</b></div>
@@ -487,8 +487,7 @@
         <div>
             <input type="button" class="button" id="roll_ability_scores" value="Roll Scores" />
             <input type="button" class="button" id="toggle_dark_mode" value="Toggle Dark Mode" />
-            <input type="checkbox" id="switch_primary" style="margin-left: 15px" onclick="toggleSwitchPrimary()"><label
-                for="switch_primary">Switch highest score with Primary attribute.</label>
+            <input type="button" class="button" id="toggle_terminal_mode" value="Toggle Terminal Mode" />
         </div>
 
         <div>
@@ -701,6 +700,22 @@
                 updateSheet();
             }
 
+            function toggleTerminalMode() {
+                document.body.classList.remove("dark-mode");
+                document.body.classList.toggle("terminal-mode");
+                document.body.classList.toggle("noisy");
+                dark = false;
+                updateSheet();
+                $("#glow").toggle();
+                $("#scanline").toggle();
+                $("h1").toggleClass("terminal-mode");
+                $("select").toggleClass("terminal-mode");
+                $("input").toggleClass("terminal-mode");
+                $("p").toggleClass("terminal-mode");
+                $("ul").toggleClass("terminal-mode");
+                $("span").toggleClass("terminal-mode");
+            }
+
             $(document).ready(function () {
                 if (!localStorage.getItem("cgJSON")) {
                     cg.setRace("Human");
@@ -726,6 +741,10 @@
 
                 $("#toggle_dark_mode").click(function () {
                     toggleDarkMode();
+                });
+
+                $("#toggle_terminal_mode").click(function () {
+                    toggleTerminalMode();
                 });
 
                 $("#character_class_select").change(function () {
@@ -808,9 +827,9 @@
                 });
             });
         </script>
+        <div id="glow"class="glow" hidden=true></div>
+        <div id="scanline" class="scanlines"></div>
     </body>
-    <div class="piece glow noclick"></div>
-    <div class="piece scanlines noclick"></div>
 
 
 </html>
