@@ -297,7 +297,7 @@ input[type=number] {
 }
 
 .terminal-mode {
-  animation: crt-output 10ms infinite;
+  /* animation: crt-output 10ms infinite; */
   box-sizing: border-box;
   background: #383838;
   color: #14fdce;
@@ -352,7 +352,7 @@ a.terminal-mode:hover {
 }
 
 .glow {
-  animation: crt-glow 60s infinite;
+  /* animation: crt-glow 60s infinite; */
   background:
     radial-gradient(circle at center,
     rgba(27,212,89,1) 0%,
