@@ -703,17 +703,18 @@
             function toggleTerminalMode() {
                 document.body.classList.remove("dark-mode");
                 document.body.classList.toggle("terminal-mode");
-                document.body.classList.toggle("noisy");
+                // document.body.classList.toggle("noisy");
                 dark = false;
                 updateSheet();
                 $("#glow").toggle();
                 $("#scanline").toggle();
+                $("#noisy").toggle();
                 $("h1").toggleClass("terminal-mode");
                 $("select").toggleClass("terminal-mode");
                 $("input").toggleClass("terminal-mode");
                 $("p").toggleClass("terminal-mode");
                 $("ul").toggleClass("terminal-mode");
-                $("span").toggleClass("terminal-mode");
+                // $("span").toggleClass("terminal-mode");
             }
 
             $(document).ready(function () {
@@ -827,8 +828,9 @@
                 });
             });
         </script>
-        <div id="glow"class="glow" hidden=true></div>
-        <div id="scanline" class="scanlines"></div>
+        <div id="glow"class="glow noclick" hidden=true></div>
+        <div id="noisy"class="noisy noclick" hidden=true></div>
+        <div id="scanline" class="scanlines noclick"></div>
     </body>
 
 
