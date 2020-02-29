@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mothership Character Log</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/terminal.css">
+        <link rel="stylesheet" href="css/quill.bubble.css">
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/MothershipCharGenerator.js"></script>
+        <script src="js/vendor/quill.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Mothership Character Sheet</h1>
+        <div class="content">
+            <div><b>Info</b></div>
+            <div class="box">
+                <ul>
+                    <li>
+                        <div class="container">
+                            <div class="block">
+                                Name
+                                <input type=text id="name" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container">
+                            <div class="block">
+                                Class
+                                <select id="character_class_select" class="info_select">
+                                    <option value="teamster" selected>Teamster</option>
+                                    <option value="scientist">Scientist</option>
+                                    <option value="android">Android</option>
+                                    <option value="marine">Marine</option>
+                                </select>
+                            </div>
+                            <li>
+                                <div class="container">
+                                    <div class="block">
+                                        Stress
+                                        <input size="2" id="stress" type="text">
+                                    </div>
+                                </div>
+                            </li>                    <li>
+                                <div class="container">
+                                    <div class="block">
+                                        Resolve
+                                        <input size="2" type=text id="resolve" />
+                                    </div>
+                                </div>
+                            </li>
+                            <div class="block">
+                                Hit Points:
+                                <span style="float: right;">
+                                    <span style="float: left;"><input type="number" class="num_span" id="currenthp" style="float: none;" value="0"></span>
+                                    /
+                                    <input type="number" class="num_span" id="maxhp" style="float: none;" value="0">
+                                </span>
+                            </div>
+                            <div class="block">
+                                Experience
+                                <input size="6" id="currentxp" type="text">
+                            </div>
+                            <div class="block">
+                                Level
+                                <select id="character_level_select" class="info_select">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="box">
+                    <div class="container">
+                        <div class="block">
+                            <b>Stats</b>
+                            <div class="box">
+                                <ul>
+                                    <li>
+                                        <div class=row>
+                                            Strength
+                                            <input size="2" id="strength" type="text">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class=row>
+                                            Speed
+                                            <input size="2" id="speed" type="text">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class=row>
+                                            Intellect
+                                            <input size="2" id="intellect" type="text">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class=row>
+                                            Combat
+                                            <input size="2" id="combat" type="text">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="block">
+                            Saves
+                            <div class="box">
+                                <ul>
+                                    <li>
+                                        <div class="row">
+                                            Sanity:
+                                            <input size="2" id="sanity" type="text">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            Fear:
+                                            <input size="2" id="fear" type="text">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            Body:
+                                            <input size="2" id="body" type="text">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            Armor:
+                                            <input size="2" id="armor" type="text">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="block">
+                            <b>Equipment</b>
+                                <textarea id="ta_equipment" class="terminal-mode"></textarea>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="block">
+                            <b>Notes</b>
+                            <textarea id="ta_notes" class="terminal-mode"></textarea>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="block">
+                            <b>Special Abilities</b>
+                            <br>
+                            <div class="callout" id="special_abilities"></div>
+                        </div>
+                    </div>
+                </div>
+                <img src="images/test.png">
+            </div>
+        </div>
+        <div>
+            <input type="button" class="button" id="generate" value="Roll Base Scores" />
+        </div>
+        <div>
+            <p>created by <b>vori</b></p>
+        </div>
+        <script>
+            var cg = new MothershipCharGenerator();
+
+            function setSpecialAbilities() {
+                var tag = $("#special_abilities");
+                tag.html("");
+                for (x = 0; x < cg.class.special.length; x++) {
+                    tag.append("* " + cg.class.special[x] + "<br>");
+                }
+            }
+
+            function storeSheet() {
+                var obj = {
+                    'name': $("#name").val(),
+                    'xp': $("#currentxp").val(),
+                    'class': cg.class.name,
+                    'level': cg.level,
+                    'currenthp': $("#currenthp").val(),
+                    'maxhp': cg.maxhealth,
+                    'stress': cg.stress,
+                    'resolve': cg.resolve,
+                    'stats': {
+                        'strength': cg.stats.strength,
+                        'speed': cg.stats.speed,
+                        'intellect': cg.stats.intellect,
+                        'combat': cg.stats.combat
+                    },
+                    'saves': {
+                        'sanity': cg.saves.sanity,
+                        'fear': cg.saves.fear,
+                        'body': cg.saves.body,
+                        'armor': cg.saves.armor,
+                    },
+                    'equipment': $("#ta_equipment").val(),
+                    'notes': $("#ta_notes").val()
+                }
+                console.log(obj)
+                json = JSON.stringify(obj)
+                localStorage.setItem('msJSON', json);
+                return 0
+            }
+
+            function loadSheet() {
+                json = JSON.parse(localStorage.getItem('msJSON'))
+                cg.setClass(json.class);
+                cg.setStat("strength", json.stats.strength);
+                cg.setStat("speed", json.stats.speed);
+                cg.setStat("intellect", json.stats.intellect);
+                cg.setStat("combat", json.stats.combat);
+                cg.setSave("sanity", json.saves.sanity);
+                cg.setSave("fear", json.saves.fear);
+                cg.setSave("body", json.saves.body);
+                cg.setSave("armor", json.saves.armor);
+
+                cg.setLevel(json.level);
+                cg.stress = json.stress;
+                cg.resolve = json.resolve;
+
+
+                $("#name").val(json.name);
+                $("#currentxp").val(json.xp);
+                $("#currenthp").val(json.currenthp);
+                $("#maxhp").val(json.maxhp);
+                $("#stress").val(json.stress);
+                $("#resolve").val(json.resolve);
+
+
+                setSpecialAbilities();
+                $("#ta_equipment").val(json.equipment);
+                $("#ta_notes").val(json.notes);
+                $("#ta_equipment").height( $("#ta_equipment")[0].scrollHeight );
+                $("#ta_notes").height( $("#ta_notes")[0].scrollHeight );
+            }
+
+            function updateSheet() {
+                cg.update();
+                setStats();
+                setSaves();
+                setSpecialAbilities();
+                $("#stress").val(Number(cg.stress));
+                $("#resolve").val(Number(cg.resolve));
+                storeSheet();
+            }
+
+            function setStats() {
+                $("#strength").val(Number(cg.stats.strength));
+                $("#speed").val(Number(cg.stats.speed));
+                $("#intellect").val(Number(cg.stats.intellect));
+                $("#combat").val(Number(cg.stats.combat));
+            }
+
+            function setSaves() {
+                $("#sanity").val(Number(cg.saves.sanity));
+                $("#fear").val(Number(cg.saves.fear));
+                $("#body").val(Number(cg.saves.body));
+                $("#armor").val(Number(cg.saves.armor));
+            }
+
+            $(document).ready(function () {
+                if (localStorage.getItem("msJSON")) {
+                    loadSheet();
+                }
+                updateSheet();
+
+                $("#generate").click(function () {
+                    cg.generate();
+                    $("#maxhp").val(Number(cg.maxhealth));
+                    $("#ta_equipment").val($("#ta_equipment").val() + "\n* PATCH: " + cg.getPatch());
+                    $("#ta_equipment").val($("#ta_equipment").val() + "\n* TRINKET: " + cg.getTrinket());
+                    $("#ta_notes").val($("#ta_notes").val() + "\n* MOST RECENT NIGHTMARE: " + cg.getNightmare());
+                    $("#ta_equipment").height( $("#ta_equipment")[0].scrollHeight );
+                    $("#ta_notes").height( $("#ta_notes")[0].scrollHeight );
+                    updateSheet();
+                });
+
+                $("#character_class_select").change(function () {
+                    cg.setClass($("#character_class_select").val());
+                    setSaves();
+                    updateSheet();
+                });
+
+                $("#character_level_select").change(function () {
+                    cg.setLevel($("#character_level_select").val());
+                    updateSheet();
+                });
+
+                $('#name').on('input',function(){
+                    updateSheet();
+                });
+
+                $('#currentxp').on('input',function(){
+                    updateSheet();
+                });
+                $('#currenthp').on('input',function(){
+                    updateSheet();
+                });
+
+                $('#maxhp').on('input',function(){
+                    updateSheet();
+                });
+
+                $("#ta_equipment").on('input', function() {
+                    $("#ta_equipment").height("");
+                    $("#ta_equipment").height(($("#ta_equipment")[0].scrollHeight));
+                    updateSheet();
+                });
+                $("#ta_notes").on('input', function() {
+                    $("#ta_notes").height("");
+                    $("#ta_notes").height(($("#ta_notes")[0].scrollHeight));
+                    updateSheet();
+                });
+            });
+        </script>
+        <div id="glow"class="glow noclick"></div>
+        <div id="noisy"class="noisy noclick"></div>
+        <div id="scanline" class="scanlines noclick"></div>
+    </body>
+
+
+</html>

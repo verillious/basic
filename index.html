@@ -487,7 +487,6 @@
         <div>
             <input type="button" class="button" id="roll_ability_scores" value="Roll Scores" />
             <input type="button" class="button" id="toggle_dark_mode" value="Toggle Dark Mode" />
-            <input type="button" class="button" id="toggle_terminal_mode" value="Toggle Terminal Mode" />
         </div>
 
         <div>
@@ -700,23 +699,6 @@
                 updateSheet();
             }
 
-            function toggleTerminalMode() {
-                document.body.classList.remove("dark-mode");
-                document.body.classList.toggle("terminal-mode");
-                // document.body.classList.toggle("noisy");
-                dark = false;
-                updateSheet();
-                $("#glow").toggle();
-                $("#scanline").toggle();
-                $("#noisy").toggle();
-                $("h1").toggleClass("terminal-mode");
-                $("select").toggleClass("terminal-mode");
-                $("input").toggleClass("terminal-mode");
-                $("p").toggleClass("terminal-mode");
-                $("ul").toggleClass("terminal-mode");
-                // $("span").toggleClass("terminal-mode");
-            }
-
             $(document).ready(function () {
                 if (!localStorage.getItem("cgJSON")) {
                     cg.setRace("Human");
@@ -742,10 +724,6 @@
 
                 $("#toggle_dark_mode").click(function () {
                     toggleDarkMode();
-                });
-
-                $("#toggle_terminal_mode").click(function () {
-                    toggleTerminalMode();
                 });
 
                 $("#character_class_select").change(function () {
@@ -828,9 +806,6 @@
                 });
             });
         </script>
-        <div id="glow"class="glow noclick" hidden=true></div>
-        <div id="noisy"class="noisy noclick" hidden=true></div>
-        <div id="scanline" class="scanlines noclick"></div>
     </body>
 
 
