@@ -6,9 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/terminal.css">
         <link rel="stylesheet" href="../css/quill.bubble.css">
+        <link rel="stylesheet" href="../css/select2.terminal.css">
         <script src="../js/vendor/jquery.js"></script>
         <script src="../js/MothershipCharGenerator.js"></script>
         <script src="../js/vendor/quill.min.js"></script>
+        <script src="../js/vendor/select2.min.js"></script>
     </head>
     <body>
         <h1>Mothership Character Sheet</h1>
@@ -145,6 +147,14 @@
                     </div>
                     <div class="container">
                         <div class="block">
+                            <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="block">
                             <span><b>Equipment</b></span>
                                 <textarea id="ta_equipment" class="terminal-mode"></textarea>
                         </div>
@@ -253,6 +263,7 @@
                 $("#stress").val(Number(cg.stress));
                 $("#resolve").val(Number(cg.resolve));
                 storeSheet();
+                console.log($('#mySelect2').find(':selected'));
             }
 
             function setStats() {
@@ -322,6 +333,14 @@
                     $("#ta_notes").height(($("#ta_notes")[0].scrollHeight));
                     updateSheet();
                 });
+                $('.js-example-basic-multiple').select2();
+
+                for (const [key, value] of Object.entries(cg.skills)) {
+                    var newOption = new Option(key);
+                    $('.js-example-basic-multiple').append(newOption).trigger('change');
+                }
+
+
             });
         </script>
         <div id="glow"class="glow noclick"></div>

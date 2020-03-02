@@ -282,6 +282,7 @@ a.terminal-mode:hover {
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 999;
 }
 
 .scanlines {
@@ -302,6 +303,7 @@ a.terminal-mode:hover {
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 999;
 }
 
 .scanlines::before {
@@ -333,6 +335,7 @@ a.terminal-mode:hover {
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 999;
 }
 
 .terminal-mode ::-moz-selection {
@@ -349,6 +352,6 @@ a.terminal-mode:hover {
     pointer-events: none;
 }
 
-.ql-container {
-    font-family: 'VT323';
+.select2-results__option[aria-selected=true] {
+    display: none;
 }
