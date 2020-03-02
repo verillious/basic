@@ -4,13 +4,12 @@
         <title>Mothership Character Log</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/terminal.css">
-        <link rel="stylesheet" href="css/quill.bubble.css">
-        <script src="js/vendor/jquery.js"></script>
-        <script src="js/MothershipCharGenerator.js"></script>
-        <script src="js/vendor/quill.min.js"></script>
+        <link rel="stylesheet" href="../css/terminal.css">
+        <link rel="stylesheet" href="../css/quill.bubble.css">
+        <script src="../js/vendor/jquery.js"></script>
+        <script src="../js/MothershipCharGenerator.js"></script>
+        <script src="../js/vendor/quill.min.js"></script>
     </head>
-
     <body>
         <h1>Mothership Character Sheet</h1>
         <div class="content">
@@ -20,7 +19,7 @@
                     <li>
                         <div class="container">
                             <div class="block">
-                                Name
+                                <span>Name</span>
                                 <input type=text id="name" />
                             </div>
                         </div>
@@ -28,7 +27,7 @@
                     <li>
                         <div class="container">
                             <div class="block">
-                                Class
+                                <span style="float: none;">Class</span>
                                 <select id="character_class_select" class="info_select">
                                     <option value="teamster" selected>Teamster</option>
                                     <option value="scientist">Scientist</option>
@@ -36,35 +35,17 @@
                                     <option value="marine">Marine</option>
                                 </select>
                             </div>
-                            <li>
-                                <div class="container">
-                                    <div class="block">
-                                        Stress
-                                        <input size="2" id="stress" type="text">
-                                    </div>
-                                </div>
-                            </li>                    <li>
-                                <div class="container">
-                                    <div class="block">
-                                        Resolve
-                                        <input size="2" type=text id="resolve" />
-                                    </div>
-                                </div>
-                            </li>
                             <div class="block">
-                                Hit Points:
-                                <span style="float: right;">
-                                    <span style="float: left;"><input type="number" class="num_span" id="currenthp" style="float: none;" value="0"></span>
-                                    /
-                                    <input type="number" class="num_span" id="maxhp" style="float: none;" value="0">
-                                </span>
+                                <span>Hit Points:</span>
+                                <input type="number" min="0" max="99" id="currenthp" value="0">
+                                <input type="number" min="0" max="99" id="maxhp" value="0">
                             </div>
                             <div class="block">
-                                Experience
-                                <input size="6" id="currentxp" type="text">
+                                <span>Experience</span>
+                                <input type="number" min="0" max="999" id="currentxp" value="0">
                             </div>
                             <div class="block">
-                                Level
+                                <span>Level</span>
                                 <select id="character_level_select" class="info_select">
                                     <option value="1" selected>1</option>
                                     <option value="2">2</option>
@@ -80,34 +61,50 @@
                             </div>
                         </div>
                     </li>
+                    <li>
+                        <div class="container">
+                            <div class="block">
+                                <span>Stress</span>
+                                <input size="2" id="stress" type="text">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container">
+                            <div class="block">
+                                <span>Resolve</span>
+                                <input size="2" type=text id="resolve" />
+                            </div>
+                        </div>
+                    </li>
                 </ul>
                 <div class="box">
                     <div class="container">
                         <div class="block">
-                            <b>Stats</b>
+                            <span><b>Stats</b></span>
                             <div class="box">
                                 <ul>
                                     <li>
                                         <div class=row>
-                                            Strength
+                                            <span>Strength</span>
                                             <input size="2" id="strength" type="text">
                                         </div>
                                     </li>
                                     <li>
                                         <div class=row>
-                                            Speed
+                                            <span>Speed</span>
                                             <input size="2" id="speed" type="text">
                                         </div>
                                     </li>
                                     <li>
                                         <div class=row>
-                                            Intellect
+                                            <span>Intellect</span>
                                             <input size="2" id="intellect" type="text">
                                         </div>
                                     </li>
                                     <li>
                                         <div class=row>
-                                            Combat
+                                            <span>Combat</span>
                                             <input size="2" id="combat" type="text">
                                         </div>
                                     </li>
@@ -115,30 +112,30 @@
                             </div>
                         </div>
                         <div class="block">
-                            Saves
+                            <span><b>Saves</b></span>
                             <div class="box">
                                 <ul>
                                     <li>
                                         <div class="row">
-                                            Sanity:
+                                            <span>Sanity:</span>
                                             <input size="2" id="sanity" type="text">
                                         </div>
                                     </li>
                                     <li>
                                         <div class="row">
-                                            Fear:
+                                            <span>Fear:</span>
                                             <input size="2" id="fear" type="text">
                                         </div>
                                     </li>
                                     <li>
                                         <div class="row">
-                                            Body:
+                                            <span>Body:</span>
                                             <input size="2" id="body" type="text">
                                         </div>
                                     </li>
                                     <li>
                                         <div class="row">
-                                            Armor:
+                                            <span>Armor:</span>
                                             <input size="2" id="armor" type="text">
                                         </div>
                                     </li>
@@ -148,25 +145,24 @@
                     </div>
                     <div class="container">
                         <div class="block">
-                            <b>Equipment</b>
+                            <span><b>Equipment</b></span>
                                 <textarea id="ta_equipment" class="terminal-mode"></textarea>
                         </div>
                     </div>
                     <div class="container">
                         <div class="block">
-                            <b>Notes</b>
+                            <span><b>Notes</b></span>
                             <textarea id="ta_notes" class="terminal-mode"></textarea>
                         </div>
                     </div>
                     <div class="container">
                         <div class="block">
-                            <b>Special Abilities</b>
-                            <br>
+                            <span><b>Special Abilities</b></span>
                             <div class="callout" id="special_abilities"></div>
                         </div>
                     </div>
                 </div>
-                <img src="images/test.png">
+                <!-- <img src="../images/test.png"> -->
             </div>
         </div>
         <div>
