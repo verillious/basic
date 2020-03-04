@@ -1,352 +1,390 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Mothership Character Log</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/terminal.css">
-        <link rel="stylesheet" href="../css/quill.bubble.css">
-        <link rel="stylesheet" href="../css/select2.terminal.css">
-        <script src="../js/vendor/jquery.js"></script>
-        <script src="../js/MothershipCharGenerator.js"></script>
-        <script src="../js/vendor/quill.min.js"></script>
-        <script src="../js/vendor/select2.min.js"></script>
-    </head>
-    <body>
-        <h1>Mothership Character Sheet</h1>
-        <div class="content">
-            <div><b>Info</b></div>
-            <div class="box">
-                <ul>
-                    <li>
-                        <div class="container">
-                            <div class="block">
-                                <span>Name</span>
-                                <input type=text id="name" />
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container">
-                            <div class="block">
-                                <span style="float: none;">Class</span>
-                                <select id="character_class_select" class="info_select">
-                                    <option value="teamster" selected>Teamster</option>
-                                    <option value="scientist">Scientist</option>
-                                    <option value="android">Android</option>
-                                    <option value="marine">Marine</option>
-                                </select>
-                            </div>
-                            <div class="block">
-                                <span>Hit Points:</span>
-                                <input type="number" min="0" max="99" id="currenthp" value="0">
-                                <input type="number" min="0" max="99" id="maxhp" value="0">
-                            </div>
-                            <div class="block">
-                                <span>Experience</span>
-                                <input type="number" min="0" max="999" id="currentxp" value="0">
-                            </div>
-                            <div class="block">
-                                <span>Level</span>
-                                <select id="character_level_select" class="info_select">
-                                    <option value="1" selected>1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container">
-                            <div class="block">
-                                <span>Stress</span>
-                                <input size="2" id="stress" type="text">
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container">
-                            <div class="block">
-                                <span>Resolve</span>
-                                <input size="2" type=text id="resolve" />
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <div class="box">
+
+<head>
+    <title>Mothership Character Log</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/terminal.css">
+    <link rel="stylesheet" href="../css/quill.bubble.css">
+    <link rel="stylesheet" href="../css/select2.terminal.css">
+    <script src="../js/vendor/jquery.js"></script>
+    <script src="../js/MothershipCharGenerator.js"></script>
+    <script src="../js/vendor/quill.min.js"></script>
+    <script src="../js/vendor/select2.min.js"></script>
+</head>
+
+<body>
+    <h1>Mothership Character Sheet</h1>
+    <div class="content">
+        <div><b>Info</b></div>
+        <div class="box">
+            <ul>
+                <li>
                     <div class="container">
                         <div class="block">
-                            <span><b>Stats</b></span>
-                            <div class="box">
-                                <ul>
-                                    <li>
-                                        <div class=row>
-                                            <span>Strength</span>
-                                            <input size="2" id="strength" type="text">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class=row>
-                                            <span>Speed</span>
-                                            <input size="2" id="speed" type="text">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class=row>
-                                            <span>Intellect</span>
-                                            <input size="2" id="intellect" type="text">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class=row>
-                                            <span>Combat</span>
-                                            <input size="2" id="combat" type="text">
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="block">
-                            <span><b>Saves</b></span>
-                            <div class="box">
-                                <ul>
-                                    <li>
-                                        <div class="row">
-                                            <span>Sanity:</span>
-                                            <input size="2" id="sanity" type="text">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <span>Fear:</span>
-                                            <input size="2" id="fear" type="text">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <span>Body:</span>
-                                            <input size="2" id="body" type="text">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <span>Armor:</span>
-                                            <input size="2" id="armor" type="text">
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            <span>Name</span>
+                            <input type=text id="name" />
                         </div>
                     </div>
+                </li>
+                <li>
                     <div class="container">
                         <div class="block">
-                            <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-                                <option value="AL">AAAaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaaAAAaaaaaaaaaaaaaaaa</option>
-                                <option value="WY">Wyoming</option>
+                            <span style="float: none;">Class</span>
+                            <select id="character_class_select" class="info_select">
+                                <option value="teamster" selected>Teamster</option>
+                                <option value="scientist">Scientist</option>
+                                <option value="android">Android</option>
+                                <option value="marine">Marine</option>
+                            </select>
+                        </div>
+                        <div class="block">
+                            <span>Hit Points:</span>
+                            <input type="number" min="0" max="99" id="currenthp" value="0">
+                            <input type="number" min="0" max="99" id="maxhp" value="0">
+                        </div>
+                        <div class="block">
+                            <span>Experience</span>
+                            <input type="number" min="0" max="999" id="currentxp" value="0">
+                        </div>
+                        <div class="block">
+                            <span>Level</span>
+                            <select id="character_level_select" class="info_select">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
                             </select>
                         </div>
                     </div>
+                </li>
+                <li>
                     <div class="container">
                         <div class="block">
-                            <span><b>Equipment</b></span>
-                                <textarea id="ta_equipment" class="terminal-mode"></textarea>
+                            <span>Stress</span>
+                            <input size="2" id="stress" type="text">
                         </div>
                     </div>
+                </li>
+                <li>
                     <div class="container">
                         <div class="block">
-                            <span><b>Notes</b></span>
-                            <textarea id="ta_notes" class="terminal-mode"></textarea>
+                            <span>Resolve</span>
+                            <input size="2" type=text id="resolve" />
                         </div>
                     </div>
-                    <div class="container">
-                        <div class="block">
-                            <span><b>Special Abilities</b></span>
-                            <div class="callout" id="special_abilities"></div>
-                        </div>
+                </li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="container">
+                <div class="block">
+                    <span><b>Stats</b></span>
+                    <div class="box">
+                        <ul>
+                            <li>
+                                <div class=row>
+                                    <span>Strength</span>
+                                    <input size="2" id="strength" type="text">
+                                </div>
+                            </li>
+                            <li>
+                                <div class=row>
+                                    <span>Speed</span>
+                                    <input size="2" id="speed" type="text">
+                                </div>
+                            </li>
+                            <li>
+                                <div class=row>
+                                    <span>Intellect</span>
+                                    <input size="2" id="intellect" type="text">
+                                </div>
+                            </li>
+                            <li>
+                                <div class=row>
+                                    <span>Combat</span>
+                                    <input size="2" id="combat" type="text">
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <!-- <img src="../images/test.png"> -->
+                <div class="block">
+                    <span><b>Saves</b></span>
+                    <div class="box">
+                        <ul>
+                            <li>
+                                <div class="row">
+                                    <span>Sanity:</span>
+                                    <input size="2" id="sanity" type="text">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <span>Fear:</span>
+                                    <input size="2" id="fear" type="text">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <span>Body:</span>
+                                    <input size="2" id="body" type="text">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <span>Armor:</span>
+                                    <input size="2" id="armor" type="text">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <div>
-            <input type="button" class="button" id="generate" value="Roll Base Scores" />
+        <div><b>Skills</b></div>
+        <div class="box">
+            <div class="block">
+                <div class="row">
+                    <div class="block skills_block">
+                        <span>Trained</span>
+                        <select class="js-example-basic-multiple" name="trained_skills" id="trained_skills"
+                            multiple="multiple">
+                        </select>
+                    </div>
+                    <div class="block skills_block"">
+                            <span>Expert</span>
+                            <select class=" js-example-basic-multiple" name="expert_skills" id="expert_skills"
+                        multiple="multiple">
+                        </select>
+                    </div>
+                    <div class="block skills_block"">
+                            <span>Master</span>
+                            <select class=" js-example-basic-multiple" name="master_skills" id="master_skills"
+                        multiple="multiple">
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <p>created by <b>vori</b></p>
+        <div class="block ta_block">
+            <span><b>Equipment</b></span>
+            <textarea id="ta_equipment" class="terminal-mode"></textarea>
         </div>
-        <script>
-            var cg = new MothershipCharGenerator();
+        <div class="block ta_block">
+            <span><b>Notes</b></span>
+            <textarea id="ta_notes" class="terminal-mode"></textarea>
+        </div>
+        <div class="block ta_block">
+            <span><b>Special Abilities</b></span>
+            <div class="callout" id="special_abilities"></div>
+        </div>
+    </div>
+    <!-- <img src="../images/test.png"> -->
+    </div>
+    <div>
+        <input type="button" class="button" id="generate" value="Roll Base Scores" />
+    </div>
+    <div>
+        <p>created by <b>vori</b></p>
+    </div>
+    <script>
+        var cg = new MothershipCharGenerator();
 
-            function setSpecialAbilities() {
-                var tag = $("#special_abilities");
-                tag.html("");
-                for (x = 0; x < cg.class.special.length; x++) {
-                    tag.append("* " + cg.class.special[x] + "<br>");
+        function setSpecialAbilities() {
+            var tag = $("#special_abilities");
+            tag.html("");
+            for (x = 0; x < cg.class.special.length; x++) {
+                tag.append("* " + cg.class.special[x] + "<br>");
+            }
+        }
+
+        function storeSheet() {
+            var obj = {
+                'name': $("#name").val(),
+                'xp': $("#currentxp").val(),
+                'class': cg.class.name,
+                'level': cg.level,
+                'currenthp': $("#currenthp").val(),
+                'maxhp': cg.maxhealth,
+                'stress': cg.stress,
+                'resolve': cg.resolve,
+                'stats': {
+                    'strength': cg.stats.strength,
+                    'speed': cg.stats.speed,
+                    'intellect': cg.stats.intellect,
+                    'combat': cg.stats.combat
+                },
+                'saves': {
+                    'sanity': cg.saves.sanity,
+                    'fear': cg.saves.fear,
+                    'body': cg.saves.body,
+                    'armor': cg.saves.armor,
+                },
+                'skills' : {
+                    'trained': $('#trained_skills').val(),
+                    'expert': $('#expert_skills').val(),
+                    'master': $('#master_skills').val()
+                },
+                'equipment': $("#ta_equipment").val(),
+                'notes': $("#ta_notes").val()
+            }
+            // console.log(obj);
+            json = JSON.stringify(obj);
+            localStorage.setItem('msJSON', json);
+            return 0
+        }
+
+        function loadSheet() {
+            json = JSON.parse(localStorage.getItem('msJSON'))
+            // console.log(json);
+            cg.setClass(json.class);
+            cg.setStat("strength", json.stats.strength);
+            cg.setStat("speed", json.stats.speed);
+            cg.setStat("intellect", json.stats.intellect);
+            cg.setStat("combat", json.stats.combat);
+            cg.setSave("sanity", json.saves.sanity);
+            cg.setSave("fear", json.saves.fear);
+            cg.setSave("body", json.saves.body);
+            cg.setSave("armor", json.saves.armor);
+
+            cg.setLevel(json.level);
+            cg.stress = json.stress;
+            cg.resolve = json.resolve;
+
+
+            $("#name").val(json.name);
+            $("#currentxp").val(json.xp);
+            $("#currenthp").val(json.currenthp);
+            $("#maxhp").val(json.maxhp);
+            $("#stress").val(json.stress);
+            $("#resolve").val(json.resolve);
+
+
+            setSpecialAbilities();
+            $('#trained_skills').val(json.skills.trained);
+            $('#expert_skills').val(json.skills.expert);
+            $('#master_skills').val(json.skills.master);
+            $('#trained_skills').trigger('change');
+            $('#expert_skills').trigger('change');
+            $('#master_skills').trigger('change');
+
+            $("#ta_equipment").val(json.equipment);
+            $("#ta_notes").val(json.notes);
+            $("#ta_equipment").height($("#ta_equipment")[0].scrollHeight);
+            $("#ta_notes").height($("#ta_notes")[0].scrollHeight);
+        }
+
+        function updateSheet() {
+            cg.update();
+            setStats();
+            setSaves();
+            setSpecialAbilities();
+            $("#stress").val(Number(cg.stress));
+            $("#resolve").val(Number(cg.resolve));
+            storeSheet();
+        }
+
+        function setStats() {
+            $("#strength").val(Number(cg.stats.strength));
+            $("#speed").val(Number(cg.stats.speed));
+            $("#intellect").val(Number(cg.stats.intellect));
+            $("#combat").val(Number(cg.stats.combat));
+        }
+
+        function setSaves() {
+            $("#sanity").val(Number(cg.saves.sanity));
+            $("#fear").val(Number(cg.saves.fear));
+            $("#body").val(Number(cg.saves.body));
+            $("#armor").val(Number(cg.saves.armor));
+        }
+
+        function addSkills() {
+            for (const [key, value] of Object.entries(cg.skills)) {
+                var newOption = new Option(key);
+                if (Number(value.cost) === 1) {
+                    $('#trained_skills').append(newOption).trigger('change');
+                } else if (Number(value.cost) === 2) {
+                    $('#expert_skills').append(newOption).trigger('change');
+                } else {
+                    $('#master_skills').append(newOption).trigger('change');
                 }
             }
+        }
 
-            function storeSheet() {
-                var obj = {
-                    'name': $("#name").val(),
-                    'xp': $("#currentxp").val(),
-                    'class': cg.class.name,
-                    'level': cg.level,
-                    'currenthp': $("#currenthp").val(),
-                    'maxhp': cg.maxhealth,
-                    'stress': cg.stress,
-                    'resolve': cg.resolve,
-                    'stats': {
-                        'strength': cg.stats.strength,
-                        'speed': cg.stats.speed,
-                        'intellect': cg.stats.intellect,
-                        'combat': cg.stats.combat
-                    },
-                    'saves': {
-                        'sanity': cg.saves.sanity,
-                        'fear': cg.saves.fear,
-                        'body': cg.saves.body,
-                        'armor': cg.saves.armor,
-                    },
-                    'equipment': $("#ta_equipment").val(),
-                    'notes': $("#ta_notes").val()
-                }
-                console.log(obj)
-                json = JSON.stringify(obj)
-                localStorage.setItem('msJSON', json);
-                return 0
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+            addSkills();
+
+            if (localStorage.getItem("msJSON")) {
+                loadSheet();
             }
 
-            function loadSheet() {
-                json = JSON.parse(localStorage.getItem('msJSON'))
-                cg.setClass(json.class);
-                cg.setStat("strength", json.stats.strength);
-                cg.setStat("speed", json.stats.speed);
-                cg.setStat("intellect", json.stats.intellect);
-                cg.setStat("combat", json.stats.combat);
-                cg.setSave("sanity", json.saves.sanity);
-                cg.setSave("fear", json.saves.fear);
-                cg.setSave("body", json.saves.body);
-                cg.setSave("armor", json.saves.armor);
+            updateSheet();
 
-                cg.setLevel(json.level);
-                cg.stress = json.stress;
-                cg.resolve = json.resolve;
-
-
-                $("#name").val(json.name);
-                $("#currentxp").val(json.xp);
-                $("#currenthp").val(json.currenthp);
-                $("#maxhp").val(json.maxhp);
-                $("#stress").val(json.stress);
-                $("#resolve").val(json.resolve);
-
-
-                setSpecialAbilities();
-                $("#ta_equipment").val(json.equipment);
-                $("#ta_notes").val(json.notes);
-                $("#ta_equipment").height( $("#ta_equipment")[0].scrollHeight );
-                $("#ta_notes").height( $("#ta_notes")[0].scrollHeight );
-            }
-
-            function updateSheet() {
-                cg.update();
-                setStats();
-                setSaves();
-                setSpecialAbilities();
-                $("#stress").val(Number(cg.stress));
-                $("#resolve").val(Number(cg.resolve));
-                storeSheet();
-                console.log($('#mySelect2').find(':selected'));
-            }
-
-            function setStats() {
-                $("#strength").val(Number(cg.stats.strength));
-                $("#speed").val(Number(cg.stats.speed));
-                $("#intellect").val(Number(cg.stats.intellect));
-                $("#combat").val(Number(cg.stats.combat));
-            }
-
-            function setSaves() {
-                $("#sanity").val(Number(cg.saves.sanity));
-                $("#fear").val(Number(cg.saves.fear));
-                $("#body").val(Number(cg.saves.body));
-                $("#armor").val(Number(cg.saves.armor));
-            }
-
-            $(document).ready(function () {
-                if (localStorage.getItem("msJSON")) {
-                    loadSheet();
-                }
+            $("#generate").click(function () {
+                cg.generate();
+                $("#maxhp").val(Number(cg.maxhealth));
+                $("#ta_equipment").val($("#ta_equipment").val() + "\n* PATCH: " + cg.getPatch());
+                $("#ta_equipment").val($("#ta_equipment").val() + "\n* TRINKET: " + cg.getTrinket());
+                $("#ta_notes").val($("#ta_notes").val() + "\n* MOST RECENT NIGHTMARE: " + cg
+                    .getNightmare());
+                $("#ta_equipment").height($("#ta_equipment")[0].scrollHeight);
+                $("#ta_notes").height($("#ta_notes")[0].scrollHeight);
                 updateSheet();
-
-                $("#generate").click(function () {
-                    cg.generate();
-                    $("#maxhp").val(Number(cg.maxhealth));
-                    $("#ta_equipment").val($("#ta_equipment").val() + "\n* PATCH: " + cg.getPatch());
-                    $("#ta_equipment").val($("#ta_equipment").val() + "\n* TRINKET: " + cg.getTrinket());
-                    $("#ta_notes").val($("#ta_notes").val() + "\n* MOST RECENT NIGHTMARE: " + cg.getNightmare());
-                    $("#ta_equipment").height( $("#ta_equipment")[0].scrollHeight );
-                    $("#ta_notes").height( $("#ta_notes")[0].scrollHeight );
-                    updateSheet();
-                });
-
-                $("#character_class_select").change(function () {
-                    cg.setClass($("#character_class_select").val());
-                    setSaves();
-                    updateSheet();
-                });
-
-                $("#character_level_select").change(function () {
-                    cg.setLevel($("#character_level_select").val());
-                    updateSheet();
-                });
-
-                $('#name').on('input',function(){
-                    updateSheet();
-                });
-
-                $('#currentxp').on('input',function(){
-                    updateSheet();
-                });
-                $('#currenthp').on('input',function(){
-                    updateSheet();
-                });
-
-                $('#maxhp').on('input',function(){
-                    updateSheet();
-                });
-
-                $("#ta_equipment").on('input', function() {
-                    $("#ta_equipment").height("");
-                    $("#ta_equipment").height(($("#ta_equipment")[0].scrollHeight));
-                    updateSheet();
-                });
-                $("#ta_notes").on('input', function() {
-                    $("#ta_notes").height("");
-                    $("#ta_notes").height(($("#ta_notes")[0].scrollHeight));
-                    updateSheet();
-                });
-                $('.js-example-basic-multiple').select2();
-
-                for (const [key, value] of Object.entries(cg.skills)) {
-                    var newOption = new Option(key);
-                    $('.js-example-basic-multiple').append(newOption).trigger('change');
-                }
-
-
             });
-        </script>
-        <div id="glow"class="glow noclick"></div>
-        <div id="noisy"class="noisy noclick"></div>
-        <div id="scanline" class="scanlines noclick"></div>
-    </body>
+
+            $("#character_class_select").change(function () {
+                cg.setClass($("#character_class_select").val());
+                setSaves();
+                updateSheet();
+            });
+
+            $("#character_level_select").change(function () {
+                cg.setLevel($("#character_level_select").val());
+                updateSheet();
+            });
+
+            $('#name').on('input', function () {
+                updateSheet();
+            });
+
+            $('#currentxp').on('input', function () {
+                updateSheet();
+            });
+            $('#currenthp').on('input', function () {
+                updateSheet();
+            });
+
+            $('#maxhp').on('input', function () {
+                updateSheet();
+            });
+
+            $("#ta_equipment").on('input', function () {
+                $("#ta_equipment").height("");
+                $("#ta_equipment").height(($("#ta_equipment")[0].scrollHeight));
+                updateSheet();
+            });
+            $("#ta_notes").on('input', function () {
+                $("#ta_notes").height("");
+                $("#ta_notes").height(($("#ta_notes")[0].scrollHeight));
+                updateSheet();
+            });
+
+
+        });
+    </script>
+    <div id="glow" class="glow noclick"></div>
+    <div id="noisy" class="noisy noclick"></div>
+    <div id="scanline" class="scanlines noclick"></div>
+</body>
 
 
 </html>
