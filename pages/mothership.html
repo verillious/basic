@@ -154,19 +154,19 @@
             <div class="block">
                 <div class="row">
                     <div class="block skills_block">
-                        <span>Trained</span>
+                        <span>Trained [+10%]</span>
                         <select class="js-example-basic-multiple" name="trained_skills" id="trained_skills"
                             multiple="multiple">
                         </select>
                     </div>
                     <div class="block skills_block"">
-                            <span>Expert</span>
+                            <span>Expert [+15%]</span>
                             <select class=" js-example-basic-multiple" name="expert_skills" id="expert_skills"
                         multiple="multiple">
                         </select>
                     </div>
                     <div class="block skills_block"">
-                            <span>Master</span>
+                            <span>Master [+20%]</span>
                             <select class=" js-example-basic-multiple" name="master_skills" id="master_skills"
                         multiple="multiple">
                         </select>
@@ -266,8 +266,9 @@
             $("#maxhp").val(json.maxhp);
             $("#stress").val(json.stress);
             $("#resolve").val(json.resolve);
-
-
+            $("#character_level_select").val(json.level);
+            $("#character_class_select").val(json.class);
+            setSaves();
             setSpecialAbilities();
             $('#trained_skills').val(json.skills.trained);
             $('#expert_skills').val(json.skills.expert);
@@ -364,6 +365,14 @@
             });
 
             $('#maxhp').on('input', function () {
+                updateSheet();
+            });
+            $('#stress').on('input', function () {
+                cg.stress = $("#stress").val()
+                updateSheet();
+            });
+            $('#resolve').on('input', function () {
+                cg.resolve = $("#resolve").val()
                 updateSheet();
             });
 
