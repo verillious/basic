@@ -394,6 +394,9 @@ a.terminal-mode:hover {
     -ms-user-select:none;
     user-select:none;
     -o-user-select:none;
+    user-drag: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 html {
@@ -409,4 +412,5 @@ background: #FF0000;
 
 img {
     mix-blend-mode: color-dodge;
+
   }
