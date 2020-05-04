@@ -10,7 +10,7 @@
     </head>
 
     <body id='body'>
-        <pre style="line-height: 0.85em;" class="noselect">
+        <pre style="line-height: 0.8em; font-size: 1vw;" class="noselect">
 
 
 
@@ -24,9 +24,11 @@
 
 
 </pre>
-        <p class="noselect">Live Well®<br><br>Press enter to continue...</p>
+        <p class="noselect">Live Well®</p>
+        <a class="terminal-mode" onclick="playIntro()" href="javascript:void(0);">>PRESS ENTER TO CONTINUE . . .</a>
         <p id='text'></p>
-        <p class='visible noselect' style="line-height: 2rem;"></p><p class='invisible noselect'></p>
+        <p class='visible noselect' style="line-height: 2rem;"></p>
+        <p class='invisible noselect'><br><br><br><br><br><br><br><br><br><br></p>
         <div id="glow" class="glow noclick"></div>
         <div id="noisy" class="noisy noclick"></div>
         <div id="scanline" class="scanlines noclick"></div>
@@ -40,7 +42,7 @@
             var visible = document.querySelector(".visible"),
             invisible = document.querySelector(".invisible");
 
-            invisible.innerHTML = text;
+            // invisible.innerHTML = text;
             var audio_intro = new Audio('../audio/intro.mp3');
             var audio_entry = new Audio('../audio/entry.m4a');
             var audio_noise = new Audio('../audio/console.m4a');
@@ -76,7 +78,7 @@
                     soFar += text.substr(0, 1), text = text.substr(1);
                 }
                 visible.innerHTML = soFar;
-                invisible.innerHTML = text;
+                // invisible.innerHTML = text;
 
                 if (text.length === 0) {
                     soFar += '<a class="terminal-mode" onclick="intro()"; href="javascript:void(0);">\>INTRO</a><br>';
