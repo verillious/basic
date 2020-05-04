@@ -1,0 +1,60 @@
+Loading A1.SYS . . .
+Starting DOS . . .
+
+
+A1 is testing extended memory . . . done.
+A1 is testing Hard Disk Drive(s) . . . done.
+        C:\>C:\DOS\STARTUP.EXE
+        C:\>H:\DATA\DCT
+        C:\>_
+A1 is testing Diskette Drive(s) . . . done.
+        C:\>K:\PLAYRECORD.EXE
+
+
+Initializing . . .        
+
+
+CP/M-77 for the HDC 402, Vers. 1.1.8a (Patched)
+Copyright © 1977, Jet Propulsion Labs
+
+
+Current date is : UNK
+Enter new date : . . .
+Current time is : UNK
+Enter new time : . . . 
+
+
+Hardware Supported :
+
+
+                Diskette Drive(s) : 1
+                Hard Disk Drive(s) : 2
+                Parallel Printer(s) : 0
+                Serial Port(s) : 1
+                Memory (Kb) : [REDACTED]
+
+
+D>a:
+A>dir
+A :  PIP        CMD : STAT                CMD : SUBMIT        CMD : ASM86                CMD
+A :  GENCMD        CMD : DDT86                CMD : TOD                CMD : _
+
+
+ERROR\\
+
+
+DATA CORRUPTION DETECTED\\
+
+
+A1 is running drive diagnostic . . . done.
+
+
+Creating error report . . . done.
+Sending error report . . .
+Attaching error message . . .
+
+----CAPTAINS-LOG-.2245-CLAS[CONFIDENTIAL]-INTERCEPT----
+
+----FACTORY-AUTOMATION-FAILURE-:-CAUSE-CURRENTLY-STILL-UNKNOWN----LOCATION-OF-OVERSIGHT-CREW-:-MISSING-CURRENTLY-STILL-UNKNOWN-RECOVERY-CREW-MEMBER-MISSING----LOCATION-OF-MISSING-RECOVERY-CREWMAN-UNKNOWN----UNUSUAL-&-CRUDE-BROKEN-AUTOMATON-RECOVERED-:-NOT-TO-COMPANY-SPECIFICATIONS----VOCORDER-REINSTATED-:-CLAIMS-TO-BE-MISSING-CREWMAN----SOMETHING-IS-OBSERVING-US----PLEASE-ADVISE-URGENTLY----
+
+done.

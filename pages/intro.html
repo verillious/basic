@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>heilikon_transmission</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/terminal.css">
+        <script src="../js/vendor/jquery.js"></script>
+    </head>
+
+    <body id='body'>
+        <pre style="line-height: 0.85em;" class="noselect">
+
+
+
+██╗  ██╗ ███████╗ ██╗ ██╗      ██╗ ██╗  ██╗ ██████╗  ███╗   ██╗
+██║  ██║ ██╔════╝ ██║ ██║      ██║ ██║ ██╔╝██╔═══██╗ ████╗  ██║
+███████║ █████╗   ██║ ██║      ██║ █████╔╝ ██║   ██║ ██╔██╗ ██║
+██╔══██║ ██╔══╝   ██║ ██║      ██║ ██╔═██╗ ██║   ██║ ██║╚██╗██║
+██║  ██║ ███████╗ ██║ ███████╗ ██║ ██║ ╚██╗╚██████╔╝ ██║ ╚████║
+╚═╝  ╚═╝ ╚══════╝ ╚═╝ ╚══════╝ ╚═╝ ╚═╝  ╚═╝ ╚═════╝  ╚═╝  ╚═══╝
+
+
+
+</pre>
+        <p class="noselect">Live Well®<br><br>Press enter to continue...</p>
+        <p id='text'></p>
+        <p class='visible noselect' style="line-height: 2rem;"></p><p class='invisible noselect'></p>
+        <div id="glow" class="glow noclick"></div>
+        <div id="noisy" class="noisy noclick"></div>
+        <div id="scanline" class="scanlines noclick"></div>
+
+        <script>
+            text = 'Loading HEILIKON_OS.SYS . . .`Starting H_OS . . .`	testing extended memory . . . done.`	testing Hard Disk Drive(s) . . . done.`	testing Diskette Drive(s) . . . done.`CP/M-77 for the HDC 402, Vers. 1.1.8a (Patched)`Copyright © 2122, Heilikon`'
+            soFar = "";
+            printing = false;
+            speed = 50;
+
+            var visible = document.querySelector(".visible"),
+            invisible = document.querySelector(".invisible");
+
+            invisible.innerHTML = text;
+            var audio_intro = new Audio('../audio/intro.mp3');
+            var audio_entry = new Audio('../audio/entry.m4a');
+            var audio_noise = new Audio('../audio/console.m4a');
+
+            audio_noise.loop = true;
+            audio_noise.volume = 0.5;
+
+            var addChar = function() {
+                if (text.substr(0, 1) == '`') {
+                    soFar += '<br>', text = text.substr(1);
+                    document.documentElement.scrollTo({
+                        left: 0,
+                        top: document.documentElement.scrollHeight - document.documentElement.clientHeight,
+                        behavior: 'auto'
+                    });
+                } else if (text.substr(0, 1) == ' ') {
+                    soFar += ' ', text = text.substr(1);
+                } else if (text.substr(0, 1) == '^') {
+                    text = text.substr(1);
+                } else if (text.substr(0, 1) == '@') {
+                    if (text.substr(1, 1) == '1') {
+                        soFar += '<br><br><img src="../images/mosh10.gif"><br>';
+                        text = text.substr(2);
+                    } else if (text.substr(1, 1) == '2') {
+                        soFar += '<br><br><img src="../images/mosh9.gif"><br>';
+                        text = text.substr(2);
+                    } else if (text.substr(1, 1) == '3') {
+                        soFar += '<br><br><img src="../images/mosh8.gif"><br>';
+                        text = text.substr(2);
+                    }
+                } else {
+                    playEntry();
+                    soFar += text.substr(0, 1), text = text.substr(1);
+                }
+                visible.innerHTML = soFar;
+                invisible.innerHTML = text;
+
+                if (text.length === 0) {
+                    soFar += '<a class="terminal-mode" onclick="intro()"; href="javascript:void(0);">\>INTRO</a><br>';
+                    soFar += '<a class="terminal-mode" onclick="transmission()"; href="javascript:void(0);">\>TRANSMISSION</a><br>';
+                    soFar += '<a class="terminal-mode" onclick="char_creation()"; href="javascript:void(0);">\>CHARACTER CREATION</a><br>';
+                    visible.innerHTML = soFar;
+                    printing = false;
+                    return 0;
+                }
+                setTimeout(addChar, speed);
+            }
+
+            function playIntro() {
+                $('visible').removeClass('blink');
+                playIntro = noop; // swap the functions
+                setTimeout(addChar, speed);
+                audio_intro.play();
+                audio_noise.play();
+            }
+
+            function playEntry() {
+                audio_entry.currentTime = 0;
+                audio_entry.play();
+            }
+
+            function transmission() {
+                if(!printing) {
+                    printing = true
+                    text = '`incoming transmission . . .`Loading ██████████████████████████████████████████████████ 100%`[ERROR] DATA CORRUPTION DETECTED`running data diagnostic . . . done.`attempting recovery . . . done.`recovery ratio . . . 74%`printing message . . .`>>ALERT<<`DISPATCH: Alexis Science Vessel`MESSAGE BEGINS`==================`    >> �CAPTA�NS LOG SCIENCE_CLASS_AL�XIS.2245`    >> CRITICAL MISSION �AILURE�`    >> MULTIP�E CASU��TIES`    >> SHIP IN�PERABLE: C�USE UNKNOW�`    >> OVERSIGHT CREW: MIS�ING`    >> AURELAC ORG��ISM CHANGING`    >> AGG�ESSIVE DE�ENCE SYSTEM� PREVIOUSLY U�RECORDED`    >> SEVERE �TMOSPHERIC IMPAC�: NO LON��R BREATHABLE`    >> INFORM RECOVERY C�EW: !�O NOT BREATH� THE AIR!`    >> ATTACHMENT: �-TEAM SHOULDER CAM DATA`    >> PLEASE ADVISE URGENTLY`================`MESSAGE ENDS`image data detected . . .`Loading ██████████████████████████████████████████████████ 100%      `[ERROR] DATA CORRUPTION DETECTED`	running data diagnostic . . . done.`	attempting recovery . . . done.`[WARNING] SEVERE DATA CORRUPTION`printing image data . . .`@1`^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^`@2^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^`@3`done.`';
+                    setTimeout(addChar, speed);
+                    return 0;
+                }
+                return 1;
+            }
+            function intro() {
+                if(!printing) {
+                    printing = true
+                    text = 'The future is dark, ruthless and ruled by faceless corporations.``There is no magic. There are no magical light swords. People do not wear robes they wear jumpsuits and ballistic vests. They use Kostnov Insurgent assault rifles with bolted-on digital scopes wired into H.U.D units surgically routed directly into their eye sockets.``You are space scum. You owe money to the corps.``A lot of money.``You have barely survived thus far and you will likely not survive much longer. The dire circumstances of your pitiful existence have driven you to this insane task in order to put together some small payday to get back on your feet. If you survive you will do so scarred, disfigured and running out of clean air to breathe and blood to bleed.``Space is a horrible place and out here on the outer rim it’s even worse.``';
+                    setTimeout(addChar, speed);
+                    return 0;
+                }
+                return 1;
+            }
+            function char_creation() {
+                if(!printing) {
+                    printing = true
+                    text = '# Basic SciFi Character Creation`## Roll Attribute Scores`- 3d6`- Mark down modifiers`## Roll For Skills`- 2 Random Skills`- Exertion`- Interaction`- Academics`- Engineering`- Combat`- Vehicles`- Survival`- 1 Specialisation`## Note Load-out`- Random Gun`- 1d4 spare mags`- Machete / Scalpel / Crowbar`- Flare gun / Binoculars / Flashlight`- Survey kit / Camping gear / First Aid Kit`- Automed (2) / Pain pills (2) / Random Drug (2)`- 1 Stimpak`- Standard battle dress / Type 1 steel vest random style / Standard crew attire`## Roll Hitpoints`- 1d6 + CON`## Note Saving Throws`- Physical`- 15 minus the best of STR or CON`- Evasion`- 15 minus the best of DEX or INT`- Mental`- 15 minus the best of WIS or CHA`## Note Starting Stress / Resolve`- Stress: 2`- Resolve: 0`## Roll Trinket / Patch / Nightmare`- d% each`## Roll Personality`';
+                    setTimeout(addChar, speed);
+                    return 0;
+                }
+                return 1;
+            }
+            // this function does nothing
+            function noop() {};
+
+            $(document).ready(function () {
+                document.addEventListener('keydown', function (evt) {
+                    if (evt.keyCode === 13) {
+                        playIntro();
+                        speed = 1;
+                    }
+                });
+
+                document.addEventListener('keyup', function (evt) {
+                    if (evt.keyCode === 13) {
+                        speed = 50;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
