@@ -133,20 +133,27 @@
             }
             // this function does nothing
             function noop() {};
+            function down(e) {
+                speed = 1;
+            }
+
+            function up(e) {
+                speed = 50;
+            }
 
             $(document).ready(function () {
                 document.addEventListener('keydown', function (evt) {
                     if (evt.keyCode === 13) {
                         playIntro();
-                        speed = 1;
+                        down();
                     }
                 });
 
-                document.addEventListener('keyup', function (evt) {
-                    if (evt.keyCode === 13) {
-                        speed = 50;
-                    }
-                });
+                document.addEventListener('keyup', up, false);
+                document.addEventListener('touchstart', down, false);
+                document.addEventListener('touchend', up, false);
+                document.addEventListener('mousedown', down, false);
+                document.addEventListener('mouseup', up, false);
             });
         </script>
     </body>

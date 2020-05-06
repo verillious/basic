@@ -252,7 +252,7 @@ input[type=number] {
 
 .terminal-mode {
     box-sizing: border-box;
-    background: #383838;
+    background: transparent;
     color: #14fdce;
     border-color: #14fdce;
     font-family: 'VT323';
@@ -412,5 +412,4 @@ background: #FF0000;
 
 img {
     mix-blend-mode: color-dodge;
-
-  }
+}
