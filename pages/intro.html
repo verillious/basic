@@ -33,6 +33,37 @@
         <div id="noisy" class="noisy noclick"></div>
         <div id="scanline" class="scanlines noclick"></div>
 
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDXisJDCGBWCMk58n0CC3upa0xAyXeiknM",
+            authDomain: "terminal-b1033.firebaseapp.com",
+            databaseURL: "https://terminal-b1033.firebaseio.com",
+            projectId: "terminal-b1033",
+            storageBucket: "terminal-b1033.appspot.com",
+            messagingSenderId: "705305494904",
+            appId: "1:705305494904:web:1ac9f9db1472cb82a2748d",
+            measurementId: "G-5Q9MSLZETV"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        var ref = firebase.database().ref('/characters/name').once('value').then(function(snapshot) {
+            console.log(snapshot.val());
+        });
+
+        </script>
+
         <script>
             text = 'Loading HEILIKON_OS.SYS . . .`Starting H_OS . . .`	testing extended memory . . . done.`	testing Hard Disk Drive(s) . . . done.`	testing Diskette Drive(s) . . . done.`CP/M-77 for the HDC 402, Vers. 1.1.8a (Patched)`Copyright © 2122, Heilikon`'
             soFar = "";
