@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=VT323);
 
+@font-face {
+    font-family: 'VT323';
+    src: url(https://fonts.googleapis.com/css?family=VT323);
+}
+
 @keyframes crt-output {
     0% {
         opacity: 0.9;
