@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/terminal.css">
+    <link rel="stylesheet" href="../css/editor.css">
+    <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="../js/vendor/rot.js"></script>
+    <script src="https://kit.fontawesome.com/db74c35348.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--=====================================
+		                   CANVAS
+		======================================-->
+    <canvas class="main" id="main" width="100" height="100"></canvas>
+    <canvas class="grid" id="grid" width="100" height="200"></canvas>
+    <canvas class="tools" id="tools" width="100" height="100"></canvas>
+    <!--=====================================
+		                   MENU
+		======================================-->
+    <div class="menu-bar-outer" id="menu-bar-outer">
+        <div class="menu-bar" id="menu-bar">
+            <div class="item menu-toggle-button" title="Hide menu" onclick="editor.toggleMenu();"><i class="fas fa-caret-square-up"></i></div>
+            <div class="item marquee-button" title="Marquee/Select tool" onclick="editor.changeTool('marquee');"><i class="fas fa-clone"></i></div>
+            <div class="item box-button" title="Box tool" onclick="editor.changeTool('box');"><i class="far fa-square"></i></div>
+            <div class="item move-button" title="Move tool" onclick="editor.changeTool('move');"><i class="far fa-hand-paper"></i></div>
+            <div class="item pen-button" title="Pen tool (P)" onclick="editor.changeTool('pen');"><i class="fas fa-pen"></i></div>
+            <div class="item line-button" title="Straight line tool (L)" onclick="editor.changeTool('line');"><i class="fas fa-pen-fancy"></i></div>
+            <div class="item bucket-button" title="Fill tool (F)" onclick="editor.changeTool('bucket');"><i class="fas fa-fill-drip"></i></div>
+            <!-- <div class="item random-fill-button" title="Random Fill tool"><i class="fas fa-random"></i></div> -->
+            <div class="item dropdown item">
+                <button class="dropbtn"><i class="fas fa-random"></i></button>
+                <div class="dropdown-content">
+                  <div><a href="#" class="random-fill-button">RANDOM FILL</a></div>
+                  <div><a href="#" class="dungeon-fill-button">DUNGEON</a></div>
+                  <div><a href="#" class="cell-fill-button">CELLULAR</a></div>
+                  <div><input type="number" min="1" max="100" id='fill-percent' value='20'>
+                    <input type="number" min="1" max="100" id='dug-percent' value='30'>
+                    <input type="number" min="1" max="100" id='cell-cycles' value='4'></div>
+                  <div><ul>
+                      <li style="display: flex;"><p>Fill clear:</p><input type="checkbox" id='fill-clear' title="Clear before filling"></li>
+                      <li style="display: flex;"><p>Fill outline:</p><input type="checkbox" id='fill-outline' title="Ony draw outlines"></li>
+                      <li style="display: flex;"><p>Fill avoid:</p><input type="checkbox" id='fill-avoid' title="Avoid existing cells"></li>
+                  </ul></div>
+              </div>
+            </div>
+            <div class="item eraser-button" title="Eraser (E)" onclick="editor.changeTool('eraser');"><i class="fas fa-eraser"></i></div>
+            <div class="item palette-button" title="Change colour"><input id="color-picker" class="color" value="14fdce" spellcheck="false"></div>
+            <div class="item symbol-button" title="Change symbol"><input id="symbol-picker" type="text" maxlength="1" onkeypress=editor.symbolTool(event) value="#"/></div>
+            <!-- <div class="item symbol-button" title="Change symbol"><p style="font-size: 45px; margin: unset">&#33</p></div> -->
+            <div class="item dropdown item">
+                <button class="dropbtn"><i class="fas fa-random"></i></button>
+                <div class="dropdown-content">
+                    <input id='collisions' type="text" value=' /tT#oO'>
+              </div>
+            </div>
+            <div class="item grid-button" title="Toggle grid"><i class="fas fa-border-none"></i></div>
+            <div class="item clearcanvas-button" title="Clear the canvas"><i class="fas fa-trash"></i></div>
+            <div class="item undo-button" title="Undo last action (CTRL + Z)"><i class="fas fa-undo"></i></div>
+        </div>
+    </div>
+
+    <div style="display:none;">
+        <i class="fas fa-caret-square-down"></i>
+    </div>
+
+    <script>
+        //this gets read by the editor object and put in this.loading_offshoot
+        var loading_offshoot = false;
+    </script>
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <script>
+        window.jQuery || document.write('<script src="../js/vendor/jquery-1.10.2.min.js"><\/script>')
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script type="text/javascript" src="../js/vendor/jscolor/jscolor.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/lz-string-1.3.3-min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/editor.js"></script>
+
+
+
+    <script>
+        var parent_unique_name = '';
+        if (editor.loading_offshoot && !confirm("WARNING: You are about to start an offshoot, but this will override all the pixels that were previously on your canvas. Please click CANCEL to load your previous pixels so that you can save them, or if you have already saved them (or you don't care about them), then click 'Okay' to proceed with creating your offshoot.")) {
+            editor.loadFromLocalStorage();
+        } else {
+            //offshoot code appears here when they are loading offshoot
+        }
+        var canvas = document.getElementById("main");
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+        var ctx=canvas.getContext("2d");
+    </script>
+
+    <div id="glow" class="glow noclick"></div>
+    <div id="noisy" class="noisy noclick"></div>
+    <div id="scanline" class="scanlines noclick"></div>
+
+</body>
+
+</html>
