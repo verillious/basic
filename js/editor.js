@@ -68,16 +68,10 @@ function Editor(canvas, gridCanvas, toolCanvas) {
     this.penColor = "14fdce";
     this.backgroundColor = "111111";
     this.gridColor = "14fdce";
-
-    this.pixelSize = 25; //px
-    this.pixelSize = Math.floor(window.innerWidth / 60);
-    console.log(this.pixelSize);
-    //$(this.gridCanvas).css('background-size',this.pixelSize+'px');
-    this.gridWidth = Math.floor(1920 / this.pixelSize);
-    this.gridHeight = Math.floor(1080 / this.pixelSize);
-    console.log(this.gridWidth + " x " + this.gridHeight);
     this.gridWidth = 60;
     this.gridHeight = 30;
+    this.pixelSize = Math.floor(window.innerWidth / this.gridWidth);
+
 
     this.historyArray = [];
     this.shouldGetUpdates = true;
@@ -159,7 +153,7 @@ function Editor(canvas, gridCanvas, toolCanvas) {
         }
         for (var i = 0; i < this.pixelArray.length; i++) {
             for (var j = 0; j < this.pixelArray[i].length; j++) {
-                this.renderPixel([i, j], this.pixelArray[i][j][0], undefined, this.pixelArray[i][j][1]);
+                this.renderBottom([i, j], this.pixelArray[i][j][0], undefined, this.pixelArray[i][j][1]);
             }
         }
         for (var i = 0; i < this.pixelArray.length; i++) {
@@ -260,7 +254,6 @@ function Editor(canvas, gridCanvas, toolCanvas) {
 
     //just render it (not changing the pixel array)
     this.renderPixel = renderPixel;
-
     function renderPixel(pos, color, forceClear, symbol=null) {
         if (color == this.backgroundColor) { //zero means blank (transparent) so clear the pixel
             this.ctx.clearRect(pos[0] * this.pixelSize, pos[1] * this.pixelSize, this.pixelSize, this.pixelSize);
@@ -268,11 +261,11 @@ function Editor(canvas, gridCanvas, toolCanvas) {
             this.ctx.fillStyle = "#" + color;
             this.ctx.shadowBlur = 0;
             this.ctx.shadowColor = "#" + color;
-            this.ctx.font = (this.pixelSize + 4) + "px VT323";
+            this.ctx.font = this.fontSize + "px VT323";
             if (symbol == null || symbol == ' ') {
                 this.ctx.fillRect(pos[0] * this.pixelSize, pos[1] * this.pixelSize, this.pixelSize, this.pixelSize);
             } else {
-                this.ctx.fillText(symbol, (pos[0] * this.pixelSize) + (this.pixelSize /4), ((pos[1] * this.pixelSize) + this.pixelSize) - this.pixelSize/16);
+                this.renderSymbol(this.ctx, pos, this.penColor, symbol);
             }
         } else if (forceClear === true) { //i.e. it is -1, now chekc if we need to clear
             this.ctx.clearRect(pos[0] * this.pixelSize, pos[1] * this.pixelSize, this.pixelSize, this.pixelSize);
@@ -289,11 +282,11 @@ function Editor(canvas, gridCanvas, toolCanvas) {
             this.ctx.fillStyle = "#26754e";
             this.ctx.shadowBlur = 20;
             this.ctx.shadowColor = "#26754e";
-            this.ctx.font = (this.pixelSize+4)+"px VT323";
+            this.ctx.font = this.fontSize+"px VT323";
             if (symbol == null) {
                 this.ctx.fillRect(pos[0] * this.pixelSize, pos[1] * this.pixelSize, this.pixelSize, this.pixelSize);
             } else {
-                this.ctx.fillText(symbol, (pos[0] * this.pixelSize) + (this.pixelSize /4), ((pos[1] * this.pixelSize) + this.pixelSize) - this.pixelSize/16);
+                this.renderSymbol(this.ctx, pos, this.penColor, symbol);
             }
         } else if (forceClear === true) { //i.e. it is -1, now chekc if we need to clear
             this.ctx.clearRect(pos[0] * this.pixelSize, pos[1] * this.pixelSize, this.pixelSize, this.pixelSize);
@@ -317,11 +310,20 @@ function Editor(canvas, gridCanvas, toolCanvas) {
                 this.toolCtx.fillRect(pos[0] * this.pixelSize, pos[1] * this.pixelSize, this.pixelSize, this.pixelSize);
             } else {
                 this.toolCtx.shadowBlur = 0;
-                this.toolCtx.font = (this.pixelSize + 4) + "px VT323";
-                this.toolCtx.fillText(symbol, (pos[0] * this.pixelSize) + (this.pixelSize /4), ((pos[1] * this.pixelSize) + this.pixelSize) - this.pixelSize/16);
+                this.toolCtx.font = this.fontSize + "px VT323";
+                this.renderSymbol(this.toolCtx, pos, this.penColor, symbol);
             }
         } else if (forceClear === true) { //i.e. it is -1, now chekc if we need to clear
             this.toolCtx.clearRect(pos[0] * this.pixelSize, pos[1] * this.pixelSize, this.pixelSize, this.pixelSize);
+        }
+    }
+    this.fontSize = this.pixelSize * 1.25;
+    this.renderSymbol = renderSymbol;
+    function renderSymbol(ctx, pos, color, symbol) {
+        if (',;_gjpqy'.includes(symbol)) {
+            ctx.fillText(symbol, pos[0] * this.pixelSize + (this.pixelSize/2) - (this.fontSize*0.2), pos[1] * this.pixelSize + (this.pixelSize) - (this.pixelSize/2) + (this.fontSize*0.3) - (this.fontSize*0.15));
+        } else {
+            ctx.fillText(symbol, pos[0] * this.pixelSize + (this.pixelSize/2) - (this.fontSize*0.2), pos[1] * this.pixelSize + (this.pixelSize) - (this.pixelSize/2) + (this.fontSize*0.3) );
         }
     }
 
@@ -486,17 +488,7 @@ function Editor(canvas, gridCanvas, toolCanvas) {
     this.digPixel = digPixel;
 
     function digPixel(x, y, value) {
-        // editor.drawPixel([x, y], editor.penColor, editor.symbol);
-        // editor.tempArray[x][y] = value;
         editor.drawTempPixel([x, y], editor.penColor, value);
-        // if (value == '1') {
-        //     // editor.drawPixel([x, y], editor.penColor, editor.symbol);
-
-        // } else {
-        //     // editor.erasePixel([x, y])
-        //     editor.drawTempPixel([x, y], editor.penColor, '');
-        //     // editor.drawPixel([x, y], editor.penColor);
-        // }
     }
 
     this.randomFill = randomFill;
@@ -805,46 +797,6 @@ function Editor(canvas, gridCanvas, toolCanvas) {
         } else
           console.log("Please wait for previous fill to complete.");
     }
-    /*this.bucketFill=bucketFill;
-    function bucketFill(pos,targetColor,fillColor) {
-    	this.pushPixelsToHistoryArray();
-    	var que = [];
-    	que.push(pos);
-    	var node;
-    	while(que.length > 0) {
-    		node = que[que.length-1];
-    		que.pop();
-    		if(this.getColorAtPos(node) === targetColor) {
-    			this.pixelArray[node[0]][node[1]] = fillColor;
-    			que.push([node[0]+1,node[1]]);
-    			que.push([node[0]-1,node[1]]);
-    			que.push([node[0],node[1]+1]);
-    			que.push([node[0],node[1]-1]);
-    		}
-    	}
-    	this.renderAll();
-    	return;
-    }*/
-
-    // this.transparentBG = transparentBG;
-
-    // function transparentBG() {
-    //     this.pushPixelsToHistoryArray();
-    //     this.backgroundColor = -1;
-    //     this.refreshBackground();
-    //     this.renderAll();
-    // }
-
-    // this.refreshBackground = refreshBackground;
-
-    // function refreshBackground() {
-    //     for (var i = 0; i < this.pixelArray.length; i++) {
-    //         for (var j = 0; j < this.pixelArray[i].length; j++) {
-    //             if (this.pixelArray[i][j][0] === "ffffff") this.pixelArray[i][j][0] = this.backgroundColor;
-    //         }
-    //     }
-    // }
-
     this.moveTool = moveTool
 
     function moveTool() {
@@ -1038,18 +990,8 @@ function Editor(canvas, gridCanvas, toolCanvas) {
     this.resizeCanvas = resizeCanvas;
 
     function resizeCanvas() {
-
-        this.pixelSize = 25; //px
-        this.pixelSize = Math.floor(window.innerWidth / 60);
-        console.log(this.pixelSize);
-        //$(this.gridCanvas).css('background-size',this.pixelSize+'px');
-        this.gridWidth = Math.floor(1920 / this.pixelSize);
-        this.gridHeight = Math.floor(1080 / this.pixelSize);
-        console.log(this.gridWidth + " x " + this.gridHeight);
-        this.gridWidth = 60;
-        this.gridHeight = 30;
-        window.resizeTo(this.gridWidth*this.pixelSize, this.gridHeight*this.pixelSize);
-
+        this.pixelSize = Math.floor(window.innerWidth / this.gridWidth);
+        this.fontSize = this.pixelSize * 1.25;
         //main:
         this.canvas.width = $(this.canvas).width();
         this.canvas.height = $(this.canvas).height();
@@ -1300,20 +1242,11 @@ function Editor(canvas, gridCanvas, toolCanvas) {
     // $(document).keypress(function(e) {
     //     var c = String.fromCharCode(e.which).toLowerCase()
     //     switch (c) {
-    //         case 'p':
-    //             editor.changeTool('pen');
+    //         case '=':
+    //             editor.fontSize = editor.fontSize + 1;
     //             break;
-    //         case 'l':
-    //             editor.changeTool('line');
-    //             break;
-    //         case 'f':
-    //             editor.changeTool('bucket');
-    //             break;
-    //         case 'e':
-    //             editor.changeTool('eraser');
-    //             break;
-    //         case 's':
-    //             editor.changeTool('eyedropper');
+    //         case '-':
+    //             editor.fontSize = editor.fontSize - 1;
     //             break;
     //         default:
     //             break;
@@ -1336,7 +1269,13 @@ function Editor(canvas, gridCanvas, toolCanvas) {
                         event.preventDefault();
                         this.undo();
                         break;
+                    case 'c':
+                        event.preventDefault();
+                        if (this.marqueeStage == 4) {
+                            this.getCopiedText();
+                        }
                     case 'v':
+                        event.preventDefault();
                         this.setCopiedText();
                         break;
                     default:
@@ -1374,7 +1313,7 @@ function Editor(canvas, gridCanvas, toolCanvas) {
                     break;
                 case 40: //down
                     // console.log('down');
-                    if (this.moveToolSelectedPos[1] < this.pixelArray[0].length -1 && (!(this.getCollisions().includes(this.getSymbolAtPos([this.moveToolSelectedPos[0], this.moveToolSelectedPos[1] - 1]))) || this.getSymbolAtPos([this.moveToolSelectedPos[0], this.moveToolSelectedPos[1] - 1]) == '')) {
+                    if (this.moveToolSelectedPos[1] < this.pixelArray[0].length -1 && (!(this.getCollisions().includes(this.getSymbolAtPos([this.moveToolSelectedPos[0], this.moveToolSelectedPos[1] + 1]))) || this.getSymbolAtPos([this.moveToolSelectedPos[0], this.moveToolSelectedPos[1] + 1]) == '')) {
                         this.drawPixel([this.moveToolSelectedPos[0], this.moveToolSelectedPos[1] + 1],
                             this.getColorAtPos(this.moveToolSelectedPos), this.getSymbolAtPos(this.moveToolSelectedPos),);
                         this.erasePixel(this.moveToolSelectedPos);
@@ -1599,11 +1538,15 @@ function Editor(canvas, gridCanvas, toolCanvas) {
                 for (var x = 0; x < this.marqueePixelArray.length; x++) {
                     for (var y = 0; y < this.marqueePixelArray[0].length; y++) {
                         if (x + this.marqueeCoords[0] < this.pixelArray.length && y + this.marqueeCoords[1] < this.pixelArray[0].length &&
-                            x + this.marqueeCoords[0] >= 0 && y + this.marqueeCoords[1] >= 0)
+                            x + this.marqueeCoords[0] >= 0 && y + this.marqueeCoords[1] >= 0) {
                             //if marquee pixel not transparent, then replace pixelarray color with marqueearray color:
-                            if (this.marqueePixelArray[x][y] !== this.backgroundColor) this.pixelArray[x + this.marqueeCoords[0]][y + this.marqueeCoords[1]] = this.marqueePixelArray[x][y];
+                            if (this.marqueePixelArray[x][y] !== this.backgroundColor) {
+                                this.pixelArray[x + this.marqueeCoords[0]][y + this.marqueeCoords[1]] = this.marqueePixelArray[x][y];
+                            }
+                        }
                     }
                 }
+                this.sendAllPixels();
                 this.renderPixelArray();
                 this.renderTools();
                 this.marqueeStage = 1;
@@ -1696,183 +1639,62 @@ function Editor(canvas, gridCanvas, toolCanvas) {
 
     this.setCopiedText = setCopiedText;
 
-    async function setCopiedText(wait = false) {
-        if (wait = false) {
-            navigator.clipboard.readText()
-            .then(text => {
-                $('#symbol-picker').val(text);
-            })
-                .catch(err => {
-                    setCopiedText(true);
-            });
-        } else {
-            const text = await navigator.clipboard.readText();
-            $('#symbol-picker').val(text);
+    async function setCopiedText() {
+
+        function transpose(matrix) {
+            const rows = matrix.length, cols = matrix[0].length;
+            const grid = [];
+            for (let j = 0; j < cols; j++) {
+              grid[j] = Array(rows);
+            }
+            for (let i = 0; i < rows; i++) {
+              for (let j = 0; j < cols; j++) {
+                grid[j][i] = matrix[i][j];
+              }
+            }
+            return grid;
         }
 
+        try {
+            var tempArray = [];
+            const text = await navigator.clipboard.readText();
+            // console.log(text);
+            // console.log(text.split('\t'))
+            rows = text.split(/\r?\n/);
+            for (var i = 0; i < rows.length; i++) {
+                tempArray.push([]);
+                cells = rows[i].split('\t')
+                for (var j = 0; j < cells.length; j++) {
+                    tempArray[tempArray.length - 1].push([this.penColor, cells[j]]);
+                }
+            }
+
+            this.changeTool('marquee');
+            // tempArray[0].map((col, i) => tempArray.map(row => row[i]));
+            this.marqueePixelArray = transpose(tempArray);
+            this.marqueeCoords = [this.mouseGridPos[0], this.mouseGridPos[1], this.mouseGridPos[0] + tempArray.length, this.mouseGridPos[1] + tempArray[0].length];
+            this.marqueeStage = 4;
+            console.log(tempArray);
+        } catch (err) {
+            console.error('Failed to read clipboard contents: ', err);
+        }
     }
 
-
-
-    // /*======================
-    //        SAVE IMAGE
-    //   ======================*/
-    // this.saveImage = saveImage;
-
-    // function saveImage() {
-    //     switch (this.saveStage) {
-    //         case 1: //user just selected tool
-    //             this.changeTool('save');
-    //             this.saveStage = 2;
-    //             break;
-    //         case 2: //user moused down at first postion
-    //             this.saveCoords[0] = this.mouseGridPos[0];
-    //             this.saveCoords[1] = this.mouseGridPos[1];
-    //             this.saveStage = 3;
-    //             break;
-    //         case 3: //user is moving mouse to second position
-    //             this.saveCoords[2] = this.mouseGridPos[0];
-    //             this.saveCoords[3] = this.mouseGridPos[1];
-    //             this.renderTools();
-    //             break;
-    //         case 4: //user let go of mouse at second position
-    //             this.saveCoords[2] = this.mouseGridPos[0];
-    //             this.saveCoords[3] = this.mouseGridPos[1];
-
-    //             //now we must get the top right corner as x1,y1 and bottom left: x2,y2:
-    //             var tempCoords = this.saveCoords.slice(0);
-    //             if (tempCoords[0] > tempCoords[2]) {
-    //                 this.saveCoords[0] = tempCoords[2];
-    //                 this.saveCoords[2] = tempCoords[0];
-    //             }
-    //             if (tempCoords[1] > tempCoords[3]) {
-    //                 this.saveCoords[1] = tempCoords[3];
-    //                 this.saveCoords[3] = tempCoords[1];
-    //             }
-
-    //             $('.save-window').show();
-    //             this.renderTools();
-    //             this.changeTool('pen');
-    //             break;
-    //         case 5: //user clicked the button in the save dialogue
-    //             var saveCanvas = $('canvas.save')[0];
-    //             var customPixelSize = $('#custom-pixel-size').val();
-    //             customPixelSize = Math.round(customPixelSize);
-    //             if (typeof customPixelSize === "undefined" || customPixelSize < 1) customPixelSize = 10;
-
-    //             /*var originalPixelSize = this.pixelSize;
-    //             this.pixelSize = customPixelSize;
-    //             this.canvas.width = this.pixelArray.length*this.pixelSize;
-    //             this.canvas.height = this.pixelArray[0].length*this.pixelSize;
-    //             this.ctx.beginPath(); this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.width);
-    //             this.renderPixelArray();*/
-
-    //             /*saveCanvas.width = Math.abs(this.saveCoords[2]-this.saveCoords[0])*customPixelSize;
-    //             saveCanvas.height = Math.abs(this.saveCoords[3]-this.saveCoords[1])*customPixelSize;
-    //             var originalWidth = Math.abs(this.saveCoords[2]-this.saveCoords[0])*this.pixelSize;
-    //             var originalHeight = Math.abs(this.saveCoords[3]-this.saveCoords[1])*this.pixelSize;*/
-
-    //             //check for ridiculous sized images (which wil overload server etc.)
-    //             if (saveCanvas.width * saveCanvas.height > 100000000) {
-    //                 alert("Whoa, this image is a bit too big, please try decreasing the pixel size. If you don't this it's too big, please contact me: hello@josephrocca.com - it may be an error.");
-    //                 this.saveStage = 0;
-    //                 return false;
-    //             }
-
-    //             this.renderSaveCanvas(this.saveCoords, customPixelSize);
-
-    //             //saveCanvas.getContext('2d').drawImage(this.canvas,this.saveCoords[0]*this.pixelSize,this.saveCoords[1]*this.pixelSize,originalWidth,originalHeight,0,0,saveCanvas.width,saveCanvas.height);
-
-    //             var image = saveCanvas.toDataURL("image/png");
-    //             var pixel_array = LZString.compressToBase64(JSON.stringify(this.pixelArray)); //"data:text/plain;base64,"+
-    //             var title = $('#save-art-title').val();
-    //             var description = $('#save-art-desc').val();
-    //             if ($('#save-art-private').prop('checked')) {
-    //                 var is_private = 1
-    //             } else {
-    //                 var is_private = 0
-    //             }
-    //             //parent_unique_name is in index.php
-    //             var time_taken = this.time_elapsed;
-
-    //             //local download link
-    //             $('#data-url-save-link').attr('href', image);
-    //             $('#data-url-save-link').attr('download', title.replace(/[^a-zA-Z0-9_\-]+/g, ""));
-
-    //             // console.log(parent_unique_name);
-    //             // console.log("Saving image to server...");
-    //             $.ajax({
-    //                 type: "POST",
-    //                 url: "/php/saveArt.php",
-    //                 data: {
-    //                     image: image,
-    //                     pixel_array: pixel_array,
-    //                     title: title,
-    //                     description: description,
-    //                     is_private: is_private,
-    //                     parent_unique_name: parent_unique_name,
-    //                     time_taken: time_taken
-    //                 }
-    //             }).done(function(unique_name) {
-    //                 // console.log("Saved. Response: " + unique_name)
-    //                 //window.open("http://pixelartmaker.com/art/"+unique_name,'_blank');
-    //                 $('.save-window .details').hide();
-    //                 $('.save-window .loader').hide();
-    //                 $('.save-window .saved-output').show();
-    //                 $('.save-window .save-link')[0].href = "http://pixelartmaker.com/art/" + unique_name;
-    //                 $('.save-window .save-link').text("http://pixelartmaker.com/art/" + unique_name);
-    //                 if ($('#zazzle-link')[0]) $('#zazzle-link')[0].href = "https://www.zazzle.com/api/create/at-238290968896952682?rf=238290968896952682&ax=Linkover&pd=217114339943231537&ed=true&tc=PAMEditor&ic=&t_image1_iid=http%3A%2F%2Fpixelartmaker.com%2Fart%2F" + unique_name + ".png";
-    //                 if ($('#zazzle-link-mug')[0]) $('#zazzle-link-mug')[0].href = "https://www.zazzle.com/api/create/at-238290968896952682?rf=238290968896952682&ax=Linkover&pd=168058230996879830&ed=true&tc=PAMEditor&ic=&t_image1_iid=http%3A%2F%2Fpixelartmaker.com%2Fart%2F" + unique_name + ".png";
-    //             });
-    //             break;
-    //         default:
-    //             // console.log("Error: Save stage not recognised.");
-    //     }
-    // }
-
-    // this.renderSaveCanvas = renderSaveCanvas;
-
-    // function renderSaveCanvas(saveCoords, pixel_size) {
-    //     var saveCanvas = $('canvas.save')[0];
-    //     saveCanvas.width = Math.abs(saveCoords[2] - saveCoords[0]) * pixel_size;
-    //     saveCanvas.height = Math.abs(saveCoords[3] - saveCoords[1]) * pixel_size;
-    //     var saveCtx = saveCanvas.getContext('2d');
-
-    //     for (var i = saveCoords[0]; i < saveCoords[2]; i++) {
-    //         for (var j = saveCoords[1]; j < saveCoords[3]; j++) {
-    //             var color = this.pixelArray[i][j][0];
-    //             var save_x = i - saveCoords[0];
-    //             var save_y = j - saveCoords[1];
-    //             if (color == this.backgroundColor) { //background color is transparent
-    //                 saveCtx.clearRect(save_x * pixel_size, save_y * pixel_size, pixel_size, pixel_size);
-    //             } else if (color !== -1) {
-    //                 saveCtx.fillStyle = "#" + color;
-    //                 saveCtx.fillRect(save_x * pixel_size, save_y * pixel_size, pixel_size, pixel_size);
-    //             } else {
-    //                 // console.log("Error in renderSaveCanvas 1")
-    //             }
-    //         }
-    //     }
-    // }
-
-    // //SAVE WINDOW:
-    // $('#save-art-close-button, .save-art-window-shadow').click($.proxy(function() {
-    //     $('.save-window').hide();
-    //     $('.save-window .details').show();
-    //     $('.save-window .saved-output').hide();
-    //     this.saveStage = 0;
-    // }, this));
-    // $('#save-art-submit-button').click($.proxy(function() {
-    //     this.saveStage = 5;
-    //     this.saveImage();
-    //     $('.save-window .details').hide();
-    //     $('.save-window .loader').show();
-    // }, this));
-
-
-
-
-
+    this.getCopiedText = getCopiedText;
+    function getCopiedText() {
+        var clip = "";
+        for (var j = 0; j < this.marqueePixelArray[0].length; j++) {
+            for (var i = 0; i < this.marqueePixelArray.length; i++) {
+                if (i != 0) {
+                    clip += "\t"
+                }
+                // console.log(this.marqueePixelArray[i][j][1])
+                clip += this.marqueePixelArray[i][j][1];
+            }
+            clip += "\n"
+        }
+        navigator.clipboard.writeText(clip);
+    }
     /* ===================================================
     					SAVE AND LOAD
     ====================================================== */
@@ -1909,14 +1731,6 @@ function Editor(canvas, gridCanvas, toolCanvas) {
     }
     //Save every 30 seconds
     $(document).ready($.proxy(function() {
-        /*var saveTimeout;
-        $(this.canvas).mouseup(function(e){
-        	clearTimeout(saveTimeout);
-        	saveTimeout = setTimeout(function() {
-        		this.saveToLocalStorage();
-        	},1000*5);
-        });*/
-
         // Your web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyDXisJDCGBWCMk58n0CC3upa0xAyXeiknM",
