@@ -1,0 +1,128 @@
+drugs = [
+    {
+      "DRUG": "Hydros",
+      "EFFECT": "A flavorless but unpleasant paste which is ingested and begins to take effect almost immediately. Hydros has the amazing effect of being able to keep muscle tissue from atrophying while broken bones heal. This curative agent heals bones faster thus any crippled limb can usually be restored quickly with a generous helping of Hydros. After one dose of Hydros, the healing time for broken bones or crippled limbs are halved (applied after Tech/Medical might reduce the healing time). Hydros leaves the patient in a dreamlike haze while it is in their system and is addictive like morphine. While healing with Hydros, the user's Perception is reduced by -3, movement is cut in half, and they suffer a -2 to Dexterity for the duration of the healing time. Hydros is expensive and debilitating but effective.",
+      "ADDICT MOD": "10%",
+      "ADDICT EFFECT": "-3 Str/Dex"
+    },
+    {
+      "DRUG": null,
+      "EFFECT": "Null is a highly potent psychopharmaceutical which makes the user temporarily impervious to pain. Null grants the user 16 bonus hit points that are lost first, meaning users suffering less than 16 points of damage will be uninjured when the drug wears off. The effect is immediate upon injection and lasts for one hour. The user suffers no ill effects from taking Null but most packages come with a label warning that the drug is highly addictive and should only be used under extreme conditions.",
+      "ADDICT MOD": "30%",
+      "ADDICT EFFECT": "-3 Dex/Int"
+    },
+    {
+      "DRUG": "Rush",
+      "EFFECT": "Excelenol is a powerful and highly addictive stimulant that quickens the central nervous system. It is extracted from protein-enhanced insects and administered via an inhaler. The initial euphoric rush which lends the drug its street name rarely lasts more than a minute, but during that time the user is filled with a burst of energy and strength. The user receives +4 to Initiative and +3 to overall Dexterity and Constitution for 1 minute (10 ). (addictive)",
+      "ADDICT MOD": "25%",
+      "ADDICT EFFECT": "-4 Str/Wis/Chr"
+    },
+    {
+      "DRUG": "Crackerjack",
+      "EFFECT": "An injected drug composed of strange, unknown chemicals of military origin. It comes with its own unique delivery system (administered like a Medpak). Upon injection the effects are immediate and last for 10 , the user gains +4 to Armor Class and +4 to any attack rolls, but any rolls made with Intelligence or Wisdom suffer -3.",
+      "ADDICT MOD": "20%",
+      "ADDICT EFFECT": "-3 Int/Wis/Chr"
+    },
+    {
+      "DRUG": "Bug Juice",
+      "EFFECT": "An advanced steroid that was popularized by professional athletes and their clandestine use of the drug. The drug is a thin green liquid typically contained in small bottles, but can also be synthesized into swallowable gelcaps. It increases Strength and reflexes, designed specifically to increase a person's deadliness in hand-to-hand combat. Consequently, any combat style whose effectiveness is influenced by Strength reaps a significant benefit from the use of Bug Juice. In those situations where unarmed combat is the law, a quick dose or two of Bug Juice prior to the commencement of hostilities can drastically shift the odds. Unfortunately, Bug Juice is highly addictive and anyone using it more than once is running a severe risk. A person going through Bug Juice withdrawal is in no condition to fight hand-to-hand. After ingesting, it takes 2d6 minutes to take effect but then lasts for 3 hours. It gives the user +4 to Strength and Constitution affecting Encumbrance and Hit Points accordingly, and also bestows +1d6 to melee and unarmed damage.",
+      "ADDICT MOD": "25%",
+      "ADDICT EFFECT": "-2 Str/Dex/Con"
+    },
+    {
+      "DRUG": "Captivax",
+      "EFFECT": "Designed to increase memory related functions and speed up other mental processes. These red capsules are a popular party drug, widely appreciated for their effect on creativity. They are, of course, highly addictive. It takes 2d6 minutes for Captivax to take effect but lasts for 3 hours. It gives the user +2 to overall Intelligence, +2 to Perception, and a +4 to Charisma-based rolls.",
+      "ADDICT MOD": "15%",
+      "ADDICT EFFECT": "-3 Dex/Int/Chr"
+    },
+    {
+      "DRUG": "Pain Pills ",
+      "EFFECT": "When ingested immediately heals 1d2 points of damage and lowers Stress by 1. ",
+      "ADDICT MOD": "15%",
+      "ADDICT EFFECT": "-2 Con"
+    },
+    {
+      "DRUG": "Stimpak",
+      "EFFECT": "Grants an immediate 2d2 to Health and temporarily increases Strength and Dexterity by 2d4 each for 1d10 hours.",
+      "ADDICT MOD": "25%",
+      "ADDICT EFFECT": "-2 Str/Dex/Con"
+    },
+    {
+      "DRUG": "Automed",
+      "EFFECT": "Nanotech pills that assist your body in repairing damage. They give +2 to Body Saves meant to repel disease or\npoison, as well as attempts to heal, and +2 to Mental Saves made to reduce Stress.",
+      "ADDICT MOD": "",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Anti-Tox",
+      "EFFECT": "A potent and nearly universal antidote for poisons and toxins found on many worlds. Anti-Tox must be injected via syringe or auto-injector, and upon application acts as a Tech/Medical skill check against the poison's Toxicity. Only one application of Anti-Tox can be used effectively during each Interval of a poison.",
+      "ADDICT MOD": "0%",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Healing Powder",
+      "EFFECT": "A primitive analgesic paste made with plants, roots and bark. After it is applied 1d6 hit points are restored, but Dexterity suffers by -2 for 1 day. Repeat doses increases the duration of the penalty by 1 extra day.",
+      "ADDICT MOD": "0%",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Medpak",
+      "EFFECT": "This item consists of a small syringe filled with a nano-medication and a gauge for measuring the status of the contents. The syringe and the gauge are housed on the back of a patch that wraps around an arm. When exposed to oxygen the nano-medication instantly spoils. It was originally created as a prototype for a more universal medical gel which was never refined. They are plentiful and easy to come by in more civilized areas, although on the outskirts of civilization they can be quite rare and fetch high prices. It takes a full-round to apply a Medpak, the person administering the Medpak can concentrate on nothing else. When the medicine is injected it provides immediate healing of the body's minor wounds, healing 2d4+1 hit points. Crippled limbs and broken bones are not restored with Medpaks.",
+      "ADDICT MOD": "0%",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Anti-Rad",
+      "EFFECT": "An anti-radiation chemical that can significantly reduce the danger of irradiated areas. Anti-Rad is reasonably common and, like most legitimate medicinals, is non-addictive. Members of every starship engine crew should never be without a bottle of Anti-Rad pills! Anti-Rad increases saving throws against radiation by +8 and lasts for 1 full day, but requires an hour before its effects are felt. Taking multiple doses of Anti-Rad doesn’t increase the total resistance (the effects do not stack) nor does it extend the drug's active duration.",
+      "ADDICT MOD": "0%",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Radpak",
+      "EFFECT": "An intravenous chemical solution, administered just like a Medpak, that bonds with radiation particles and passes them completely and harmlessly through your system. It cannot be used to reverse radiation poisoning, but instead is meant to be used after being exposed to radiation to rid yourself of it before poisoning sets in or gets worse. It works instantly, preventing Constitution loss from radiation poisoning, but stays in the system for several days (1d4). It has numerous adverse side effects, most notably headaches (-2 Perception), stomach pains (-2 to Initiative), hair loss (very slim chance), and it acts as a potent diuretic.",
+      "ADDICT MOD": "0%",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Bezoar (Medicine-2)",
+      "EFFECT": "A complex antibiotic cocktail, Bezoar is an effective default treatment for a wide variety of infectious diseases. When applied to a sufferer, roll 1d6; on a 1, this victim cannot be helped by Bezoar, while otherwise the affliction is cured within 24 hours. Each application of Bezoar adds 1 Stress to the target, and it cannot cure cancers, bioweapons, or congenital diseases",
+      "ADDICT MOD": "0%",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Hush (Medicine-1)",
+      "EFFECT": "An extremely heavy neurotranquilizer, Hush leaves the subject awake and responsive to simple, untaxing commands. They cannot fight or communicate while affected by Hush, but will walk, eat, sit, and perform simple actions as directed by the last person to speak to them. A Hush dose lasts for an hour plus three per Heal level of the person applying the stim, and the subject retains no memories while under the effect. A subject must be immobilized or willing to be affected by Hush; violent physical movement immediately after application disrupts the neurological effects",
+      "ADDICT MOD": "0%",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Lift (Medicine-1)",
+      "EFFECT": "A Lift stim augments and amplifies the body’s natural response to physical injury and exhaustion This boost speeds natural recovery drastically and heals 1d8 plus the user’s Heal skill in hit points after five minutes of rest. Lift stims do not work on PCs who are mortally wounded; they need to be stabilized before the Lift can help them, though application to a stabilized target will get them back on their feet and active again. Each application adds 1 Stress to the target. Each additional application of Lift to a target the same day increases the minimum Heal skill needed by 1",
+      "ADDICT MOD": "10%",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Psych",
+      "EFFECT": "A military drug duplicated in rougher form by many street chemists, Psych fills the user with an intense sense of confidence and reckless courage. Unfortunately, it also cripples their judgment regarding danger. A person affected by Psych immediately gains a Morale score of 12 and a +1 bonus on all skill checks, but will ignore cover during combat and cannot decide not to attempt a skill check after learning its difficulty. The effect lasts fifteen minutes, adds 1 Stress to the user, and is highly psychologically addictive",
+      "ADDICT MOD": "30%",
+      "ADDICT EFFECT": "-1 ALL"
+    },
+    {
+      "DRUG": "Reverie (Medicine-2)",
+      "EFFECT": "This very dangerous combat drug completely subdues the subject’s fear centers and adrenaline production, leaving them perfectly calm and relaxed even in the midst of mortal danger. Their reaction speed is much slower as a consequence, and they may act only on even-numbered combat ; so on the second, fourth, and sixth  and so forth. Any damage they suffer is doubled as well due to their lack of vigilance Their perfect calm allows them to shoot as if on the target range, however, and they can make Dex/Shoot skill checks to hit a target instead of hit rolls; the difficulty is 7 at point blank, 9 at normal ranges, and 11 at long ranges for the weapon The target’s Armor Class is ignored. Melee attacks made under Reverie always hit. Reverie lasts for ten minutes and adds 2 Stress to the target",
+      "ADDICT MOD": "15%",
+      "ADDICT EFFECT": "-2 Dex/Wis/Int"
+    },
+    {
+      "DRUG": "Squeal (Medicine-2)",
+      "EFFECT": "This “truth serum” is unreliable but still one of the best available options for field interrogations. The subject must be immobilized or willing to be affected by it. For five minutes afterwards they will be unable to avoid answering questions about facts known to them; they will be unable to exercise anything resembling a hypothesis or a judgment, but they will answer specific questions about facts known to them truthfully. Unwilling victims can attempt a Physical saving throw; on a success, they can simply refuse to speak about one particular topic of their choice. Targets pass out for 1d6 hours after the drug wears off and are immune to it for a week thereafter",
+      "ADDICT MOD": "0%",
+      "ADDICT EFFECT": ""
+    },
+    {
+      "DRUG": "Tsunami (Medicine-2)",
+      "EFFECT": "An emergency combat stim used to juice certain expendable soldiers before an assault, Tsunami fills them with a reckless disregard for pain and an intense aggressiveness. The short effect duration and difficult application limits its wider use, however. Subjects gain a Morale score of 12, 10 extra hit points for ten minutes and a +2 bonus on all hit rolls. At the end of the duration, they immediately lose those 10 hit points, which may leave them mortally wounded. Each application adds 2 Stress to the target.",
+      "ADDICT MOD": "25%",
+      "ADDICT EFFECT": "-2 Str/Dex/Con"
+    }
+   ]

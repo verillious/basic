@@ -331,7 +331,7 @@ class MothershipCharGenerator {
             Neuroticism: ['LOW`      - Hard to upset, low emotional reactivity.`      - Tends to be calm, emotionally stable, and free from persistent negative feelings.`      - Tends not to experience emotions in extreme highs and extreme lows.`      - Described as calm, level-headed, and optimistic.`      - Able to think clearly under stress.`      - Often sought out for guidance.', 'HIGH`      - Tends to experience negative emotions, such as anxiety, worry, fear, anger, frustration, envy, jealousy, guilt and loneliness.`      - Emotionally unstable, reactive and vulnerable to stress.`      - Flippant in the way they express emotion.`      - Likely to interpret ordinary situations as threatening, and minor frustrations as hopelessly difficult.`      - Often in a bad mood.`      - Potential problems with thinking clearly, making decisions, and coping effectively with stress.'][this.rollDie(2)-1],
         };
         this.weapons = weapons.filter(weapon => weapon["COST"] <= 200 && weapon["COST"] >= 100);
-        this.weapon = this.weapons[this.rollDie(this.weapons.length) - 1];
+        this.weapon = chance.pickone(this.weapons);
         this.generate();
     }
 
@@ -353,7 +353,7 @@ class MothershipCharGenerator {
         this.setStat("Intelligence", this.rollStat());
         this.setStat("Wisdom", this.rollStat());
         this.setStat("Charisma", this.rollStat());
-        this.currentSkills = this.shuffle(this.skills).slice(0, 2);
+        this.currentSkills = chance.pickset(this.skills, 2);
         this.loadout += `   - ${this.weapon["WEAPON"]}\``;
         for (var key in this.weapon) {
             if (key != "WEAPON" && key != "AVG DAM" && key != "COST") {
@@ -363,9 +363,11 @@ class MothershipCharGenerator {
         this.loadout += `   - ${this.rollDie(4) - 1} spare mags\``
         this.loudout += `   - ${ ['machete', 'scalpel', 'crowbar'][this.rollDie(3) - 1] }\``;
         this.loadout += `   - ${['flare gun', 'Binoculars', 'Flashlight'][this.rollDie(3) - 1]}\``;
-        this.loadout += `   - ${['Automed (2)', 'Pain pills (2)', 'Random Drug (2)'][this.rollDie(3) - 1]}\``;
+        var drug = chance.pickone(drugs);
+        this.loadout += `   - ${chance.pickone(['Automed (2)', 'Pain pills (2)'])}\``;
+        this.loadout += `   - ${drug["DRUG"]} (2)\``;
         this.loadout += "   - stimpak (1)\`";
-        this.loadout += `   - ${['standard clothing', 'Type 1 steel vest random style', 'tactical clothing'][this.rollDie(3) - 1]}\``;
+        this.loadout += `   - ${chance.pickone(['standard clothing', `Type 1 vest [steel] (${chance.pickone(['Military', 'Covert', 'Flak', 'Lightweight Construction', 'Auxillary Panels'])})`, 'tactical clothing'])}\``;
 
         this.patch = this.patches[this.rollDie(100)];
         this.nightmare = this.nightmares[this.rollDie(100)];
@@ -375,14 +377,18 @@ class MothershipCharGenerator {
         this.loadout += `   - trinket: ${this.trinket} (1)\``;
         this.health = this.rollDie(6)
         this.health += Number(this.stats.Constitution.bonus);
+        this.health = Math.max(1, this.health);
 
+        this.saves.physical = 15 - Math.max(this.stats.Strength.bonus, this.stats.Constitution.bonus),
+        this.saves.mental = 15 - Math.max(this.stats.Wisdom.bonus, this.stats.Charisma.bonus),
+        this.saves.evasion = 15 - Math.max(this.stats.Dexterity.bonus, this.stats.Intelligence.bonus),
         this.output = "\`// HEILIKON PERSONNEL RECORD\`";
 
         this.output += `   - ${chance.name({ middle: 'true', prefix: 'true' })}\``;
         this.output += `   - ${chance.profession()}\``;
         this.output += `// Stat profile\``;
         for (var key in this.stats){
-            this.output += `   - ${key.padEnd(16, ' ')}:    ${String(this.stats[key].score).padEnd(2, ' ')} ${this.stats[key].bonus}\``;
+            this.output += `   - ${key.padEnd(16, ' ')}:    ${String(this.stats[key].score).padStart(2, ' ')} ${this.stats[key].bonus}\``;
         }
         this.output += `// Skillset\``;
         for (var i = 0; i < this.currentSkills.length; i++){
@@ -391,10 +397,16 @@ class MothershipCharGenerator {
         this.output += `// Loadout\``;
         this.output += `${this.loadout}`;
         this.output += `// Medical history\``;
-        this.output += `   - ${'HP'.padEnd(16, ' ')}:    ${String(this.health).padEnd(2, ' ')}\``;
+        this.output += `   - ${'HP'.padEnd(16, ' ')}:    ${String(this.health).padStart(2, ' ')}\``;
+        this.output += `   - ${'Saves'}\``;
+        this.output += `      - ${'Physical'.padEnd(13, ' ')}:    ${String(this.saves.physical).padStart(2, ' ')}\``;
+        this.output += `      - ${'Mental'.padEnd(13, ' ')}:    ${String(this.saves.mental).padStart(2, ' ')}\``;
+        this.output += `      - ${'Evasion'.padEnd(13, ' ')}:    ${String(this.saves.evasion).padStart(2, ' ')}\``;
         this.output += `// Appearance\``
         this.output += `   @2`
         this.output += `// Psychology\``;
+        this.output += `// Favourite quote\``;
+        this.output += `   - ${chance.pickone(quotes)}\``;
         this.output += `// Most recent nightmare\``;
         this.output += `   ${this.nightmare}\``;
         this.output += `// Personality profile\``
@@ -413,14 +425,6 @@ class MothershipCharGenerator {
         if (sides === 0) return 0;
         let value = Math.floor((Math.random() * sides) + 1);
         return value;
-    }
-
-    shuffle(a) {
-        for (let i = a.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
-        }
-        return a;
     }
 
     getTrinket() {
