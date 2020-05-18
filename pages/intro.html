@@ -7,6 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/terminal.css">
         <script src="../js/vendor/jquery.js"></script>
+        <script src="../js/MothershipCharGenerator.js"></script>
+        <script type="text/javascript" src="../json/weapons.json"></script>
+        <script src="../js/vendor/chance.js"></script>
+
     </head>
 
     <body id='body'>
@@ -32,38 +36,6 @@
         <div id="glow" class="glow noclick"></div>
         <div id="noisy" class="noisy noclick"></div>
         <div id="scanline" class="scanlines noclick"></div>
-
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
-
-        <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDXisJDCGBWCMk58n0CC3upa0xAyXeiknM",
-            authDomain: "terminal-b1033.firebaseapp.com",
-            databaseURL: "https://terminal-b1033.firebaseio.com",
-            projectId: "terminal-b1033",
-            storageBucket: "terminal-b1033.appspot.com",
-            messagingSenderId: "705305494904",
-            appId: "1:705305494904:web:1ac9f9db1472cb82a2748d",
-            measurementId: "G-5Q9MSLZETV"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-
-        var ref = firebase.database().ref('/characters/name').once('value').then(function(snapshot) {
-            console.log(snapshot.val());
-        });
-
-        </script>
-
         <script>
             text = 'Loading HEILIKON_OS.SYS . . .`Starting H_OS . . .`	testing extended memory . . . done.`	testing Hard Disk Drive(s) . . . done.`	testing Diskette Drive(s) . . . done.`CP/M-77 for the HDC 402, Vers. 1.1.8a (Patched)`Copyright © 2122, Heilikon`'
             soFar = "";
@@ -98,7 +70,10 @@
                         soFar += '<br><br><img class="noselect" src="../img/mosh10.gif"><br>';
                         text = text.substr(2);
                     } else if (text.substr(1, 1) == '2') {
-                        soFar += '<br><br><img class="noselect" src="../img/mosh9.gif"><br>';
+                        var d = new Date();
+                        var n = d.getTime()
+                        soFar += `<img src="https://thispersondoesnotexist.com/image?${n}" style="max-width: 25%; mix-blend-mode: none;">`
+                        // soFar += '<br><br><img class="noselect" src="../img/mosh9.gif"><br>';
                         text = text.substr(2);
                     } else if (text.substr(1, 1) == '3') {
                         soFar += '<br><br><img class="noselect" src="../img/mosh8.gif"><br>';
@@ -112,9 +87,11 @@
                 // invisible.innerHTML = text;
 
                 if (text.length === 0) {
-                    soFar += '<a class="terminal-mode" onclick="intro()"; href="javascript:void(0);">\>INTRO</a><br>';
+                    soFar += '<br><a class="terminal-mode" onclick="intro()"; href="javascript:void(0);">\>INTRO</a><br>';
+                    soFar += '<a class="terminal-mode" href="images.html" target="_blank">\>IMAGES</a><br>';
                     soFar += '<a class="terminal-mode" onclick="transmission()"; href="javascript:void(0);">\>TRANSMISSION</a><br>';
                     soFar += '<a class="terminal-mode" onclick="char_creation()"; href="javascript:void(0);">\>CHARACTER CREATION</a><br>';
+                    soFar += '<a class="terminal-mode" onclick="new_char()"; href="javascript:void(0);">\>NEW CHARACTER</a><br>';
                     visible.innerHTML = soFar;
                     printing = false;
                     return 0;
@@ -128,6 +105,15 @@
                 setTimeout(addChar, speed);
                 audio_intro.play();
                 audio_noise.play();
+                const getMethods = (obj) => {
+                    let properties = new Set()
+                    let currentObj = obj
+                    do {
+                        Object.getOwnPropertyNames(currentObj).map(item => properties.add(item))
+                    } while ((currentObj = Object.getPrototypeOf(currentObj)))
+                    return [...properties.keys()].filter(item => typeof obj[item] === 'function')
+                }
+                console.log(getMethods(chance));
             }
 
             function playEntry() {
@@ -162,6 +148,13 @@
                 }
                 return 1;
             }
+
+            function new_char() {
+                var cg = new MothershipCharGenerator();
+                text = cg.output;
+                setTimeout(addChar, speed);
+                return 0;
+            }
             // this function does nothing
             function noop() {};
             function down(e) {
@@ -179,7 +172,6 @@
                         down();
                     }
                 });
-
                 document.addEventListener('keyup', up, false);
                 document.addEventListener('touchstart', down, false);
                 document.addEventListener('touchend', up, false);

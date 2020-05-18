@@ -1,2 +1,1 @@
-# basic
-basic fantasy rpg character sheet
+[page](verillious.github.io/basic)
