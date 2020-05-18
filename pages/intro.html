@@ -81,7 +81,7 @@
                     } else if (text.substr(1, 1) == '2') {
                         var d = new Date();
                         var n = d.getTime()
-                        soFar += `<img src="https://thispersondoesnotexist.com/image?${n}" style="max-width: 25%;">\n`
+                        soFar += `<img src="https://thispersondoesnotexist.com/image?${n}" style="max-width: 50%;" onclick="javascript:changeIMG(this)" >\n`
                         // soFar += '<br><br><img class="noselect" src="../img/mosh9.gif"><br>';
                         text = text.substr(2);
                     } else if (text.substr(1, 1) == '3') {
@@ -162,6 +162,12 @@
 
             function up(e) {
                 speed = 50;
+            }
+
+            function changeIMG(div){
+                var d = new Date();
+                var n = d.getTime()
+                $(div).attr("src", `https://thispersondoesnotexist.com/image?${n}`);
             }
 
             $(document).ready(function () {

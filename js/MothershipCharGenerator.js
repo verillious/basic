@@ -384,7 +384,7 @@ class MothershipCharGenerator {
         this.saves.evasion = 15 - Math.max(this.stats.Dexterity.bonus, this.stats.Intelligence.bonus),
         this.output = "\`// HEILIKON PERSONNEL RECORD\`";
 
-        this.output += `   - ${chance.name({ middle: 'true', prefix: 'true' })}\``;
+        this.output += `   - ${chance.name({ middle: 'true', prefix: 'true', gender: 'male' })}\``;
         this.output += `   - ${chance.profession()}\``;
         this.output += `// Stat profile\``;
         for (var key in this.stats){
@@ -402,6 +402,7 @@ class MothershipCharGenerator {
         this.output += `      - ${'Physical'.padEnd(13, ' ')}:    ${String(this.saves.physical).padStart(2, ' ')}\``;
         this.output += `      - ${'Mental'.padEnd(13, ' ')}:    ${String(this.saves.mental).padStart(2, ' ')}\``;
         this.output += `      - ${'Evasion'.padEnd(13, ' ')}:    ${String(this.saves.evasion).padStart(2, ' ')}\``;
+        this.output += `   - ${'Age'.padEnd(16, ' ')}:    ${String(chance.age({ type: 'adult'})).padStart(2, ' ')}\``;
         this.output += `// Appearance\``
         this.output += `   @2`
         this.output += `// Psychology\``;
