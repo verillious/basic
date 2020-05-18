@@ -12,6 +12,13 @@
         <script src="../js/vendor/chance.js"></script>
 
     </head>
+    <style>
+        img {
+            mix-blend-mode: normal;
+            border: 2px solid #14fdce;
+            margin: 5px;
+        }
+    </style>
 
     <body id='body'>
         <pre style="line-height: 0.8em; font-size: 1vw;" class="noselect">
@@ -72,7 +79,7 @@
                     } else if (text.substr(1, 1) == '2') {
                         var d = new Date();
                         var n = d.getTime()
-                        soFar += `<img src="https://thispersondoesnotexist.com/image?${n}" style="max-width: 25%; mix-blend-mode: none;">`
+                        soFar += `<img src="https://thispersondoesnotexist.com/image?${n}" style="max-width: 25%;">\n`
                         // soFar += '<br><br><img class="noselect" src="../img/mosh9.gif"><br>';
                         text = text.substr(2);
                     } else if (text.substr(1, 1) == '3') {
@@ -105,17 +112,7 @@
                 setTimeout(addChar, speed);
                 audio_intro.play();
                 audio_noise.play();
-                const getMethods = (obj) => {
-                    let properties = new Set()
-                    let currentObj = obj
-                    do {
-                        Object.getOwnPropertyNames(currentObj).map(item => properties.add(item))
-                    } while ((currentObj = Object.getPrototypeOf(currentObj)))
-                    return [...properties.keys()].filter(item => typeof obj[item] === 'function')
-                }
-                console.log(getMethods(chance));
             }
-
             function playEntry() {
                 audio_entry.currentTime = 0;
                 audio_entry.play();
