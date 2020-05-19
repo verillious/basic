@@ -346,7 +346,6 @@ class MothershipCharGenerator {
     }
 
     setStat(stat, value) {
-        console.log("setting "+stat+" to "+value)
         if (!(stat in this.stats)) return;
 
         if (value >= 3) {

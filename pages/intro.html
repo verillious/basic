@@ -50,7 +50,7 @@
         <div id="noisy" class="noisy noclick"></div>
         <div id="scanline" class="scanlines noclick"></div>
         <script>
-            var text = 'Loading HEILIKON_OS.SYS . . .`Starting H_OS . . .`	testing extended memory . . . done.`	testing Hard Disk Drive(s) . . . done.`	testing Diskette Drive(s) . . . done.`CP/M-77 for the HDC 402, Vers. 1.1.8a (Patched)`Copyright © 2122, Heilikon``Return/Click : Increase output speed`Space        : Skip to end of output`+/-          : adjust volume`'
+            var text = 'Loading HEILIKON_OS.SYS . . .`Starting H_OS . . .`	testing extended memory . . . done.`	testing Hard Disk Drive(s) . . . done.`	testing Diskette Drive(s) . . . done.`CP/M-77 for the HDC 402, Vers. 1.1.8a (Patched)`Copyright © 2122, Heilikon``Return/TAP : Increase output speed`Space/DOUBLE TAP        : Skip to end of output`+/-          : adjust volume`'
             var soFar = "";
             var printing = false;
             var speed = 50;
@@ -213,7 +213,7 @@
 
                 var now = new Date().getTime();
                 var timesince = now - mylatesttap;
-                if((timesince < 600) && (timesince > 0)){
+                if((timesince < 170) && (timesince > 0) && text.length > 0){
                     skip();
 
                 }else{
@@ -258,7 +258,7 @@
                 document.addEventListener('keyup', up, false);
                 document.addEventListener('touchstart', doubletap, false);
                 document.addEventListener('touchend', up, false);
-                document.addEventListener('mousedown', down, false);
+                document.addEventListener('mousedown', doubletap, false);
                 document.addEventListener('mouseup', up, false);
             });
         </script>
