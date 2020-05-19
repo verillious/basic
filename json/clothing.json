@@ -1,0 +1,226 @@
+clothing = {
+    "CLOTHING": [
+       {
+          "NAME": "STANDARD CLOTHING",
+          "AC": 12,
+          "COST": 300,
+          "ENC": 0
+       },
+       {
+          "NAME": "HEAVYWEIGHT CLOTHING",
+          "AC": 13,
+          "COST": 300,
+          "ENC": 1
+       },
+       {
+          "NAME": "TACTICAL CLOTHING",
+          "AC": 13,
+          "COST": 600,
+          "ENC": 0
+       }
+    ],
+    "ARMOUR": {
+        "PLATE": {
+           "RATING": [
+               {
+                  "NAME": "Type I",
+                  "AP": 6,
+                  "SPECIAL": "",
+                  "COST": 500,
+                  "ENC": 1,
+               },
+               {
+                  "NAME": "Type II",
+                  "AP": 8,
+                  "SPECIAL": "",
+                  "COST": 750,
+                  "ENC": 1,
+               },
+               {
+                  "NAME": "Type III",
+                  "AP": 10,
+                  "SPECIAL": "",
+                  "COST": 1000,
+                  "ENC": 1,
+               },
+               {
+                  "NAME": "Type IV",
+                  "AP": 12,
+                  "SPECIAL": "",
+                  "COST": 2000,
+                  "ENC": 2,
+               },
+               {
+                  "NAME": "Type V",
+                  "AP": 14,
+                  "SPECIAL": "",
+                  "COST": 3000,
+                  "ENC": 3,
+               }
+            ],
+            "MATERIAL": [
+                {
+                    "NAME": "Steel",
+                    "AP": 0,
+                    "SPECIAL": "",
+                    "COST": 0,
+                    "ENC": 1,
+                 },
+                 {
+                    "NAME": "Titanium",
+                    "AP": 1,
+                    "SPECIAL": "",
+                    "COST": 100,
+                    "ENC": 0,
+                 },
+                 {
+                    "NAME": "Ceramic",
+                    "AP": 0,
+                    "SPECIAL": "",
+                    "COST": 200,
+                    "ENC": -1,
+                 },
+                 {
+                    "NAME": "Plastic",
+                    "AP": -1,
+                    "SPECIAL": "",
+                    "COST": 100,
+                    "ENC": -2,
+                 },
+                 {
+                    "NAME": "Nanocomposite",
+                    "AP": 0,
+                    "SPECIAL": "-1 to ballistic damage taken",
+                    "COST": 2000,
+                    "ENC": -2,
+                 }
+            ]
+        },
+       "VEST": {
+           "STYLE" : [
+               {
+                  "NAME": "Military",
+                  "AP": 0,
+                  "SPECIAL": "3 mags, 2 grenades packed to 1 enc, still readied",
+                  "COST": 500,
+                  "ENC": "",
+               },
+               {
+                  "NAME": "Covert",
+                  "AP": 0,
+                  "SPECIAL": "Can be worn under clothing",
+                  "COST": 750,
+                  "ENC": 0,
+               },
+               {
+                  "NAME": "Flak",
+                  "AP": 2,
+                  "SPECIAL": "Half damage from explosives, non on succesful save",
+                  "COST": 1000,
+                  "ENC": 1,
+               },
+               {
+                  "NAME": "Lightweight Construction",
+                  "AP": -1,
+                  "SPECIAL": "",
+                  "COST": 2000,
+                  "ENC": -2,
+               },
+               {
+                  "NAME": "Auxillary Panels",
+                  "AP": 4,
+                  "SPECIAL": "",
+                  "COST": 250,
+                  "ENC": 2,
+               }
+            ],
+            "MATERIAL": [
+               {
+                   "NAME": "Kevlar Inserts",
+                   "AP": 0,
+                   "SPECIAL": "Take no melee shock damage",
+                   "COST": 100,
+                   "ENC": 0,
+                },
+                {
+                   "NAME": "MicroBiotic Sub Layer",
+                   "AP": 0,
+                   "SPECIAL": "Restores 1d6 AP after 1d10 hours if the vest has at least 1 AP",
+                   "COST": 1000,
+                   "ENC": 0,
+                },
+                {
+                   "NAME": "Stealth Coating",
+                   "AP": 0,
+                   "SPECIAL": "+1 to stealth checks that rely on sight",
+                   "COST": 100,
+                   "ENC": 0,
+                },
+                {
+                   "NAME": "Biofibre",
+                   "AP": 0,
+                   "SPECIAL": "-1 to melee damage taken",
+                   "COST": 100,
+                   "ENC": 0,
+                }
+           ]
+       }
+    },
+    "ACCESSORY": [
+       {
+          "NAME": "KNEEPADS",
+          "AC": 1,
+          "COST": 350,
+          "ENC": 0.5
+       },
+       {
+          "NAME": "ELBOWPADS",
+          "AC": 1,
+          "COST": 350,
+          "ENC": 0.5
+       },
+       {
+          "NAME": "HELMET",
+          "AC": 1,
+          "COST": 350,
+          "ENC": 0.5
+       },
+       {
+          "NAME": "SHIELD",
+          "AC": 1,
+          "COST": 100,
+          "ENC": 1
+       },
+       {
+          "NAME": "GLOVES",
+          "AC": 1,
+          "COST": 350,
+          "ENC": 0.5
+       },
+       {
+          "NAME": "TACTICAL HEADSET",
+          "SPECIAL": "+1 TO SKILLCHECKS RELIANT ON HEARING"
+       },
+       {
+          "NAME": "TACTICAL EYE PROTECTION",
+          "SPECIAL": "+1 TO SKILLCHECKS RELIANT ON SIGHT"
+       },
+       {
+          "NAME": "FACEMASK",
+       },
+       {
+          "NAME": "TACTICAL BELT",
+          "SPECIAL": "FILL IN"
+       },
+       {
+          "NAME": "TACTICAL POUCH",
+          "SPECIAL": "2 items packed to 1 enc, still readied"
+       },
+       {
+          "NAME": "HOLSTER",
+          "SPECIAL": "You can draw, holster or transition to a pistol type weapon as a free action"
+       }
+    ]
+ }
+
+

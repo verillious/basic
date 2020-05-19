@@ -334,6 +334,8 @@ class MothershipCharGenerator {
             },
             moods: chance.pickset(moods, 3),
             descriptions: chance.pickset(descriptions, 3),
+            stress: 2,
+            resolve: 0,
         };
         this.medical = {
             age: chance.age({ type: 'adult' }),
@@ -341,7 +343,17 @@ class MothershipCharGenerator {
             current: []
         }
         this.weapons = weapons.filter(weapon => weapon["COST"] <= 200 && weapon["COST"] >= 100);
+        this.attachments = attachments.filter(attachment => attachment["COST"] <= 400);
+        this.clothing = chance.pickone(clothing.CLOTHING);
+        this.vest = {
+            rating: chance.pickone(clothing.ARMOUR.PLATE.RATING.slice(0, 2)),
+            plate: chance.pickone(clothing.ARMOUR.PLATE.MATERIAL.slice(0, 2)),
+            style: chance.pickone(clothing.ARMOUR.VEST.STYLE.filter(style => style["COST"] <= 500)),
+            material: chance.pickone(clothing.ARMOUR.VEST.MATERIAL.filter(material => material["COST"] <= 500))
+        };
+        this.accessory = chance.pickone(clothing.ACCESSORY);
         this.weapon = chance.pickone(this.weapons);
+        this.attachment = chance.pickone(this.attachments);
         this.generate();
     }
 
@@ -374,9 +386,33 @@ class MothershipCharGenerator {
         this.loadout += `   - ${this.weapon["WEAPON"]}\``;
         for (var key in this.weapon) {
             if (key != "WEAPON" && key != "AVG DAM" && key != "COST") {
-                this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.weapon[key]).padEnd(2, ' ')} \``;
+                this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.weapon[key]).padStart(2, ' ')} \``;
             }
         }
+        this.loadout += `      - ATTACHMENTS\``;
+        this.loadout += `         - ${this.attachment.NAME.padEnd(13, ' ')}\`            - ${this.attachment.EFFECT}\``;
+        this.loadout += `   - ${this.clothing["NAME"]}\``;
+        for (var key in this.clothing) {
+            if (key != "COST" && key != "NAME") {
+                this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.clothing[key]).padStart(2, ' ')} \``;
+            }
+        }
+        this.loadout += `   - ${this.accessory["NAME"]}\``;
+        for (var key in this.accessory) {
+            if (key != "COST" && key != "NAME") {
+                this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.accessory[key]).padStart(2, ' ')} \``;
+            }
+        }
+        this.loadout += `   - ${this.vest.rating.NAME} ${this.vest.plate.NAME} VEST [${this.vest.style.NAME}, ${this.vest.material.NAME}]\``
+        this.loadout += `      - ${'AP'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.AP) + Number(this.vest.plate.AP) + Number(this.vest.style.AP) + Number(this.vest.material.AP))).padStart(2, ' ')}\``
+        this.loadout += `      - ${'ENC'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.ENC) + Number(this.vest.plate.ENC) + Number(this.vest.style.ENC) + Number(this.vest.material.ENC))).padStart(2, ' ')}\``
+
+        for (var key in this.vest) {
+            if (this.vest[key].SPECIAL != "") {
+                this.loadout += `      - ${this.vest[key].SPECIAL}\``;
+            }
+        }
+
         this.loadout += `   - ${this.rollDie(4) - 1} spare mags\``
         this.loudout += `   - ${ ['machete', 'scalpel', 'crowbar'][this.rollDie(3) - 1] }\``;
         this.loadout += `   - ${['flare gun', 'Binoculars', 'Flashlight'][this.rollDie(3) - 1]}\``;
@@ -384,7 +420,7 @@ class MothershipCharGenerator {
         this.loadout += `   - ${chance.pickone(['Automed (2)', 'Pain pills (2)'])}\``;
         this.loadout += `   - ${drug["DRUG"]} (2)\``;
         this.loadout += "   - stimpak (1)\`";
-        this.loadout += `   - ${chance.pickone(['standard clothing', `Type 1 vest [steel] (${chance.pickone(['Military', 'Covert', 'Flak', 'Lightweight Construction', 'Auxillary Panels'])})`, 'tactical clothing'])}\``;
+        // this.loadout += `   - ${chance.pickone([`standard clothing\`      - ${'AC : 12'.padEnd(13, ' ')}\`      - ${'ENC : 0'.padEnd(13, ' ')}`, `Type 1 vest [steel] (${chance.pickone(['Military', 'Covert', 'Flak', 'Lightweight Construction', 'Auxillary Panels'])})`, `tactical clothing\`      - ${'AC : 13'.padEnd(13, ' ')}\`      - ${'ENC : 0'.padEnd(13, ' ')}\``;
 
         this.patch = this.patches[this.rollDie(100)];
         this.nightmare = this.nightmares[this.rollDie(100)];
@@ -426,6 +462,8 @@ class MothershipCharGenerator {
         this.output += `${this.loadout}`;
         this.output += `// Medical history\``;
         this.output += `   - ${'HP'.padEnd(16, ' ')}:    ${String(this.health).padStart(2, ' ')}\``;
+        this.output += `   - ${'STRESS'.padEnd(16, ' ')}:    ${String(this.pyschology.stress).padStart(2, ' ')}\``;
+        this.output += `   - ${'RESOLVE'.padEnd(16, ' ')}:    ${String(this.pyschology.resolve).padStart(2, ' ')}\``;
         this.output += `   - ${'Saves'}\``;
         this.output += `      - ${'Physical'.padEnd(13, ' ')}:    ${String(this.saves.physical).padStart(2, ' ')}\``;
         this.output += `      - ${'Mental'.padEnd(13, ' ')}:    ${String(this.saves.mental).padStart(2, ' ')}\``;
@@ -443,7 +481,6 @@ class MothershipCharGenerator {
                     var condition = chance.pickone(disease.diseases);
                     this.output += `               - ${condition.code}: ${condition.name}\``;
                 }
-
             }
         } else {
             this.output += `      - NONE\``;

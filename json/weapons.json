@@ -2999,4 +2999,247 @@ weapons = [
       "RELOAD": "1 round",
       "SPECIAL": "N"
     }
-   ]
+   ];
+
+attachments = [
+        {
+          "NAME": "Monobayonet",
+          "EFFECT": "Adds a monoblade to the gun. The blade cannot be used with martial arts.",
+          "COST": 100,
+          "ENC": 1
+        },
+        {
+          "NAME": "Sling",
+          "EFFECT": "Weapon always readied",
+          "COST": 100,
+          "ENC": 0
+        },
+        {
+          "NAME": "Tripod",
+          "EFFECT": "2+ Attack Bonus after spending one round setting up",
+          "COST": 150,
+          "ENC": 1
+        },
+        {
+          "NAME": "Short Range Sight",
+          "EFFECT": "+1 attack bonus when not split second shooting",
+          "COST": 150,
+          "ENC": 0
+        },
+        {
+          "NAME": "Self-Destruct Button",
+          "EFFECT": "Can activate to detonate the weapon as a grenade",
+          "COST": 200,
+          "ENC": 1
+        },
+        {
+          "NAME": "Choke",
+          "EFFECT": "Increases range by 10/10",
+          "COST": 200,
+          "ENC": 1
+        },
+        {
+          "NAME": "Dual Round Feeders",
+          "EFFECT": "Doubled Magazine Size, +1 Round to reload",
+          "COST": 200,
+          "ENC": 0
+        },
+        {
+          "NAME": "Belt Feeder",
+          "EFFECT": "10x Magazine size, 3 to reload.",
+          "COST": 200,
+          "ENC": 3
+        },
+        {
+          "NAME": "Foregrip",
+          "EFFECT": "+1 attack bous when firing in close quarters",
+          "COST": 200,
+          "ENC": 0
+        },
+        {
+          "NAME": "Suppressor",
+          "EFFECT": "Reduces noise from firing",
+          "COST": 250,
+          "ENC": 1
+        },
+        {
+          "NAME": "Compact Design",
+          "EFFECT": "Can be folded into 1/4th size, allowing easier transport and concealment",
+          "COST": 300,
+          "ENC": 0
+        },
+        {
+          "NAME": "Magnetic Loader",
+          "EFFECT": "Once per combat, reloading is a free action",
+          "COST": 300,
+          "ENC": 1
+        },
+        {
+          "NAME": "Dual Magazine Ports",
+          "EFFECT": "Can hold 2 different clips (Same total ammo capacity), allowing the user to select which type of ammunition out of the 2 to fire",
+          "COST": 300,
+          "ENC": 1
+        },
+        {
+          "NAME": "Long-Range Scope",
+          "EFFECT": "Ignore Range penalties if you spend one round aiming",
+          "COST": 300,
+          "ENC": 1
+        },
+        {
+          "NAME": "Grenade Launcher",
+          "EFFECT": "Can fire grenades at 150/350 range. Uses Projectile or Gunnery and Dexterity",
+          "COST": 300,
+          "ENC": 1
+        },
+        {
+          "NAME": "Laser Sight",
+          "EFFECT": "+1 initiative when split second shooting, two modes: visible and IR (for night vision)",
+          "COST": 300,
+          "ENC": 0
+        },
+        {
+          "NAME": "Light",
+          "EFFECT": "Rail mounted flashlight",
+          "COST": 300,
+          "ENC": 0
+        },
+        {
+          "NAME": "QuickSwap Mags",
+          "EFFECT": "Halved Magazine Size, can use movement action to reload",
+          "COST": 350,
+          "ENC": 1
+        },
+        {
+          "NAME": "Cutter Protocol",
+          "EFFECT": "Can be activated to turn the weapon into a welding/cutting tool. Reduce range to melee, deal double damage.",
+          "COST": 400,
+          "ENC": 1
+        },
+        {
+          "NAME": "Thermal Sights",
+          "EFFECT": "Ignore Attack penalties from lack of direct vision. Double Attack penalties from glares and intense lights.",
+          "COST": 400,
+          "ENC": 1
+        },
+        {
+          "NAME": "Auto-Loader",
+          "EFFECT": "Reloads automatically without user attention at 2 times the normal reload rate",
+          "COST": 450,
+          "ENC": 0
+        },
+        {
+          "NAME": "Nanofiber Rope Hook",
+          "EFFECT": "Can fire a nanofiber rope hook instead of a normal attack. If the attack hits, the hook attaches to the target.",
+          "COST": 450,
+          "ENC": 1
+        },
+        {
+          "NAME": "Sub-Sonic Velocity Porter",
+          "EFFECT": "-4 to hit, but ignores Deflector Arrays",
+          "COST": 500,
+          "ENC": 1
+        },
+        {
+          "NAME": "Mounted Chaincutter",
+          "EFFECT": "Adds a melee-range 2d6 Chaincutter to the gun. The chaincutter cannot pierce Power Armor or Assault Suits. The cutter cannot be used with martial arts.",
+          "COST": 500,
+          "ENC": 1
+        },
+        {
+          "NAME": "Generator Adjustment",
+          "EFFECT": "Reduces noise from firing",
+          "COST": 500,
+          "ENC": 0
+        },
+        {
+          "NAME": "Mercy Protocol",
+          "EFFECT": "All damage is nonlethal. Weapon cannot fire burst or full auto.",
+          "COST": 500,
+          "ENC": 1
+        },
+        {
+          "NAME": "Point Defense Protocol",
+          "EFFECT": "Can fire at incoming missiles, rockets or grenades with a prepared action. Firing at AC 6 against non-guided projectiles (Rockets, grenades) and AC 4 against guided projectiles (Missiles)",
+          "COST": 500,
+          "ENC": 1
+        },
+        {
+          "NAME": "Optic Compensator",
+          "EFFECT": "1+ Attack Bonus",
+          "COST": 500,
+          "ENC": 0
+        },
+        {
+          "NAME": "Biomonitor",
+          "EFFECT": "Measures vitals of one enemy",
+          "COST": 500,
+          "ENC": 1
+        },
+        {
+          "NAME": "Laser Flare Launcher",
+          "EFFECT": "Can fire laser flares* at 200/450 range. Uses Energy or Gunnery and Dexterity. Fire against AC 9",
+          "COST": 500,
+          "ENC": 1
+        },
+        {
+          "NAME": "Wavelength Elongator",
+          "EFFECT": "Ignore partial cover",
+          "COST": 600,
+          "ENC": 1
+        },
+        {
+          "NAME": "ArmorPen Analyzer",
+          "EFFECT": "Increase the AC of Power Armor and Assault Suits by +2",
+          "COST": 600,
+          "ENC": 1
+        },
+        {
+          "NAME": "Capacitor Discharge",
+          "EFFECT": "Activate to detonate an electrical pulse around the weapon (Functions as a grenade, replace luck save with tech save) at the end of the user's round. Weapon becomes non-functional until repair.",
+          "COST": 600,
+          "ENC": 0
+        },
+        {
+          "NAME": "Suitcutter Integration",
+          "EFFECT": "A character with 10 or fewer hit points that is hit by this weapon has a 50% chance of suffering a suit tear.",
+          "COST": 700,
+          "ENC": 1
+        },
+        {
+          "NAME": "Frequency Calibrator",
+          "EFFECT": "Increase total damage by 50%, halved magazine size",
+          "COST": 700,
+          "ENC": 1
+        },
+        {
+          "NAME": "Alloyed Construction",
+          "EFFECT": "2+ to rolls to avoid scanner detection. Cannot be added after the purchase of the gun.",
+          "COST": 750,
+          "ENC": 1
+        },
+        {
+          "NAME": "Plasma Bomb Launcher",
+          "EFFECT": "Can fire plasma bombs* at 25/50 range. Uses Energy or Gunnery and Dexterity. Fire against AC 9.",
+          "COST": 750,
+          "ENC": 1
+        },
+        {
+          "NAME": "Overclock Protocol",
+          "EFFECT": "Double damage and attack bonus (Including Burst/Full Auto) for one turn. Empties a full clip and requires an extra turn to reload afterwards.",
+          "COST": 1000,
+          "ENC": 1
+        },
+        {
+          "NAME": "Suitburner Module",
+          "EFFECT": "A character with 15 or fewer hit points that is hit by this weapon always suffers a suit tear.",
+          "COST": 1200,
+          "ENC": 2
+        },
+        {
+          "NAME": "Drive Phaser",
+          "EFFECT": "Ignore full cover",
+          "COST": 2500,
+          "ENC": 1
+        }
+]
