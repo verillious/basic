@@ -396,7 +396,6 @@ class MothershipCharGenerator {
         this.health += Number(this.stats.Constitution.bonus);
         this.health = Math.max(1, this.health);
 
-        // chance.pickset(icd.chapters, chance.d4()-1)
         for (var i = 0; i < Math.floor(this.medical.age / 10); i++) {
             if (chance.d100() > 50) {
                 this.medical.past.push(chance.pickone(icd.chapters))
