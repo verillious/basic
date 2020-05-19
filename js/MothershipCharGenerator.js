@@ -306,6 +306,7 @@ class MothershipCharGenerator {
             `"Volunteer"`,
             `"Solve Et Coagula" (Baphomet)`,
         ];
+        this.name = chance.name({ middle: 'true', prefix: 'true', gender: 'male' });
         this.stats = {
             Strength: {score: 10, bonus: 0},
             Dexterity: {score: 10, bonus: 0},
@@ -324,24 +325,40 @@ class MothershipCharGenerator {
         this.skills = ['Exertion', 'Interaction', 'Academics', 'Engineering', 'Combat', 'Vehicles', 'Survival'];
         this.loadout = "";
         this.pyschology = {
-            Openness: ['LOW`      - Appreciates routine, practicality, established ideas.`      - Uninterested in abstractions, imagination or fantasy.`      - Gains fulfillment through perseverance.`      - Potentially characterized as pragmatic and data-driven.`      - Sometimes dogmatic and closed-minded.', 'HIGH`      - Appreciates art, emotion, adventure, unusual ideas.`      - High desire for imagination, curiosity, and variety of experience.`      - Intellectually curious.`      - Willing to try new things.`      - Likely to hold unconventional beliefs.`      - Potentially unpredictable and lacking focus.`      - Likely to engage in risky behavior or drug-taking.`      - Seeks self-actualization by seeking out intense, euphoric experiences.'][this.rollDie(2)-1],
-            Conscientiousness: ['LOW`      - Flexibile and spontaneous.`      - Easy-going, relaxed.`      - Likely to act on personal impulses.`      - Preference for improvisation over planned behaviour.`      - May be described as sloppy or unreliable.`      - Potentially erratic.', 'HIGH`      - Self-disciplined, dutiful.`      - Strives for achievement against measures or outside expectations.`      - Likely to control, regulate, and direct personal impulses.`      - Potentially perceived as stubborn and/or focused.`      - Preference for planned rather than spontaneous behavior.'][this.rollDie(2)-1],
-            Extroversion: ['LOW`      - Low social engagement and energy levels.`      - Described as quiet, low-key, deliberate, and less involved in the social world.`      - Lack of social involvement should not be confused with shyness or depression.`      - Independent of social world.`      - Needs minimal stimulation but requires time alone.`      - Reserved in social situations.', 'HIGH`      - Emotionally reactive to external activity/situations.`      - Pronounced engagement with the external world.`      - Enjoys interacting with people.`      - Perceived as full of energy.`      - Tends to be enthusiastic and action-oriented.`      - High group visibility.`      - Dominant in social settings.`      - Likes to talk, and assert themselves.'][this.rollDie(2)-1],
-            Agreeableness: ['LOW`      - Places self-interest above getting along with others.`      - Generally unconcerned with others\' well-being, and unlikely to extend themselves for other people.`      - Skepticism about others\' motives causes suspicion, unfriendliness, and uncooperativeness.`      - Often competitive and/or challenging.`      - Potentially seen as argumentative or untrustworthy.', 'HIGH`      - Values getting along with others.`      - Generally considerate, kind, generous, trusting and trustworthy.`      - Seen as helpful, and willing to compromise their interests for others.`      - Has an optimistic view of human nature.'][this.rollDie(2)-1],
-            Neuroticism: ['LOW`      - Hard to upset, low emotional reactivity.`      - Tends to be calm, emotionally stable, and free from persistent negative feelings.`      - Tends not to experience emotions in extreme highs and extreme lows.`      - Described as calm, level-headed, and optimistic.`      - Able to think clearly under stress.`      - Often sought out for guidance.', 'HIGH`      - Tends to experience negative emotions, such as anxiety, worry, fear, anger, frustration, envy, jealousy, guilt and loneliness.`      - Emotionally unstable, reactive and vulnerable to stress.`      - Flippant in the way they express emotion.`      - Likely to interpret ordinary situations as threatening, and minor frustrations as hopelessly difficult.`      - Often in a bad mood.`      - Potential problems with thinking clearly, making decisions, and coping effectively with stress.'][this.rollDie(2)-1],
+            big_five: {
+                Openness: ['LOW`      - Appreciates routine, practicality, established ideas.`      - Uninterested in abstractions, imagination or fantasy.`      - Gains fulfillment through perseverance.`      - Potentially characterized as pragmatic and data-driven.`      - Sometimes dogmatic and closed-minded.', 'HIGH`      - Appreciates art, emotion, adventure, unusual ideas.`      - High desire for imagination, curiosity, and variety of experience.`      - Intellectually curious.`      - Willing to try new things.`      - Likely to hold unconventional beliefs.`      - Potentially unpredictable and lacking focus.`      - Likely to engage in risky behavior or drug-taking.`      - Seeks self-actualization by seeking out intense, euphoric experiences.'][this.rollDie(2)-1],
+                Conscientiousness: ['LOW`      - Flexibile and spontaneous.`      - Easy-going, relaxed.`      - Likely to act on personal impulses.`      - Preference for improvisation over planned behaviour.`      - May be described as sloppy or unreliable.`      - Potentially erratic.', 'HIGH`      - Self-disciplined, dutiful.`      - Strives for achievement against measures or outside expectations.`      - Likely to control, regulate, and direct personal impulses.`      - Potentially perceived as stubborn and/or focused.`      - Preference for planned rather than spontaneous behavior.'][this.rollDie(2)-1],
+                Extroversion: ['LOW`      - Low social engagement and energy levels.`      - Described as quiet, low-key, deliberate, and less involved in the social world.`      - Lack of social involvement should not be confused with shyness or depression.`      - Independent of social world.`      - Needs minimal stimulation but requires time alone.`      - Reserved in social situations.', 'HIGH`      - Emotionally reactive to external activity/situations.`      - Pronounced engagement with the external world.`      - Enjoys interacting with people.`      - Perceived as full of energy.`      - Tends to be enthusiastic and action-oriented.`      - High group visibility.`      - Dominant in social settings.`      - Likes to talk, and assert themselves.'][this.rollDie(2)-1],
+                Agreeableness: ['LOW`      - Places self-interest above getting along with others.`      - Generally unconcerned with others\' well-being, and unlikely to extend themselves for other people.`      - Skepticism about others\' motives causes suspicion, unfriendliness, and uncooperativeness.`      - Often competitive and/or challenging.`      - Potentially seen as argumentative or untrustworthy.', 'HIGH`      - Values getting along with others.`      - Generally considerate, kind, generous, trusting and trustworthy.`      - Seen as helpful, and willing to compromise their interests for others.`      - Has an optimistic view of human nature.'][this.rollDie(2)-1],
+                Neuroticism: ['LOW`      - Hard to upset, low emotional reactivity.`      - Tends to be calm, emotionally stable, and free from persistent negative feelings.`      - Tends not to experience emotions in extreme highs and extreme lows.`      - Described as calm, level-headed, and optimistic.`      - Able to think clearly under stress.`      - Often sought out for guidance.', 'HIGH`      - Tends to experience negative emotions, such as anxiety, worry, fear, anger, frustration, envy, jealousy, guilt and loneliness.`      - Emotionally unstable, reactive and vulnerable to stress.`      - Flippant in the way they express emotion.`      - Likely to interpret ordinary situations as threatening, and minor frustrations as hopelessly difficult.`      - Often in a bad mood.`      - Potential problems with thinking clearly, making decisions, and coping effectively with stress.'][this.rollDie(2)-1],
+            },
+            moods: chance.pickset(moods, 3),
+            descriptions: chance.pickset(descriptions, 3),
         };
+        this.medical = {
+            age: chance.age({ type: 'adult' }),
+            past: [],
+            current: []
+        }
         this.weapons = weapons.filter(weapon => weapon["COST"] <= 200 && weapon["COST"] >= 100);
         this.weapon = chance.pickone(this.weapons);
         this.generate();
     }
 
     setStat(stat, value) {
+        console.log("setting "+stat+" to "+value)
         if (!(stat in this.stats)) return;
 
-        if (value >= 3 && value <= 18) {
-            this.stats[stat].score = value;
+        if (value >= 3) {
+            {
+                if (value <= 18) {
+                    this.stats[stat].score = value;
+                } else {
+                    this.stats[stat].score = 18;
+                }
+            }
         } else {
-            this.stats[stat].score = 0;
+            this.stats[stat].score = 3;
         }
         this.stats[stat].bonus = this.statBonuses[value];
     }
@@ -354,6 +371,7 @@ class MothershipCharGenerator {
         this.setStat("Wisdom", this.rollStat());
         this.setStat("Charisma", this.rollStat());
         this.currentSkills = chance.pickset(this.skills, 2);
+        this.currentSkills.push('UNSPECIFIED SPECIALISATION');
         this.loadout += `   - ${this.weapon["WEAPON"]}\``;
         for (var key in this.weapon) {
             if (key != "WEAPON" && key != "AVG DAM" && key != "COST") {
@@ -379,12 +397,24 @@ class MothershipCharGenerator {
         this.health += Number(this.stats.Constitution.bonus);
         this.health = Math.max(1, this.health);
 
-        this.saves.physical = 15 - Math.max(this.stats.Strength.bonus, this.stats.Constitution.bonus),
-        this.saves.mental = 15 - Math.max(this.stats.Wisdom.bonus, this.stats.Charisma.bonus),
-        this.saves.evasion = 15 - Math.max(this.stats.Dexterity.bonus, this.stats.Intelligence.bonus),
+        // chance.pickset(icd.chapters, chance.d4()-1)
+        for (var i = 0; i < Math.floor(this.medical.age / 10); i++) {
+            if (chance.d100() > 50) {
+                this.medical.past.push(chance.pickone(icd.chapters))
+            };
+        };
+        for (var i = 0; i < Math.floor(this.medical.age / 10); i++) {
+            if (chance.d100() > 80) {
+                this.medical.current.push(chance.pickone(icd.chapters))
+            };
+        };
+
+        this.saves.physical = 15 - Math.max(this.stats.Strength.bonus, this.stats.Constitution.bonus);
+        this.saves.mental = 15 - Math.max(this.stats.Wisdom.bonus, this.stats.Charisma.bonus);
+        this.saves.evasion = 15 - Math.max(this.stats.Dexterity.bonus, this.stats.Intelligence.bonus);
         this.output = "\`// HEILIKON PERSONNEL RECORD\`";
 
-        this.output += `   - ${chance.name({ middle: 'true', prefix: 'true', gender: 'male' })}\``;
+        this.output += `   - ${this.name}\``;
         this.output += `   - ${chance.profession()}\``;
         this.output += `// Stat profile\``;
         for (var key in this.stats){
@@ -402,7 +432,43 @@ class MothershipCharGenerator {
         this.output += `      - ${'Physical'.padEnd(13, ' ')}:    ${String(this.saves.physical).padStart(2, ' ')}\``;
         this.output += `      - ${'Mental'.padEnd(13, ' ')}:    ${String(this.saves.mental).padStart(2, ' ')}\``;
         this.output += `      - ${'Evasion'.padEnd(13, ' ')}:    ${String(this.saves.evasion).padStart(2, ' ')}\``;
-        this.output += `   - ${'Age'.padEnd(16, ' ')}:    ${String(chance.age({ type: 'adult'})).padStart(2, ' ')}\``;
+        this.output += `   - ${'Age'.padEnd(16, ' ')}:    ${String(this.medical.age).padStart(2, ' ')}\``;
+        this.output += `   - Past Conditions\``;
+        if (this.medical.past.length > 0) {
+            for (var i = 0; i < this.medical.past.length; i++){
+                this.output += `      - ${this.medical.past[i].name}\``;
+                var block = chance.pickone(this.medical.past[i].blocks)
+                var disease = chance.pickone(block.diseases)
+                this.output += `         - ${block.name}\``;
+                this.output += `            - ${disease.code}: ${disease.name} \``;
+                if (disease.diseases != undefined && disease.diseases.length != 0) {
+                    var condition = chance.pickone(disease.diseases);
+                    this.output += `               - ${condition.code}: ${condition.name}\``;
+                }
+
+            }
+        } else {
+            this.output += `      - NONE\``;
+        }
+
+        this.output += `   - Current Conditions\``;
+        if (this.medical.current.length > 0) {
+            for (var i = 0; i < this.medical.current.length; i++){
+                this.output += `      - ${this.medical.current[i].name}\``;
+                var block = chance.pickone(this.medical.current[i].blocks)
+                var disease = chance.pickone(block.diseases)
+                this.output += `         - ${block.name}\``;
+                this.output += `            - ${disease.code}: ${disease.name} \``;
+                if (disease.diseases != undefined && disease.diseases.length != 0) {
+                    var condition = chance.pickone(disease.diseases);
+                    this.output += `               - ${condition.code}: ${condition.name}\``;
+                }
+
+            }
+        } else {
+            this.output += `      - NONE\``;
+        }
+
         this.output += `// Appearance\``
         this.output += `   @2`
         this.output += `// Psychology\``;
@@ -411,8 +477,16 @@ class MothershipCharGenerator {
         this.output += `// Most recent nightmare\``;
         this.output += `   ${this.nightmare}\``;
         this.output += `// Personality profile\``
-        for (var key in this.pyschology){
-            this.output += `   - ${key}: ${this.pyschology[key]}\``;
+        this.output += `   - recent moods\``
+        for (var i = 0; i < this.pyschology.moods.length; i++){
+            this.output += `      - ${this.pyschology.moods[i]}\``;
+        }
+        this.output += `   - descriptions\``
+        for (var i = 0; i < this.pyschology.descriptions.length; i++){
+            this.output += `      - ${this.pyschology.descriptions[i]}\``;
+        }
+        for (var key in this.pyschology.big_five){
+            this.output += `   - ${key}: ${this.pyschology.big_five[key]}\``;
         }
         this.output += ``
 

@@ -7,10 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/terminal.css">
         <script src="../js/vendor/jquery.js"></script>
+        <script src="../js/vendor/FileSaver.min.js"></script>
         <script src="../js/MothershipCharGenerator.js"></script>
         <script type="text/javascript" src="../json/weapons.json"></script>
         <script type="text/javascript" src="../json/drugs.json"></script>
         <script type="text/javascript" src="../json/quotes.json"></script>
+        <script type="text/javascript" src="../json/icd.json"></script>
+        <script type="text/javascript" src="../json/moods.json"></script>
+        <script type="text/javascript" src="../json/descriptions.json"></script>
         <script src="../js/vendor/chance.js"></script>
 
     </head>
@@ -41,26 +45,27 @@
         <a class="terminal-mode noselect" onclick="playIntro()" href="javascript:void(0);">>PRESS ENTER TO CONTINUE . . .</a>
         <p id='text'></p>
         <p class='visible noselect' style="line-height: 2rem;"></p>
-        <p class='invisible noselect'><br><br><br><br><br><br><br><br><br><br></p>
+        <p class="invisible noselect"><br><br><br><br><br><br><br><br><br><br></p>
         <div id="glow" class="glow noclick"></div>
         <div id="noisy" class="noisy noclick"></div>
         <div id="scanline" class="scanlines noclick"></div>
         <script>
-            text = 'Loading HEILIKON_OS.SYS . . .`Starting H_OS . . .`	testing extended memory . . . done.`	testing Hard Disk Drive(s) . . . done.`	testing Diskette Drive(s) . . . done.`CP/M-77 for the HDC 402, Vers. 1.1.8a (Patched)`Copyright © 2122, Heilikon`'
-            soFar = "";
-            printing = false;
-            speed = 50;
+            var text = 'Loading HEILIKON_OS.SYS . . .`Starting H_OS . . .`	testing extended memory . . . done.`	testing Hard Disk Drive(s) . . . done.`	testing Diskette Drive(s) . . . done.`CP/M-77 for the HDC 402, Vers. 1.1.8a (Patched)`Copyright © 2122, Heilikon``Return/Click : Increase output speed`Space        : Skip to end of output`+/-          : adjust volume`'
+            var soFar = "";
+            var printing = false;
+            var speed = 50;
+            var volume = 0.5;
+            var cg = new MothershipCharGenerator();
+            var mylatesttap = new Date().getTime();
 
-            var visible = document.querySelector(".visible"),
-            invisible = document.querySelector(".invisible");
+            var visible = document.querySelector(".visible");
 
-            // invisible.innerHTML = text;
             var audio_intro = new Audio('../audio/intro.mp3');
             var audio_entry = new Audio('../audio/entry.m4a');
             var audio_noise = new Audio('../audio/console.m4a');
-
+            changeVolume(volume);
             audio_noise.loop = true;
-            audio_noise.volume = 0.5;
+
 
             var addChar = function() {
                 if (text.substr(0, 1) == '`') {
@@ -85,7 +90,7 @@
                         // soFar += '<br><br><img class="noselect" src="../img/mosh9.gif"><br>';
                         text = text.substr(2);
                     } else if (text.substr(1, 1) == '3') {
-                        soFar += '<br><br><img class="noselect" src="../img/mosh8.gif"><br>';
+                        soFar += '<a class="terminal-mode" onclick="dl_txt()" target="_blank">\>DOWNLOAD</a><br>';
                         text = text.substr(2);
                     }
                 } else {
@@ -93,7 +98,6 @@
                     soFar += text.substr(0, 1), text = text.substr(1);
                 }
                 visible.innerHTML = soFar;
-                // invisible.innerHTML = text;
 
                 if (text.length === 0) {
                     soFar += '<br><a class="terminal-mode" onclick="intro()"; href="javascript:void(0);">\>INTRO</a><br>';
@@ -115,9 +119,18 @@
                 audio_intro.play();
                 audio_noise.play();
             }
+
             function playEntry() {
                 audio_entry.currentTime = 0;
                 audio_entry.play();
+            }
+
+            function changeVolume(value) {
+                volume = parseFloat(Math.max(0, Math.min(1, value)));
+                console.log(volume);
+                audio_intro.volume = parseFloat(1.0 * volume);
+                audio_entry.volume = parseFloat(1.0 * volume);
+                audio_noise.volume = parseFloat(0.5 * volume);
             }
 
             function transmission() {
@@ -149,11 +162,67 @@
             }
 
             function new_char() {
-                var cg = new MothershipCharGenerator();
-                text = cg.output;
+                cg = new MothershipCharGenerator();
+                text = cg.output+'@3';
                 setTimeout(addChar, speed);
                 return 0;
             }
+
+            // Function to download data to a file
+            function download(data, filename, type) {
+                var file = new Blob([data], {type: type});
+                if (window.navigator.msSaveOrOpenBlob) // IE10+
+                    window.navigator.msSaveOrOpenBlob(file, filename);
+                else { // Others
+                    var a = document.createElement("a"),
+                            url = URL.createObjectURL(file);
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    setTimeout(function() {
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+                    }, 0);
+                }
+            }
+
+            function dl_txt() {
+                download(cg.output.replace(/`/g, '\n').replace('@2', '').replace('@3', '').toUpperCase(), cg.name.replace(/ /g, '_').replace('.', '').toUpperCase(), "text/plain;charset=utf-8")
+            }
+
+            function skip() {
+                var d = new Date();
+                var n = d.getTime()
+                var add = text;
+                add = add.replace(/`/g, '<br>');
+                add = add.replace('@1', '<br><br><img class="noselect" src="../img/mosh10.gif"><br>');
+                add = add.replace('@2', `<img src="https://thispersondoesnotexist.com/image?${n}" style="max-width: 50%;" onclick="javascript:changeIMG(this)" >\n`);
+                add = add.replace('@3', '<a class="terminal-mode" onclick="dl_txt()" target="_blank">\>DOWNLOAD</a><br>');
+                document.documentElement.scrollTo({
+                    left: 0,
+                    top: document.documentElement.scrollHeight - document.documentElement.clientHeight,
+                    behavior: 'auto'
+                })
+                text = '';
+                soFar += add;
+                visible.innerHTML = soFar;
+            }
+
+            function doubletap() {
+
+                var now = new Date().getTime();
+                var timesince = now - mylatesttap;
+                if((timesince < 600) && (timesince > 0)){
+                    skip();
+
+                }else{
+                    down();
+                }
+                mylatesttap = new Date().getTime();
+            }
+
+
             // this function does nothing
             function noop() {};
             function down(e) {
@@ -166,8 +235,9 @@
 
             function changeIMG(div){
                 var d = new Date();
-                var n = d.getTime()
+                var n = d.getTime();
                 $(div).attr("src", `https://thispersondoesnotexist.com/image?${n}`);
+                soFar = visible.innerHTML;
             }
 
             $(document).ready(function () {
@@ -175,10 +245,18 @@
                     if (evt.keyCode === 13) {
                         playIntro();
                         down();
+                    } else if (evt.keyCode === 187) {
+                        playEntry();
+                        changeVolume(volume+0.05);
+                    } else if (evt.keyCode === 189) {
+                        playEntry();
+                        changeVolume(volume-0.05);
+                    } else if (evt.keyCode === 32){
+                        skip();
                     }
                 });
                 document.addEventListener('keyup', up, false);
-                document.addEventListener('touchstart', down, false);
+                document.addEventListener('touchstart', doubletap, false);
                 document.addEventListener('touchend', up, false);
                 document.addEventListener('mousedown', down, false);
                 document.addEventListener('mouseup', up, false);
