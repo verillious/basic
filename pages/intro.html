@@ -50,6 +50,7 @@
             var printing = false;
             var speed = 50;
             var volume = 0.5;
+            var characters = [];
             var cg = new MothershipCharGenerator();
             var mylatesttap = new Date().getTime();
 
@@ -85,7 +86,7 @@
                         // soFar += '<br><br><img class="noselect" src="../img/mosh9.gif"><br>';
                         text = text.substr(2);
                     } else if (text.substr(1, 1) == '3') {
-                        soFar += '<a class="terminal-mode" onclick="dl_txt()" target="_blank">\>DOWNLOAD</a><br>';
+                        soFar += `<a class="terminal-mode" onclick="dl_txt(${characters.length - 1})" target="_blank">\>DOWNLOAD</a><br>`;
                         text = text.substr(2);
                     }
                 } else {
@@ -159,6 +160,7 @@
 
             function new_char() {
                 cg = new MothershipCharGenerator();
+                characters.push(cg)
                 text = cg.output+'@3';
                 navigator.clipboard.writeText(cg.output.replace(/`/g, '\n').replace('@2', '').replace('@3', '').toUpperCase());
                 setTimeout(addChar, speed);
@@ -184,8 +186,8 @@
                 }
             }
 
-            function dl_txt() {
-                download(cg.output.replace(/`/g, '\n').replace('@2', '').replace('@3', '').toUpperCase(), cg.name.replace(/ /g, '_').replace('.', '').toUpperCase(), "text/plain;charset=utf-8")
+            function dl_txt(i) {
+                download(characters[i].output.replace(/`/g, '\n').replace('@2', '').replace('@3', '').toUpperCase(), characters[i].name.replace(/ /g, '_').replace('.', '').toUpperCase(), "text/plain;charset=utf-8")
             }
 
             function skip() {
@@ -196,7 +198,7 @@
                 add = add.replace(/\^/g, '');
                 add = add.replace('@1', '<br><br><img class="noselect" src="../img/mosh10.gif"><br>');
                 add = add.replace('@2', `<img src="https://thispersondoesnotexist.com/image?${n}" style="max-width: 50%; mix-blend-mode: normal !important; border: 2px solid #14fdce; margin: 5px;" onclick="javascript:changeIMG(this)" >\n`);
-                add = add.replace('@3', '<a class="terminal-mode" onclick="dl_txt()" target="_blank">\>DOWNLOAD</a><br>');
+                add = add.replace('@3', `<a class="terminal-mode" onclick="dl_txt(${characters.length - 1})" target="_blank">\>DOWNLOAD</a><br>`);
                 document.documentElement.scrollTo({
                     left: 0,
                     top: document.documentElement.scrollHeight - document.documentElement.clientHeight,
