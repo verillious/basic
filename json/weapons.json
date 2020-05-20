@@ -16,7 +16,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -36,7 +36,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "Only rolls for breakage on a Heat-Based 19 or 20."
     },
     {
@@ -56,7 +56,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -76,7 +76,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -96,7 +96,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "SMG-sized."
     },
     {
@@ -116,7 +116,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -136,7 +136,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -156,7 +156,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -176,7 +176,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -196,7 +196,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "While embedded, can be set to turret mode, firing autonomously at -3 to hit."
     },
     {
@@ -216,7 +216,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -236,7 +236,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -256,7 +256,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -276,7 +276,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -296,7 +296,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -316,7 +316,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "-6 to hit without bedding it down."
     },
     {
@@ -336,7 +336,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -356,8 +356,8 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
-      "SPECIAL": "Suppressive Fire confers a -1 Attack Bonus for 1 round on each target hit by the attack."
+      "RELOAD": "1 ACTION",
+      "SPECIAL": "Suppressive Fire confers a -1 Attack Bonus for 1 ACTION on each target hit by the attack."
     },
     {
       "TYPE": "GUNNERY",
@@ -376,7 +376,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -396,7 +396,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "3 ",
+      "RELOAD": "3 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -416,7 +416,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Can be used as a cutting tool."
     },
     {
@@ -436,7 +436,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -456,7 +456,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Suppressive Fire deals full damage but consumes 4 ."
     },
     {
@@ -476,7 +476,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "First round of each magazine deals 2d12+2 damage."
     },
     {
@@ -496,7 +496,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -516,7 +516,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -536,7 +536,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "3+ to Tech Saves"
     },
     {
@@ -556,7 +556,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "1 Encumbrance = 3 Belts of Ammo"
     },
     {
@@ -576,7 +576,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "(Base Light Machine Gun)"
     },
     {
@@ -596,7 +596,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "All shots have incendiary ammo effect."
     },
     {
@@ -616,7 +616,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Operator can swap between normal, high-power (+4 damage, -2 AB) and precision (-4 damage, +2 AB) modes."
     },
     {
@@ -636,7 +636,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -676,7 +676,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "-2 to hit without bedding it down."
     },
     {
@@ -696,7 +696,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -716,7 +716,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -736,7 +736,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "All targets hit take 1d2 bleed damage per turn until they succeed at a physical effect save."
     },
     {
@@ -756,7 +756,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -776,7 +776,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "-10 to hit without bedding it down."
     },
     {
@@ -796,7 +796,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -816,7 +816,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -836,7 +836,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": ""
     },
     {
@@ -856,7 +856,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Uses Anti-Vehicle Rules."
     },
     {
@@ -876,7 +876,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -896,7 +896,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Each attack fires 5 missiles. Point-Defense lasers fire against AC 0 instead of AC 6."
     },
     {
@@ -916,7 +916,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -936,7 +936,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "Can make two attacks in a round, at -3 for each attack."
     },
     {
@@ -976,7 +976,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "-4 to hit human-sized targets."
     },
     {
@@ -996,7 +996,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": ""
     },
     {
@@ -1031,19 +1031,19 @@ weapons = [
       "COST": 500,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "5+",
-      "AUTO DAM": "5+",
-      "RELOAD": "1 round",
+      "AUTO AB": "5",
+      "AUTO DAM": "5",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "Corinthian Fakós-6",
-      "AB": "2+",
+      "AB": "2",
       "DAM": "2d6",
       "AVG DAM": 6,
       "RANGE": "40/75",
@@ -1056,14 +1056,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "Reiter Lawbringer",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d8+1",
       "AVG DAM": 9,
       "RANGE": "20/35",
@@ -1071,19 +1071,19 @@ weapons = [
       "COST": 450,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "HM Apogee-12",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d8",
       "AVG DAM": 8,
       "RANGE": "35/65",
@@ -1096,14 +1096,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "Polaris P-Spiker 10",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d6",
       "AVG DAM": 6,
       "RANGE": "25/50",
@@ -1116,7 +1116,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1136,7 +1136,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Built-In Alloyed Construction, Suppressor"
     },
     {
@@ -1156,7 +1156,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Counts as a gunnery weapon for Armor purposes."
     },
     {
@@ -1172,18 +1172,18 @@ weapons = [
       "ENC": 1,
       "BURST": "Y",
       "BURST AB": "0",
-      "BURST DAM": "3+",
+      "BURST DAM": "3",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "SEMI-AUTO",
       "WEAPON": "InterFabricants-29",
-      "AB": "2+",
+      "AB": "2",
       "DAM": "2d4",
       "AVG DAM": 4,
       "RANGE": "100/500",
@@ -1196,7 +1196,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1216,7 +1216,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1236,7 +1236,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Built-in compact design"
     },
     {
@@ -1252,11 +1252,11 @@ weapons = [
       "ENC": 1,
       "BURST": "Y",
       "BURST AB": "0",
-      "BURST DAM": "3+",
+      "BURST DAM": "3",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1272,11 +1272,11 @@ weapons = [
       "ENC": 1,
       "BURST": "Y",
       "BURST AB": "0",
-      "BURST DAM": "3+",
+      "BURST DAM": "3",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1292,11 +1292,11 @@ weapons = [
       "ENC": 1,
       "BURST": "Y",
       "BURST AB": "0",
-      "BURST DAM": "3+",
+      "BURST DAM": "3",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1316,14 +1316,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "PULSE",
       "WEAPON": "PEW HE-Cutter",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "1d6",
       "AVG DAM": 3,
       "RANGE": "75/150",
@@ -1331,19 +1331,19 @@ weapons = [
       "COST": 500,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "PULSE",
       "WEAPON": "Reiter Errant",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d4",
       "AVG DAM": 4,
       "RANGE": "90/150",
@@ -1352,18 +1352,18 @@ weapons = [
       "ENC": 1,
       "BURST": "Y",
       "BURST AB": "0",
-      "BURST DAM": "3+",
+      "BURST DAM": "3",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "PULSE",
       "WEAPON": "Sigí 3115",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "1d6",
       "AVG DAM": 3,
       "RANGE": "100/300",
@@ -1376,14 +1376,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Built-in Compact Design"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "PULSE",
       "WEAPON": "EE Månljus 55",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "1d8",
       "AVG DAM": 4,
       "RANGE": "90/200",
@@ -1391,19 +1391,19 @@ weapons = [
       "COST": 400,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "PULSE",
       "WEAPON": "Jīngquè 2-5",
-      "AB": "3+",
+      "AB": "3",
       "DAM": "1d6",
       "AVG DAM": 3,
       "RANGE": "300/600",
@@ -1416,14 +1416,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "PULSE",
       "WEAPON": "Corinthian Xefonízon-8",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "1d6",
       "AVG DAM": 3,
       "RANGE": "100/300",
@@ -1436,7 +1436,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1456,14 +1456,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "PISTOL",
       "SUBTYPE": "REVOLVER",
       "WEAPON": "MDAI Type 24",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "1d6",
       "AVG DAM": 3,
       "RANGE": "50/150",
@@ -1476,7 +1476,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1496,7 +1496,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1511,12 +1511,12 @@ weapons = [
       "COST": 1000,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "6+",
-      "AUTO DAM": "6+",
-      "RELOAD": "2 ",
+      "AUTO AB": "6",
+      "AUTO DAM": "6",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "N"
     },
     {
@@ -1531,12 +1531,12 @@ weapons = [
       "COST": 800,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "3+",
-      "BURST DAM": "2+",
+      "BURST AB": "3",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1551,12 +1551,12 @@ weapons = [
       "COST": 800,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "6+",
-      "AUTO DAM": "6+",
-      "RELOAD": "1 round",
+      "AUTO AB": "6",
+      "AUTO DAM": "6",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "3+ to Tech Saves"
     },
     {
@@ -1571,12 +1571,12 @@ weapons = [
       "COST": 750,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1591,12 +1591,12 @@ weapons = [
       "COST": 700,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "1+",
-      "BURST DAM": "1+",
+      "BURST AB": "1",
+      "BURST DAM": "1",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1611,12 +1611,12 @@ weapons = [
       "COST": 600,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1631,11 +1631,11 @@ weapons = [
       "COST": 500,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
       "RELOAD": "1 move action",
       "SPECIAL": "N"
     },
@@ -1651,12 +1651,12 @@ weapons = [
       "COST": 350,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "3+",
-      "BURST DAM": "3+",
+      "BURST AB": "3",
+      "BURST DAM": "3",
       "AUTO": "Y",
-      "AUTO AB": "6+",
-      "AUTO DAM": "6+",
-      "RELOAD": "1 round",
+      "AUTO AB": "6",
+      "AUTO DAM": "6",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Built-in QuickSwap Mags"
     },
     {
@@ -1671,12 +1671,12 @@ weapons = [
       "COST": 300,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "5+ to Tech Saves"
     },
     {
@@ -1691,12 +1691,12 @@ weapons = [
       "COST": 200,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "1+",
+      "BURST AB": "2",
+      "BURST DAM": "1",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1716,7 +1716,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1731,19 +1731,19 @@ weapons = [
       "COST": 800,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "3+",
-      "BURST DAM": "2+",
+      "BURST AB": "3",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "BATTLE",
       "WEAPON": "Yorkton Hunter",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d10",
       "AVG DAM": 10,
       "RANGE": "400/800",
@@ -1756,7 +1756,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1776,7 +1776,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "No penalty when used in Vacuum"
     },
     {
@@ -1796,7 +1796,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Does not cost an action to go from stowed to ready"
     },
     {
@@ -1816,7 +1816,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1851,12 +1851,12 @@ weapons = [
       "COST": 300,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1896,7 +1896,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "5+ to Tech Saves"
     },
     {
@@ -1916,7 +1916,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1936,7 +1936,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1956,7 +1956,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1976,7 +1976,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -1996,7 +1996,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "N"
     },
     {
@@ -2016,14 +2016,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "Lionheart Templar",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d10",
       "AVG DAM": 10,
       "RANGE": "50/100",
@@ -2036,14 +2036,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "Corinthian Charavgí",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d6",
       "AVG DAM": 6,
       "RANGE": "50/100",
@@ -2051,19 +2051,19 @@ weapons = [
       "COST": 750,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "Ad Astra Éclair-42",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d6+1",
       "AVG DAM": 7,
       "RANGE": "40/70",
@@ -2071,19 +2071,19 @@ weapons = [
       "COST": 700,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "Reiter Zweihander V5",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d8",
       "AVG DAM": 8,
       "RANGE": "40/80",
@@ -2096,14 +2096,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "3 ",
+      "RELOAD": "3 ACTIONS",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "EE Blixtgevär M32",
-      "AB": "2+",
+      "AB": "2",
       "DAM": "2d6+1",
       "AVG DAM": 7,
       "RANGE": "75/150",
@@ -2116,14 +2116,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "MAGNETIC",
       "WEAPON": "YFT Lizi Type 7",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d8",
       "AVG DAM": 8,
       "RANGE": "50/100",
@@ -2136,7 +2136,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2151,19 +2151,19 @@ weapons = [
       "COST": 700,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "PULSE",
       "WEAPON": "Aurora Linterna",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "1d10",
       "AVG DAM": 5,
       "RANGE": "150/350",
@@ -2171,19 +2171,19 @@ weapons = [
       "COST": 650,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "3+",
-      "BURST DAM": "2+",
+      "BURST AB": "3",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "5+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "5",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "PULSE",
       "WEAPON": "Reiter Crusader-4",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "1d12",
       "AVG DAM": 6,
       "RANGE": "200/400",
@@ -2191,19 +2191,19 @@ weapons = [
       "COST": 600,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "PULSE",
       "WEAPON": "Reiter Herzog Model S",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d6",
       "AVG DAM": 6,
       "RANGE": "50/100",
@@ -2216,14 +2216,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "PULSE",
       "WEAPON": "Upaay Starshine-77",
-      "AB": "3+",
+      "AB": "3",
       "DAM": "1d8",
       "AVG DAM": 4,
       "RANGE": "500/1000",
@@ -2232,18 +2232,18 @@ weapons = [
       "ENC": 2,
       "BURST": "Y",
       "BURST AB": "0",
-      "BURST DAM": "2+",
+      "BURST DAM": "2",
       "AUTO": "Y",
       "AUTO AB": "0",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "PULSE",
       "WEAPON": "Lionheart Collider",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "1d12+2",
       "AVG DAM": 8,
       "RANGE": "250/650",
@@ -2256,14 +2256,14 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "RIFLE",
       "SUBTYPE": "PULSE",
       "WEAPON": "Alexandrov Pulsar-21",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "1d10",
       "AVG DAM": 5,
       "RANGE": "300/500",
@@ -2271,12 +2271,12 @@ weapons = [
       "COST": 300,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2296,7 +2296,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "Counts as a gunnery weapon for Armor purposes."
     },
     {
@@ -2311,12 +2311,12 @@ weapons = [
       "COST": 1200,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2331,12 +2331,12 @@ weapons = [
       "COST": 1100,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Physical Effect Save or Death (P.36 Core Rulebook)"
     },
     {
@@ -2356,7 +2356,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Physical Effect Save or Death (P.36 Core Rulebook)"
     },
     {
@@ -2376,7 +2376,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Physical Effect Save or Death (P.36 Core Rulebook)"
     },
     {
@@ -2396,7 +2396,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "Physical Effect Save or Death (P.36 Core Rulebook)"
     },
     {
@@ -2411,12 +2411,12 @@ weapons = [
       "COST": 500,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Physical Effect Save or Death (P.36 Core Rulebook)"
     },
     {
@@ -2436,7 +2436,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Physical Effect Save or Death (P.36 Core Rulebook)"
     },
     {
@@ -2456,7 +2456,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2476,7 +2476,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2492,11 +2492,11 @@ weapons = [
       "ENC": 2,
       "BURST": "Y",
       "BURST AB": "0",
-      "BURST DAM": "2+",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2516,7 +2516,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "2 ",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "N"
     },
     {
@@ -2531,12 +2531,12 @@ weapons = [
       "COST": 400,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "2+",
-      "AUTO DAM": "2+",
-      "RELOAD": "1 round",
+      "AUTO AB": "2",
+      "AUTO DAM": "2",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2556,7 +2556,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Pistol-Sized. Built-in Compact Design"
     },
     {
@@ -2571,12 +2571,12 @@ weapons = [
       "COST": 300,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2596,7 +2596,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2611,12 +2611,12 @@ weapons = [
       "COST": 850,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "2 ",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "2 ACTIONS",
       "SPECIAL": "Built-in Dual Magazine Ports."
     },
     {
@@ -2636,7 +2636,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2651,12 +2651,12 @@ weapons = [
       "COST": 750,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "SMG-sized. Built-in Compact Design"
     },
     {
@@ -2671,12 +2671,12 @@ weapons = [
       "COST": 700,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2696,7 +2696,7 @@ weapons = [
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "SMG-sized. Built-in Compact Design, Alloyed Construction"
     },
     {
@@ -2711,12 +2711,12 @@ weapons = [
       "COST": 600,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2731,19 +2731,19 @@ weapons = [
       "COST": 350,
       "ENC": 2,
       "BURST": "Y",
-      "BURST AB": "3+",
-      "BURST DAM": "3+",
+      "BURST AB": "3",
+      "BURST DAM": "3",
       "AUTO": "Y",
-      "AUTO AB": "5+",
-      "AUTO DAM": "5+",
-      "RELOAD": "1 round",
+      "AUTO AB": "5",
+      "AUTO DAM": "5",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "SUBMACHINE GUN",
       "SUBTYPE": "MACHINE PISTOL",
       "WEAPON": "Highbeam Opti",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d6",
       "AVG DAM": 6,
       "RANGE": "75/200",
@@ -2751,12 +2751,12 @@ weapons = [
       "COST": 650,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2771,12 +2771,12 @@ weapons = [
       "COST": 550,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "2+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "2",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2791,12 +2791,12 @@ weapons = [
       "COST": 550,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Built-in Alloyed Construction"
     },
     {
@@ -2811,12 +2811,12 @@ weapons = [
       "COST": 450,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2831,12 +2831,12 @@ weapons = [
       "COST": 150,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "2+",
-      "AUTO DAM": "3+",
-      "RELOAD": "1 round",
+      "AUTO AB": "2",
+      "AUTO DAM": "3",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2851,12 +2851,12 @@ weapons = [
       "COST": 115,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "N",
       "AUTO AB": "N/A",
       "AUTO DAM": "N/A",
-      "RELOAD": "1 round",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2871,19 +2871,19 @@ weapons = [
       "COST": 800,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
       "TYPE": "SUBMACHINE GUN",
       "SUBTYPE": "SBR",
       "WEAPON": "OmniTech Oculum PDW",
-      "AB": "1+",
+      "AB": "1",
       "DAM": "2d6",
       "AVG DAM": 6,
       "RANGE": "75/225",
@@ -2891,12 +2891,12 @@ weapons = [
       "COST": 750,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "5+",
-      "AUTO DAM": "2+",
-      "RELOAD": "1 round",
+      "AUTO AB": "5",
+      "AUTO DAM": "2",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2911,12 +2911,12 @@ weapons = [
       "COST": 750,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "3+",
-      "AUTO DAM": "3+",
-      "RELOAD": "1 round",
+      "AUTO AB": "3",
+      "AUTO DAM": "3",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "Built-in Alloyed Construction"
     },
     {
@@ -2931,12 +2931,12 @@ weapons = [
       "COST": 600,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2951,12 +2951,12 @@ weapons = [
       "COST": 300,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "3+",
-      "BURST DAM": "1+",
+      "BURST AB": "3",
+      "BURST DAM": "1",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "2+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "2",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2971,12 +2971,12 @@ weapons = [
       "COST": 200,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "2+",
-      "BURST DAM": "2+",
+      "BURST AB": "2",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "4+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "4",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     },
     {
@@ -2991,12 +2991,12 @@ weapons = [
       "COST": 110,
       "ENC": 1,
       "BURST": "Y",
-      "BURST AB": "1+",
-      "BURST DAM": "2+",
+      "BURST AB": "1",
+      "BURST DAM": "2",
       "AUTO": "Y",
-      "AUTO AB": "1+",
-      "AUTO DAM": "4+",
-      "RELOAD": "1 round",
+      "AUTO AB": "1",
+      "AUTO DAM": "4",
+      "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     }
    ];
@@ -3040,7 +3040,7 @@ attachments = [
         },
         {
           "NAME": "Dual Round Feeders",
-          "EFFECT": "Doubled Magazine Size, +1 Round to reload",
+          "EFFECT": "Doubled Magazine Size, +1 ACTION to reload",
           "COST": 200,
           "ENC": 0
         },

@@ -90,7 +90,7 @@ clothing = {
                  {
                     "NAME": "Nanocomposite",
                     "AP": 0,
-                    "SPECIAL": "-1 to ballistic damage taken",
+                    "SPECIAL": "-1 to ballistic damage taken while at > 1 AP",
                     "COST": 2000,
                     "ENC": -2,
                  }
@@ -115,7 +115,7 @@ clothing = {
                {
                   "NAME": "Flak",
                   "AP": 2,
-                  "SPECIAL": "Half damage from explosives, non on succesful save",
+                  "SPECIAL": "Half damage from explosives, non on succesful save while at > 1 AP",
                   "COST": 1000,
                   "ENC": 1,
                },
@@ -138,14 +138,14 @@ clothing = {
                {
                    "NAME": "Kevlar Inserts",
                    "AP": 0,
-                   "SPECIAL": "Take no melee shock damage",
+                   "SPECIAL": "Take no melee shock damage while at > 1 AP",
                    "COST": 100,
                    "ENC": 0,
                 },
                 {
                    "NAME": "MicroBiotic Sub Layer",
                    "AP": 0,
-                   "SPECIAL": "Restores 1d6 AP after 1d10 hours if the vest has at least 1 AP",
+                   "SPECIAL": "Restores 1d6 AP after 1d10 hours while at > 1 AP",
                    "COST": 1000,
                    "ENC": 0,
                 },
@@ -159,7 +159,7 @@ clothing = {
                 {
                    "NAME": "Biofibre",
                    "AP": 0,
-                   "SPECIAL": "-1 to melee damage taken",
+                   "SPECIAL": "-1 to melee damage taken while at > 1 AP",
                    "COST": 100,
                    "ENC": 0,
                 }

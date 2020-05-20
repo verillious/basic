@@ -1,5 +1,8 @@
 class MothershipCharGenerator {
     constructor() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        this.type = urlParams.get('type');
         this.nightmares = [
             `- Your migraine is splitting your skull. A dog rushes towards you, its eyes full of loving devotion.\`   - The dog's head explodes into a crimson mist, coating your hands like an accusation.`,
             `- Your jaw unhinges as you vomit a torrent of earwigs.`,
@@ -57,7 +60,7 @@ class MothershipCharGenerator {
             `- You crush the nimbus-blue egg in your hand.\`   - Amidst the splintered shell fragments is the partially formed baby bird.\`   - It stares back at you with eyes like black marbles.\`   - Then you notice the teeth.`,
             `- Children with sunken eyes and rotted teeth chant, "SACRIFICE, SACRIFICE".\`   - They push you, you fall.\`   - Their faces fade in the distance.\`   - You keep falling.`,
             `- You trudge through a landscape blanketed in bones.\`   - They snap and crunch underfoot.\`   - Drifts of them knee deep and pulling you gradually under.\`   - They rattle as you descend.`,
-            `- You walk yowards the horizon.\`   - You pass a burning car and the air is thick with malodorous smog.\`   - Your skeleton stops walking and is left behind.\`   - Your shadow tells you your real bones have been replaced.`,
+            `- You walk towards the horizon.\`   - You pass a burning car and the air is thick with malodorous smog.\`   - Your skeleton stops walking and is left behind.\`   - Your shadow tells you your real bones have been replaced.`,
             `- You are in a pool.\`   - The water is warm.\`   - Tropical fish peck away at you.\`   - Each bite is a papercut.\`   - You feel your legs gradually vanishing one small bite at a time.\`   - You can't see an exit.`,
             `- You are lying on the beach tangled in nets.\`   - The tide keeps rising up towards your face, gradually but inexorably.\`   - Gulls squabble and circle in the baking sun.`,
             `- Your face is smothered in kisses, teeth scraping your brow.\`   - A sudden rough bite and pull on the cheek until it tears, leaving a hole.\`   - A tongue presses the fringes of the new oriface.`,
@@ -306,7 +309,7 @@ class MothershipCharGenerator {
             `"Volunteer"`,
             `"Solve Et Coagula" (Baphomet)`,
         ];
-        this.name = chance.name({ middle: 'true', prefix: 'true', gender: 'male' });
+        // this.type = type;
         this.stats = {
             Strength: {score: 10, bonus: 0},
             Dexterity: {score: 10, bonus: 0},
@@ -337,23 +340,69 @@ class MothershipCharGenerator {
             stress: 2,
             resolve: 0,
         };
-        this.medical = {
-            age: chance.age({ type: 'adult' }),
-            past: [],
-            current: []
+        switch (this.type) {
+            case "npc":
+                this.name = chance.name({ middle: 'true', prefix: 'true'});
+                this.medical = {
+                    age: chance.age(),
+                    past: [],
+                    current: []
+                }
+                this.weapons = weapons.filter(weapon => weapon["COST"] <= 500);
+                this.attachments = attachments.filter(attachment => attachment["COST"] <= 600);
+                this.clothing = chance.pickone(clothing.CLOTHING);
+                this.vest = {
+                    rating: chance.pickone(clothing.ARMOUR.PLATE.RATING.slice(0, 2)),
+                    plate: chance.pickone(clothing.ARMOUR.PLATE.MATERIAL.slice(0, 2)),
+                    style: chance.pickone(clothing.ARMOUR.VEST.STYLE.filter(style => style["COST"] <= 500)),
+                    material: chance.pickone(clothing.ARMOUR.VEST.MATERIAL.filter(material => material["COST"] <= 500))
+                };
+                this.accessory = chance.pickset(clothing.ACCESSORY);
+                this.weapon = chance.pickset(this.weapons);
+                this.attachment = chance.pickset(this.attachments);
+                break;
+            case "soldier":
+                this.name = chance.name({ middle: 'true', prefix: 'true', gender: 'male' });
+                this.medical = {
+                    age: chance.age({ type: 'adult' }),
+                    past: [],
+                    current: []
+                }
+                this.weapons = weapons.filter(weapon => weapon["COST"] <= 1000 && weapon["COST"] >= 500);
+                this.attachments = attachments.filter(attachment => attachment["COST"] <= 750);
+                this.clothing = clothing.CLOTHING[2];
+                this.vest = {
+                    rating: chance.pickone(clothing.ARMOUR.PLATE.RATING.slice(1, 4)),
+                    plate: chance.pickone(clothing.ARMOUR.PLATE.MATERIAL.slice(1, 4)),
+                    style: chance.pickone(clothing.ARMOUR.VEST.STYLE),
+                    material: chance.pickone(clothing.ARMOUR.VEST.MATERIAL)
+                };
+                this.accessory = chance.pickset(clothing.ACCESSORY, 2);
+                this.weapon = [chance.pickone(this.weapons), chance.pickone(this.weapons.filter(weapon => weapon["TYPE"] == "PISTOL"))];
+                // console.log(this.weapon)
+                this.attachment = chance.pickset(this.attachments, 3);
+                break;
+            default:
+                this.name = chance.name({ middle: 'true', prefix: 'true', gender: 'male' });
+                this.medical = {
+                    age: chance.age({ type: 'adult' }),
+                    past: [],
+                    current: []
+                }
+                this.weapons = weapons.filter(weapon => weapon["COST"] < 400);
+                this.attachments = attachments.filter(attachment => attachment["COST"] <= 400);
+                this.clothing = chance.pickone(clothing.CLOTHING);
+                this.vest = {
+                    rating: chance.pickone(clothing.ARMOUR.PLATE.RATING.slice(0, 2)),
+                    plate: chance.pickone(clothing.ARMOUR.PLATE.MATERIAL.slice(0, 2)),
+                    style: chance.pickone(clothing.ARMOUR.VEST.STYLE.filter(style => style["COST"] <= 500)),
+                    material: chance.pickone(clothing.ARMOUR.VEST.MATERIAL.filter(material => material["COST"] <= 500))
+                };
+                this.accessory = chance.pickset(clothing.ACCESSORY);
+                this.weapon = chance.pickset(this.weapons);
+                this.attachment = chance.pickset(this.attachments);
+                break;
         }
-        this.weapons = weapons.filter(weapon => weapon["COST"] <= 200 && weapon["COST"] >= 100);
-        this.attachments = attachments.filter(attachment => attachment["COST"] <= 400);
-        this.clothing = chance.pickone(clothing.CLOTHING);
-        this.vest = {
-            rating: chance.pickone(clothing.ARMOUR.PLATE.RATING.slice(0, 2)),
-            plate: chance.pickone(clothing.ARMOUR.PLATE.MATERIAL.slice(0, 2)),
-            style: chance.pickone(clothing.ARMOUR.VEST.STYLE.filter(style => style["COST"] <= 500)),
-            material: chance.pickone(clothing.ARMOUR.VEST.MATERIAL.filter(material => material["COST"] <= 500))
-        };
-        this.accessory = chance.pickone(clothing.ACCESSORY);
-        this.weapon = chance.pickone(this.weapons);
-        this.attachment = chance.pickone(this.attachments);
         this.generate();
     }
 
@@ -383,29 +432,45 @@ class MothershipCharGenerator {
         this.setStat("Charisma", this.rollStat());
         this.currentSkills = chance.pickset(this.skills, 2);
         this.currentSkills.push('UNSPECIFIED SPECIALISATION');
-        this.loadout += `   - ${this.weapon["WEAPON"]}\``;
-        for (var key in this.weapon) {
-            if (key != "WEAPON" && key != "AVG DAM" && key != "COST") {
-                this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.weapon[key]).padStart(2, ' ')} \``;
+        // console.log(this.weapon);
+        for (var i = 0; i < this.weapon.length; i++){
+            // console.log(this.weapon[i])
+            this.loadout += `   - ${this.weapon[i]["WEAPON"]}\``;
+            for (var key in this.weapon[i]) {
+                if (key != "COST" && key != "NAME") {
+                    this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.weapon[i][key]).padStart(3, ' ')} \``;
+                }
             }
         }
         this.loadout += `      - ATTACHMENTS\``;
-        this.loadout += `         - ${this.attachment.NAME.padEnd(13, ' ')}\`            - ${this.attachment.EFFECT}\``;
+        for (var i = 0; i < this.attachment.length; i++) {
+            this.loadout += `         - ${this.attachment[i].NAME.padEnd(13, ' ')}\``
+            for (var key in this.attachment[i]) {
+                if (key != "COST" && key != "NAME") {
+                    this.loadout += `            - ${key.padEnd(7, ' ')}:    ${String(this.attachment[i][key]).padStart(3, ' ')} \``;
+                }
+            }
+        }
+
         this.loadout += `   - ${this.clothing["NAME"]}\``;
         for (var key in this.clothing) {
             if (key != "COST" && key != "NAME") {
-                this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.clothing[key]).padStart(2, ' ')} \``;
+                this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.clothing[key]).padStart(3, ' ')} \``;
             }
         }
-        this.loadout += `   - ${this.accessory["NAME"]}\``;
-        for (var key in this.accessory) {
-            if (key != "COST" && key != "NAME") {
-                this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.accessory[key]).padStart(2, ' ')} \``;
+        for (var i = 0; i < this.accessory.length; i++) {
+            this.loadout += `   - ${this.accessory[i]["NAME"]}\``;
+            for (var key in this.accessory[i]) {
+                if (key != "COST" && key != "NAME") {
+                    this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.accessory[i][key]).padStart(3, ' ')} \``;
+                }
             }
         }
+
+
         this.loadout += `   - ${this.vest.rating.NAME} ${this.vest.plate.NAME} VEST [${this.vest.style.NAME}, ${this.vest.material.NAME}]\``
-        this.loadout += `      - ${'AP'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.AP) + Number(this.vest.plate.AP) + Number(this.vest.style.AP) + Number(this.vest.material.AP))).padStart(2, ' ')}\``
-        this.loadout += `      - ${'ENC'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.ENC) + Number(this.vest.plate.ENC) + Number(this.vest.style.ENC) + Number(this.vest.material.ENC))).padStart(2, ' ')}\``
+        // this.loadout += `      - ${'AP'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.AP) + Number(this.vest.plate.AP) + Number(this.vest.style.AP) + Number(this.vest.material.AP))).padStart(3, ' ')}\``
+        this.loadout += `      - ${'ENC'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.ENC) + Number(this.vest.plate.ENC) + Number(this.vest.style.ENC) + Number(this.vest.material.ENC))).padStart(3, ' ')}\``
 
         for (var key in this.vest) {
             if (this.vest[key].SPECIAL != "") {
@@ -420,7 +485,6 @@ class MothershipCharGenerator {
         this.loadout += `   - ${chance.pickone(['Automed (2)', 'Pain pills (2)'])}\``;
         this.loadout += `   - ${drug["DRUG"]} (2)\``;
         this.loadout += "   - stimpak (1)\`";
-        // this.loadout += `   - ${chance.pickone([`standard clothing\`      - ${'AC : 12'.padEnd(13, ' ')}\`      - ${'ENC : 0'.padEnd(13, ' ')}`, `Type 1 vest [steel] (${chance.pickone(['Military', 'Covert', 'Flak', 'Lightweight Construction', 'Auxillary Panels'])})`, `tactical clothing\`      - ${'AC : 13'.padEnd(13, ' ')}\`      - ${'ENC : 0'.padEnd(13, ' ')}\``;
 
         this.patch = this.patches[this.rollDie(100)];
         this.nightmare = this.nightmares[this.rollDie(100)];
@@ -452,7 +516,7 @@ class MothershipCharGenerator {
         this.output += `   - ${chance.profession()}\``;
         this.output += `// Stat profile\``;
         for (var key in this.stats){
-            this.output += `   - ${key.padEnd(16, ' ')}:    ${String(this.stats[key].score).padStart(2, ' ')} ${this.stats[key].bonus}\``;
+            this.output += `   - ${key.padEnd(16, ' ')}:    ${String(this.stats[key].score).padStart(3, ' ')} ${this.stats[key].bonus}\``;
         }
         this.output += `// Skillset\``;
         for (var i = 0; i < this.currentSkills.length; i++){
@@ -461,14 +525,14 @@ class MothershipCharGenerator {
         this.output += `// Loadout\``;
         this.output += `${this.loadout}`;
         this.output += `// Medical history\``;
-        this.output += `   - ${'HP'.padEnd(16, ' ')}:    ${String(this.health).padStart(2, ' ')}\``;
-        this.output += `   - ${'STRESS'.padEnd(16, ' ')}:    ${String(this.pyschology.stress).padStart(2, ' ')}\``;
-        this.output += `   - ${'RESOLVE'.padEnd(16, ' ')}:    ${String(this.pyschology.resolve).padStart(2, ' ')}\``;
+        this.output += `   - ${'HP'.padEnd(16, ' ')}:    ${String(this.health).padStart(3, ' ')}\``;
+        this.output += `   - ${'STRESS'.padEnd(16, ' ')}:    ${String(this.pyschology.stress).padStart(3, ' ')}\``;
+        this.output += `   - ${'RESOLVE'.padEnd(16, ' ')}:    ${String(this.pyschology.resolve).padStart(3, ' ')}\``;
         this.output += `   - ${'Saves'}\``;
-        this.output += `      - ${'Physical'.padEnd(13, ' ')}:    ${String(this.saves.physical).padStart(2, ' ')}\``;
-        this.output += `      - ${'Mental'.padEnd(13, ' ')}:    ${String(this.saves.mental).padStart(2, ' ')}\``;
-        this.output += `      - ${'Evasion'.padEnd(13, ' ')}:    ${String(this.saves.evasion).padStart(2, ' ')}\``;
-        this.output += `   - ${'Age'.padEnd(16, ' ')}:    ${String(this.medical.age).padStart(2, ' ')}\``;
+        this.output += `      - ${'Physical'.padEnd(13, ' ')}:    ${String(this.saves.physical).padStart(3, ' ')}\``;
+        this.output += `      - ${'Mental'.padEnd(13, ' ')}:    ${String(this.saves.mental).padStart(3, ' ')}\``;
+        this.output += `      - ${'Evasion'.padEnd(13, ' ')}:    ${String(this.saves.evasion).padStart(3, ' ')}\``;
+        this.output += `   - ${'Age'.padEnd(16, ' ')}:    ${String(this.medical.age).padStart(3, ' ')}\``;
         this.output += `   - Past Conditions\``;
         if (this.medical.past.length > 0) {
             for (var i = 0; i < this.medical.past.length; i++){
