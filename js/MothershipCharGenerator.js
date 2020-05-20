@@ -437,7 +437,7 @@ class MothershipCharGenerator {
             // console.log(this.weapon[i])
             this.loadout += `   - ${this.weapon[i]["WEAPON"]}\``;
             for (var key in this.weapon[i]) {
-                if (key != "COST" && key != "NAME") {
+                if (key != "COST" && key != "NAME" && key != "WEAPON" && key != "AVG DAM") {
                     this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.weapon[i][key]).padStart(3, ' ')} \``;
                 }
             }
