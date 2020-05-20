@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="../css/terminal.css">
         <script src="../js/vendor/jquery.js"></script>
         <script src="../js/vendor/FileSaver.min.js"></script>
+        <script src="../js/vendor/jquery.doubletap.js"></script>
         <script src="../js/MothershipCharGenerator.js"></script>
         <script type="text/javascript" src="../json/weapons.json"></script>
         <script type="text/javascript" src="../json/clothing.json"></script>
@@ -212,7 +213,6 @@
                 var timesince = now - mylatesttap;
                 if((timesince < 170) && (timesince > 0) && text.length > 0){
                     skip();
-
                 }else{
                     down();
                 }
@@ -236,6 +236,14 @@
                 $(div).attr("src", `https://thispersondoesnotexist.com/image?${n}`);
                 soFar = visible.innerHTML;
             }
+            $(document).on('doubletap',function(e){
+                    if (e.touches && e.touches.length > 1) {
+                        return;
+                    }
+                    if(text != ''){
+                        skip();
+                    }
+            });
 
             $(document).ready(function () {
                 document.addEventListener('keydown', function (evt) {
@@ -252,10 +260,12 @@
                         skip();
                     }
                 });
+
+                // document.addEventListener('doubletap', skip, false);
                 document.addEventListener('keyup', up, false);
-                document.addEventListener('touchstart', doubletap, false);
+                document.addEventListener('touchstart', down, false);
                 document.addEventListener('touchend', up, false);
-                document.addEventListener('mousedown', doubletap, false);
+                document.addEventListener('mousedown', down, false);
                 document.addEventListener('mouseup', up, false);
             });
         </script>
