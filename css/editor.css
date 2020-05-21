@@ -218,6 +218,7 @@ button {
     color: inherit;
     border: none;
     outline:none;
+    font-size: 1.8vh
 }
 
 button:focus {

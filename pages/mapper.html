@@ -31,9 +31,20 @@
             <div class="item move-button" title="Move tool" onclick="editor.changeTool('move');"><i class="far fa-hand-paper"></i></div>
             <div class="item pen-button" title="Pen tool (P)" onclick="editor.changeTool('pen');"><i class="fas fa-pen"></i></div>
             <div class="item line-button" title="Straight line tool (L)" onclick="editor.changeTool('line');"><i class="fas fa-pen-fancy"></i></div>
-            <div class="item bucket-button" title="Fill tool (F)" onclick="editor.changeTool('bucket');"><i class="fas fa-fill-drip"></i></div>
-            <!-- <div class="item random-fill-button" title="Random Fill tool"><i class="fas fa-random"></i></div> -->
+            <!-- <div class="item bucket-button" title="Fill tool (F)" onclick="editor.changeTool('bucket');"><i class="fas fa-fill-drip"></i></div> -->
+            <div class="item eraser-button" title="Eraser (E)" onclick="editor.changeTool('eraser');"><i class="fas fa-eraser"></i></div>
+            <div class="item palette-button" title="Change colour"><input id="color-picker" class="color" value="14fdce" spellcheck="false"></div>
+            <div class="item symbol-button" title="Change symbol"><input id="symbol-picker" type="text" maxlength="1" onkeypress=editor.symbolTool(event) value="#"/></div>
+            <!-- <div class="item symbol-button" title="Change symbol"><p style="font-size: 45px; margin: unset">&#33</p></div> -->
             <div class="item dropdown item">
+                <button class="dropbtn"><i class="fas fa-compress"></i></button>
+                <div class="dropdown-content">
+                    <input id='collisions' type="text" value=' /tT#oO'>
+              </div>
+            </div>
+            <div class="item grid-button" title="Toggle grid"><i class="fas fa-border-none"></i></div>
+            <div class="item undo-button" title="Undo last action (CTRL + Z)"><i class="fas fa-undo"></i></div>
+            <!-- <div class="item dropdown item">
                 <button class="dropbtn"><i class="fas fa-random"></i></button>
                 <div class="dropdown-content">
                   <div><a href="#" class="random-fill-button">RANDOM FILL</a></div>
@@ -49,19 +60,7 @@
                   </ul></div>
               </div>
             </div>
-            <div class="item eraser-button" title="Eraser (E)" onclick="editor.changeTool('eraser');"><i class="fas fa-eraser"></i></div>
-            <div class="item palette-button" title="Change colour"><input id="color-picker" class="color" value="14fdce" spellcheck="false"></div>
-            <div class="item symbol-button" title="Change symbol"><input id="symbol-picker" type="text" maxlength="1" onkeypress=editor.symbolTool(event) value="#"/></div>
-            <!-- <div class="item symbol-button" title="Change symbol"><p style="font-size: 45px; margin: unset">&#33</p></div> -->
-            <div class="item dropdown item">
-                <button class="dropbtn"><i class="fas fa-random"></i></button>
-                <div class="dropdown-content">
-                    <input id='collisions' type="text" value=' /tT#oO'>
-              </div>
-            </div>
-            <div class="item grid-button" title="Toggle grid"><i class="fas fa-border-none"></i></div>
-            <div class="item clearcanvas-button" title="Clear the canvas"><i class="fas fa-trash"></i></div>
-            <div class="item undo-button" title="Undo last action (CTRL + Z)"><i class="fas fa-undo"></i></div>
+            <div class="item clearcanvas-button" title="Clear the canvas"><i class="fas fa-trash"></i></div> -->
         </div>
     </div>
 
@@ -77,7 +76,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
     <script type="text/javascript" src="../js/vendor/jscolor/jscolor.js"></script>
-    <script src="../js/main.js"></script>
     <script src="../js/editor.js"></script>
 
     <script>

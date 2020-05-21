@@ -1361,16 +1361,6 @@ function Editor(canvas, gridCanvas, toolCanvas) {
         if (this.currentTool == 'eraser') this.changeTool('pen');
     }, this));
 
-    //Clear canvas:
-    $('.menu-bar .clearcanvas-button').click($.proxy(function() {
-        if (confirm('Warning: Are you sure you want to clear the all pixels?')) {
-            this.clearAllPixels();
-        }
-    }, this));
-
-    $('.menu-bar .random-fill-button').click($.proxy(function() {
-        this.randomFill();
-    }, this));
     $('.menu-bar .dungeon-fill-button').click($.proxy(function() {
         this.dungeonFill();
     }, this));
@@ -1744,9 +1734,43 @@ function Editor(canvas, gridCanvas, toolCanvas) {
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        // const queryString = window.location.search;
-        // const urlParams = new URLSearchParams(queryString);
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
         // this.urlKey = urlParams.get('key');
+        this.admin = urlParams.get('admin');
+
+        if (this.admin == 'true') {
+            $('#menu-bar').append(`
+<div class="item dropdown item"><button class="dropbtn"><i class="fas fa-random"></i></button>
+    <div class="dropdown-content">
+        <div><a href="#" class="random-fill-button">RANDOM FILL</a></div>
+        <div><a href="#" class="dungeon-fill-button">DUNGEON</a></div>
+        <div><a href="#" class="cell-fill-button">CELLULAR</a></div>
+        <div><input type="number" min="1" max="100" id='fill-percent' value='20'>
+        <input type="number" min="1" max="100" id='dug-percent' value='30'>
+        <input type="number" min="1" max="100" id='cell-cycles' value='4'></div>
+        <div>
+            <ul>
+                <li style="display: flex;"><p>Fill clear:</p><input type="checkbox" id='fill-clear' title="Clear before filling"></li>
+                <li style="display: flex;"><p>Fill outline:</p><input type="checkbox" id='fill-outline' title="Ony draw outlines"></li>
+                <li style="display: flex;"><p>Fill avoid:</p><input type="checkbox" id='fill-avoid' title="Avoid existing cells"></li>
+            </ul>
+        </div>
+    </div>
+</div>`)
+            $('#menu-bar').append(`<div class="item clearcanvas-button" title="Clear the canvas"><i class="fas fa-trash"></i></div>`)
+                //Clear canvas:
+            $('.menu-bar .clearcanvas-button').click($.proxy(function() {
+                if (confirm('Warning: Are you sure you want to clear the all pixels?')) {
+                    this.clearAllPixels();
+                }
+            }, this));
+
+            $('.menu-bar .random-fill-button').click($.proxy(function() {
+                this.randomFill();
+            }, this));
+        }
+
 
         // if (this.urlKey === null) {
         //     this.urlKey = firebase.database().ref().child('maps').push().key;
