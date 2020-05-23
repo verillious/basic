@@ -199,7 +199,8 @@ clothing = {
        },
        {
           "NAME": "TACTICAL HEADSET",
-          "SPECIAL": "+1 TO SKILLCHECKS RELIANT ON HEARING"
+          "SPECIAL": "+1 TO SKILLCHECKS RELIANT ON HEARING",
+          "ENC": 0.5
        },
        {
           "NAME": "TACTICAL EYE PROTECTION",
@@ -207,14 +208,15 @@ clothing = {
        },
        {
           "NAME": "FACEMASK",
+          "SPECIAL": "+1 TO Stealth checks RELIANT ON SIGHT"
        },
        {
           "NAME": "TACTICAL BELT",
-          "SPECIAL": "FILL IN"
+          "SPECIAL": "3 ITEMS CAN BE READIED WITHOUT COUNTING AGAINST READIED ITEMS"
        },
        {
           "NAME": "TACTICAL POUCH",
-          "SPECIAL": "2 items packed to 1 enc, still readied"
+          "SPECIAL": "2 items packed to 1 enc, readied"
        },
        {
           "NAME": "HOLSTER",
