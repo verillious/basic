@@ -99,7 +99,7 @@
                     soFar += '<br><a class="terminal-mode" onclick="intro()"; href="javascript:void(0);">\>INTRO</a><br>';
                     soFar += '<a class="terminal-mode" href="../pages/images.html" target="_none">\>IMAGES</a><br>';
                     soFar += '<a class="terminal-mode" onclick="transmission()"; href="javascript:void(0);">\>TRANSMISSION</a><br>';
-                    soFar += '<a class="terminal-mode" onclick="char_creation()"; href="javascript:void(0);">\>CHARACTER CREATION</a><br>';
+                    // soFar += '<a class="terminal-mode" onclick="char_creation()"; href="javascript:void(0);">\>CHARACTER CREATION</a><br>';
                     soFar += '<a class="terminal-mode" onclick="new_char()"; href="javascript:void(0);">\>PERSONNEL RECORD</a><br>';
                     visible.innerHTML = soFar;
                     printing = false;
@@ -151,7 +151,7 @@
             function char_creation() {
                 if(!printing) {
                     printing = true
-                    text = '# Basic SciFi Character Creation`## Roll Attribute Scores`- 3d6`- Mark down modifiers`## Roll For Skills`- 2 Random Skills`- Exertion`- Interaction`- Academics`- Engineering`- Combat`- Vehicles`- Survival`- 1 Specialisation`## Note Load-out`- Random Gun`- 1d4 spare mags`- Machete / Scalpel / Crowbar`- Flare gun / Binoculars / Flashlight`- Survey kit / Camping gear / First Aid Kit`- Automed (2) / Pain pills (2) / Random Drug (2)`- 1 Stimpak`- Standard battle dress / Type 1 steel vest random style / Standard crew attire`## Roll Hitpoints`- 1d6 + CON`## Note Saving Throws`- Physical`- 15 minus the best of STR or CON`- Evasion`- 15 minus the best of DEX or INT`- Mental`- 15 minus the best of WIS or CHA`## Note Starting Stress / Resolve`- Stress: 2`- Resolve: 0`## Roll Trinket / Patch / Nightmare`- d% each`## Roll Personality`';
+                    text = '# Basic SciFi Character Creation`## Roll Attribute Scores`- 3d6`- Mark down modifiers`## Roll For Skills`- 2 Random Skills`- Exertion`- Interaction`- Academics`- Engineering`- Combat`- Vehicles`- Survival`- 1 Specialisation`## Note Load-out`- Random Gun`- 1d4 spare mags`- Machete / Scalpel / Crowbar`- Flare gun / Binoculars / Flashlight`- Survey kit / Camping gear / First Aid Kit`- Automed (2) / Pain pills (2) / Random Drug (2)`- 1 Stimpak`- Standard Clothing / Tactical Clothing / Heavyweight Clothing` - Random Body Armour`## Roll Hitpoints`- 1d6 + CON`## Note Saving Throws`- Physical`- 15 minus the best of STR or CON`- Evasion`- 15 minus the best of DEX or INT`- Mental`- 15 minus the best of WIS or CHA`## Note Starting Stress / Resolve`- Stress: 2`- Resolve: 0`## Roll Trinket / Patch / Nightmare`- d% each`## Roll Personality`';
                     setTimeout(addChar, speed);
                     return 0;
                 }

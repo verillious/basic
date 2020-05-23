@@ -389,8 +389,8 @@ class MothershipCharGenerator {
                     past: [],
                     current: []
                 }
-                this.weapons = weapons.filter(weapon => weapon["COST"] < 400);
-                this.attachments = attachments.filter(attachment => attachment["COST"] <= 400);
+                this.weapons = weapons.filter(weapon => weapon["COST"] <= 200);
+                this.attachments = attachments.filter(attachment => attachment["COST"] <= 200 && attachment.COMPATIBILITY.includes(this.weapons[0].TYPE));
                 this.clothing = chance.pickone(clothing.CLOTHING);
                 this.vest = {
                     rating: chance.pickone(clothing.ARMOUR.PLATE.RATING.slice(0, 2)),
@@ -446,7 +446,7 @@ class MothershipCharGenerator {
         for (var i = 0; i < this.attachment.length; i++) {
             this.loadout += `         - ${this.attachment[i].NAME.padEnd(13, ' ')}\``
             for (var key in this.attachment[i]) {
-                if (key != "COST" && key != "NAME") {
+                if (key != "COST" && key != "NAME" && key != "COMPATIBILITY") {
                     this.loadout += `            - ${key.padEnd(7, ' ')}:    ${String(this.attachment[i][key]).padStart(3, ' ')} \``;
                 }
             }
@@ -478,33 +478,33 @@ class MothershipCharGenerator {
             }
         }
 
-        this.loadout += `   - ${this.rollDie(4) - 1} spare mags\``
-        this.loudout += `   - ${ ['machete', 'scalpel', 'crowbar'][this.rollDie(3) - 1] }\``;
+        this.loadout += `   - spare mags (${chance.d4() - 1})\``
+        this.loudout += `   - ${['machete', 'scalpel', 'crowbar'][this.rollDie(3) - 1] }\``;
         this.loadout += `   - ${['flare gun', 'Binoculars', 'Flashlight'][this.rollDie(3) - 1]}\``;
+        this.loadout += `   - ${['IFAK', 'METATOOL', 'SURVIVAL KIT'][this.rollDie(3) - 1]}\``;
+        this.loadout += `   - SLURRY PACK (3)\``
+        this.loadout += `   - 24HR AIR FILTER (3)\``
+        this.loadout += `   - CREDSTICK (${chance.d100() * 30}CR)\``
         var drug = chance.pickone(drugs);
         this.loadout += `   - ${chance.pickone(['Automed (2)', 'Pain pills (2)'])}\``;
         this.loadout += `   - ${drug["DRUG"]} (2)\``;
-        this.loadout += "   - stimpak (1)\`";
+        this.loadout += "   - stimpak\`";
 
-        this.patch = this.patches[this.rollDie(100)];
-        this.nightmare = this.nightmares[this.rollDie(100)];
-        this.trinket = this.trinkets[this.rollDie(100)];
+        this.patch = this.patches[chance.d100() -1];
+        this.nightmare = this.nightmares[chance.d100() -1];
+        this.trinket = this.trinkets[chance.d100() -1];
 
-        this.loadout += `   - patch: ${this.patch} (1)\``;
-        this.loadout += `   - trinket: ${this.trinket} (1)\``;
+        this.loadout += `   - patch: ${this.patch}\``;
+        this.loadout += `   - trinket: ${this.trinket}\``;
         this.health = this.rollDie(6)
         this.health += Number(this.stats.Constitution.bonus);
         this.health = Math.max(1, this.health);
 
-        for (var i = 0; i < Math.floor(this.medical.age / 10); i++) {
-            if (chance.d100() > 50) {
+        for (var i = 0; i < 2; i++) {
                 this.medical.past.push(chance.pickone(icd.chapters))
-            };
         };
-        for (var i = 0; i < Math.floor(this.medical.age / 10); i++) {
-            if (chance.d100() > 80) {
+        for (var i = 0; i < 1; i++) {
                 this.medical.current.push(chance.pickone(icd.chapters))
-            };
         };
 
         this.saves.physical = 15 - Math.max(this.stats.Strength.bonus, this.stats.Constitution.bonus);

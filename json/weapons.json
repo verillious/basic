@@ -2999,247 +2999,223 @@ weapons = [
       "RELOAD": "1 ACTION",
       "SPECIAL": "N"
     }
-   ];
+   ]
 
 attachments = [
         {
-          "NAME": "Monobayonet",
-          "EFFECT": "Adds a monoblade to the gun. The blade cannot be used with martial arts.",
+          "NAME": "Bayonet",
+          "EFFECT": "Adds a blade to the weapon",
+          "COMPATIBILITY": ["RIFLE"],
           "COST": 100,
-          "ENC": 1
         },
         {
           "NAME": "Sling",
           "EFFECT": "Weapon always readied",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 100,
-          "ENC": 0
         },
         {
           "NAME": "Tripod",
           "EFFECT": "2+ Attack Bonus after spending one round setting up",
+          "COMPATIBILITY": ["RIFLE"],
           "COST": 150,
-          "ENC": 1
+        },
+        {
+            "NAME": "Cutter Protocol",
+            "EFFECT": "Can be activated to turn the weapon into a welding/cutting tool.",
+            "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
+            "COST": 150,
         },
         {
           "NAME": "Short Range Sight",
           "EFFECT": "+1 attack bonus when not split second shooting",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 150,
-          "ENC": 0
         },
         {
           "NAME": "Self-Destruct Button",
           "EFFECT": "Can activate to detonate the weapon as a grenade",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 200,
-          "ENC": 1
         },
         {
-          "NAME": "Choke",
-          "EFFECT": "Increases range by 10/10",
+          "NAME": "Long Barrel",
+          "EFFECT": "Increases range by 50/50",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 200,
-          "ENC": 1
+        },
+        {
+            "NAME": "Short Barrel",
+            "EFFECT": "+1 Initiative in close quarters",
+            "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
+            "COST": 200,
         },
         {
           "NAME": "Dual Round Feeders",
           "EFFECT": "Doubled Magazine Size, +1 ACTION to reload",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 200,
-          "ENC": 0
         },
         {
           "NAME": "Belt Feeder",
-          "EFFECT": "10x Magazine size, 3 to reload.",
-          "COST": 200,
-          "ENC": 3
+          "EFFECT": "10x Magazine size, +2 ACTIONS to reload.",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
+          "COST": 300,
         },
         {
           "NAME": "Foregrip",
-          "EFFECT": "+1 attack bous when firing in close quarters",
+          "EFFECT": "+1 attack bonus when firing in close quarters",
+          "COMPATIBILITY": ["RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 200,
-          "ENC": 0
         },
         {
           "NAME": "Suppressor",
           "EFFECT": "Reduces noise from firing",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 250,
-          "ENC": 1
         },
         {
           "NAME": "Compact Design",
           "EFFECT": "Can be folded into 1/4th size, allowing easier transport and concealment",
-          "COST": 300,
-          "ENC": 0
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
+          "COST": 250,
         },
         {
           "NAME": "Magnetic Loader",
           "EFFECT": "Once per combat, reloading is a free action",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 300,
-          "ENC": 1
         },
         {
           "NAME": "Dual Magazine Ports",
-          "EFFECT": "Can hold 2 different clips (Same total ammo capacity), allowing the user to select which type of ammunition out of the 2 to fire",
+          "EFFECT": "Can hold 2 different magazines, allowing the user to select which type of ammunition out of the 2 to fire",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 300,
-          "ENC": 1
         },
         {
           "NAME": "Long-Range Scope",
           "EFFECT": "Ignore Range penalties if you spend one round aiming",
+          "COMPATIBILITY": ["RIFLE"],
           "COST": 300,
-          "ENC": 1
         },
         {
           "NAME": "Grenade Launcher",
           "EFFECT": "Can fire grenades at 150/350 range. Uses Projectile or Gunnery and Dexterity",
+          "COMPATIBILITY": ["RIFLE"],
           "COST": 300,
-          "ENC": 1
         },
         {
           "NAME": "Laser Sight",
           "EFFECT": "+1 initiative when split second shooting, two modes: visible and IR (for night vision)",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 300,
-          "ENC": 0
         },
         {
           "NAME": "Light",
           "EFFECT": "Rail mounted flashlight",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 300,
-          "ENC": 0
         },
         {
           "NAME": "QuickSwap Mags",
           "EFFECT": "Halved Magazine Size, can use movement action to reload",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 350,
-          "ENC": 1
-        },
-        {
-          "NAME": "Cutter Protocol",
-          "EFFECT": "Can be activated to turn the weapon into a welding/cutting tool. Reduce range to melee, deal double damage.",
-          "COST": 400,
-          "ENC": 1
         },
         {
           "NAME": "Thermal Sights",
           "EFFECT": "Ignore Attack penalties from lack of direct vision. Double Attack penalties from glares and intense lights.",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 400,
-          "ENC": 1
         },
         {
           "NAME": "Auto-Loader",
           "EFFECT": "Reloads automatically without user attention at 2 times the normal reload rate",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 450,
-          "ENC": 0
         },
         {
           "NAME": "Nanofiber Rope Hook",
           "EFFECT": "Can fire a nanofiber rope hook instead of a normal attack. If the attack hits, the hook attaches to the target.",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 450,
-          "ENC": 1
         },
         {
-          "NAME": "Sub-Sonic Velocity Porter",
-          "EFFECT": "-4 to hit, but ignores Deflector Arrays",
-          "COST": 500,
-          "ENC": 1
-        },
-        {
-          "NAME": "Mounted Chaincutter",
-          "EFFECT": "Adds a melee-range 2d6 Chaincutter to the gun. The chaincutter cannot pierce Power Armor or Assault Suits. The cutter cannot be used with martial arts.",
-          "COST": 500,
-          "ENC": 1
-        },
-        {
-          "NAME": "Generator Adjustment",
+          "NAME": "Active sound cancellation",
           "EFFECT": "Reduces noise from firing",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 500,
-          "ENC": 0
-        },
-        {
-          "NAME": "Mercy Protocol",
-          "EFFECT": "All damage is nonlethal. Weapon cannot fire burst or full auto.",
-          "COST": 500,
-          "ENC": 1
         },
         {
           "NAME": "Point Defense Protocol",
           "EFFECT": "Can fire at incoming missiles, rockets or grenades with a prepared action. Firing at AC 6 against non-guided projectiles (Rockets, grenades) and AC 4 against guided projectiles (Missiles)",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 500,
-          "ENC": 1
         },
         {
-          "NAME": "Optic Compensator",
-          "EFFECT": "1+ Attack Bonus",
+          "NAME": "Active Compensator",
+          "EFFECT": "+1 Attack Bonus",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 500,
-          "ENC": 0
         },
         {
           "NAME": "Biomonitor",
           "EFFECT": "Measures vitals of one enemy",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 500,
-          "ENC": 1
-        },
-        {
-          "NAME": "Laser Flare Launcher",
-          "EFFECT": "Can fire laser flares* at 200/450 range. Uses Energy or Gunnery and Dexterity. Fire against AC 9",
-          "COST": 500,
-          "ENC": 1
-        },
-        {
-          "NAME": "Wavelength Elongator",
-          "EFFECT": "Ignore partial cover",
-          "COST": 600,
-          "ENC": 1
         },
         {
           "NAME": "ArmorPen Analyzer",
-          "EFFECT": "Increase the AC of Power Armor and Assault Suits by +2",
+          "EFFECT": "Can take one ACTION to gain a +2 to hit against one enemy",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 600,
-          "ENC": 1
-        },
-        {
-          "NAME": "Capacitor Discharge",
-          "EFFECT": "Activate to detonate an electrical pulse around the weapon (Functions as a grenade, replace luck save with tech save) at the end of the user's round. Weapon becomes non-functional until repair.",
-          "COST": 600,
-          "ENC": 0
         },
         {
           "NAME": "Suitcutter Integration",
           "EFFECT": "A character with 10 or fewer hit points that is hit by this weapon has a 50% chance of suffering a suit tear.",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 700,
-          "ENC": 1
-        },
-        {
-          "NAME": "Frequency Calibrator",
-          "EFFECT": "Increase total damage by 50%, halved magazine size",
-          "COST": 700,
-          "ENC": 1
         },
         {
           "NAME": "Alloyed Construction",
           "EFFECT": "2+ to rolls to avoid scanner detection. Cannot be added after the purchase of the gun.",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 750,
-          "ENC": 1
-        },
-        {
-          "NAME": "Plasma Bomb Launcher",
-          "EFFECT": "Can fire plasma bombs* at 25/50 range. Uses Energy or Gunnery and Dexterity. Fire against AC 9.",
-          "COST": 750,
-          "ENC": 1
-        },
-        {
-          "NAME": "Overclock Protocol",
-          "EFFECT": "Double damage and attack bonus (Including Burst/Full Auto) for one turn. Empties a full clip and requires an extra turn to reload afterwards.",
-          "COST": 1000,
-          "ENC": 1
         },
         {
           "NAME": "Suitburner Module",
           "EFFECT": "A character with 15 or fewer hit points that is hit by this weapon always suffers a suit tear.",
+          "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
           "COST": 1200,
-          "ENC": 2
         },
         {
-          "NAME": "Drive Phaser",
-          "EFFECT": "Ignore full cover",
-          "COST": 2500,
-          "ENC": 1
-        }
+            "NAME": "Night sight",
+            "EFFECT": "Ignore Attack penalties from low light",
+            "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
+            "COST": 200,
+        },
+        {
+            "NAME": "Recoil Compensator Stock",
+            "EFFECT": "+2 AB when firing burst or full auto",
+            "COMPATIBILITY": ["RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
+            "COST": 200,
+        },
+        {
+            "NAME": "Storage Compartment",
+            "EFFECT": "A small compartment or Pouch. +1 READIED ITEM",
+            "COMPATIBILITY": ["RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
+            "COST": 200,
+        },
+        {
+            "NAME": "Lightweight Construction",
+            "EFFECT": "-1 WEAPON ENC",
+            "COMPATIBILITY": ["PISTOL", "RIFLE", "SHOTGUN", "SUBMACHINE GUN"],
+            "COST": 200,
+        },
+        {
+            "NAME": "Quick Draw Mod",
+            "EFFECT": "Can draw weapon as a free action - If used with holster can fire twice instead, at disadvantage",
+            "COMPATIBILITY": ["PISTOL"],
+            "COST": 200,
+        },
 ]
