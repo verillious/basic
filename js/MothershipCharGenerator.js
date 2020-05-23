@@ -389,7 +389,7 @@ class MothershipCharGenerator {
                     past: [],
                     current: []
                 }
-                this.weapons = weapons.filter(weapon => weapon["COST"] <= 200);
+                this.weapons = weapons.filter(weapon => weapon["COST"] <= 200 && weapon["COST"] >= 50);
                 this.attachments = attachments.filter(attachment => attachment["COST"] <= 200 && attachment.COMPATIBILITY.includes(this.weapons[0].TYPE));
                 this.clothing = chance.pickone(clothing.CLOTHING);
                 this.vest = {
