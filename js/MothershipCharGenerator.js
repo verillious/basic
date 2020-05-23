@@ -469,7 +469,7 @@ class MothershipCharGenerator {
 
 
         this.loadout += `   - ${this.vest.rating.NAME} ${this.vest.plate.NAME} VEST [${this.vest.style.NAME}, ${this.vest.material.NAME}]\``
-        // this.loadout += `      - ${'AP'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.AP) + Number(this.vest.plate.AP) + Number(this.vest.style.AP) + Number(this.vest.material.AP))).padStart(3, ' ')}\``
+        this.loadout += `      - ${'AP'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.AP) + Number(this.vest.plate.AP) + Number(this.vest.style.AP) + Number(this.vest.material.AP))).padStart(3, ' ')}\``
         this.loadout += `      - ${'ENC'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.ENC) + Number(this.vest.plate.ENC) + Number(this.vest.style.ENC) + Number(this.vest.material.ENC))).padStart(3, ' ')}\``
 
         for (var key in this.vest) {
