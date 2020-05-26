@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mothership Character Log</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/terminal.css">
+    <script src="../js/vendor/jquery.js"></script>
+    <script src="../js/MothershipCharGenerator.js"></script>
+    <script src="../js/vendor/quill.min.js"></script>
+</head>
+<body>
+    <h1>INCIDENT_1: "CUBIS PENATES" POST ACTION REPORT APPENDIX A</h1>
+    <div class="row">
+        <div class='figure'>
+            <img src="../img/people/alive/DR_JOSEPH_CRAIG.png">
+            <figcaption>MAX<br>DR JOSEPH MARVIN CRAIG<br>REALISTIC</figcaption>
+        </div>
+        <div class='figure'>
+                <img src="../img/people/alive/Luke_A.png" >
+            <figcaption>LEE<br>Luke ALVIN BLAKE<br>OPTIMISTIC</figcaption>
+        </div>
+        <div class='figure'>
+                <img src="../img/people/alive/MR_ZACHARY_MELVIN_SCHULTZ.png">
+            <figcaption>SCOTT<br>ZACHARY MELVIN SCHULTZ<br>EMPATHETIC</figcaption>
+        </div>
+        <div class='figure'>
+                <img src="../img/people/alive/ErnestMarcusHopkins.png">
+            <figcaption>CAL<br>Ernest Marcus Hopkins<br>NEUROTIC</figcaption>
+        </div>
+        <div class='figure'>
+                <img src="../img/people/alive/DR_DON_ROSE.png">
+            <figcaption>DR DON JOEL ROSE<br>AWKWARD</figcaption>
+        </div>
+        <div class='figure'>
+                <img src="../img/people/alive/DR_JAYDEN_ADRIAN_MUNOZ.png">
+            <figcaption>DR JAYDEN ADRIAN MUNOZ<br>PANICKED</figcaption>
+        </div>
+        <div class='figure'>
+                <img src="../img/people/dead/image.png" style="filter:grayscale(100%)">
+            <figcaption style="color: white;">DR BRETT MARK WEBSTER [DECEASED]<br>W93: Exposure to excessive cold of man-made origin</figcaption>
+        </div>
+        <div class='figure'>
+                <img src="../img/people/alive/DR_JORDAN_DUANE_SIMMONS.png">
+            <figcaption>DR JORDAN DUANE SIMMONS<br>DEPRESSED</figcaption>
+        </div>
+        <div class='figure'>
+                <img src="../img/people/dead/MR_GEORGE_BERNARD_WHITE.png" style="filter:grayscale(100%)">
+            <figcaption style="color: white;">GEORGE BERNARD WHITE [DECEASED]<br>W99: Exposure to other and unspecified man-made environmental factors</figcaption>
+        </div>
+        <div class='figure'>
+                <img src="../img/people/alive/Keith_D.png">
+            <figcaption>DR. KEITH DUANE SHERMAN<br>FOCUSSED</figcaption>
+        </div>
+    </div>
+    <div id="glow" class="glow noclick"></div>
+    <div id="noisy" class="noisy noclick"></div>
+    <div id="scanline" class="scanlines noclick"></div>
+    <style>
+        img {
+            mix-blend-mode: normal;
+            border: 2px solid #14fdce;
+            width: 100%;
+        }
+        h1 {
+            font-size: 1.5em;
+        }
+        figcaption {
+            font-size: 1em;
+        }
+
+        .row {
+          display: -ms-flexbox; /* IE10 */
+          display: flex;
+          -ms-flex-wrap: wrap; /* IE10 */
+          flex-wrap: wrap;
+          align-items: unset;
+          justify-content: space-evenly
+        }
+
+        .figure {
+            -ms-flex: 21vh;
+            flex: 21vh;
+            max-width: 21vh;
+            padding: 0.3vh;
+            margin-top: 0.3vh;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 1500px) {
+            .figure {
+                -ms-flex: 48%;
+                flex: 48%;
+                max-width: 48%;
+                width: 48%;
+            }
+        }
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .figure {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        </style>
+</body>
+
+
+</html>

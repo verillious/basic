@@ -99,7 +99,8 @@
                     soFar += '<br><a class="terminal-mode" onclick="intro()"; href="javascript:void(0);">\>INTRO</a><br>';
                     soFar += '<a class="terminal-mode" href="../pages/images.html" target="_none">\>IMAGES</a><br>';
                     soFar += '<a class="terminal-mode" onclick="transmission()"; href="javascript:void(0);">\>TRANSMISSION</a><br>';
-                    // soFar += '<a class="terminal-mode" onclick="char_creation()"; href="javascript:void(0);">\>CHARACTER CREATION</a><br>';
+                    soFar += '<a class="terminal-mode" href="../pages/characters.html" target="_none">\>CHARACTERS</a><br>';
+                    soFar += '<a class="terminal-mode" onclick="log()"; href="javascript:void(0);">\>LOG</a><br>';
                     soFar += '<a class="terminal-mode" onclick="new_char()"; href="javascript:void(0);">\>PERSONNEL RECORD</a><br>';
                     visible.innerHTML = soFar;
                     printing = false;
@@ -157,14 +158,26 @@
                 }
                 return 1;
             }
+            function log() {
+                if(!printing){
+                    printing = true
+                    text = `INCIDENT_1: "CUBIS PENATES" POST ACTION REPORT\`Loading ██████████████████████████████\`printing log. . .\`LOG BEGINS\`==================\`> ARRIVAL AT CUBIS PENATES 0200 HRS\`> DROP POD FAILURE\`> VARIOUS SYSTEMS DAMAGED\`> LIFE SUPPORT SYSTEM FAILURE\`> 2 SOULS D.O.A\`>    - MR. GEORGE BERNARD WHITE: W99: Exposure to other and unspecified man-made environmental factors\`>    - DR BRETT MARK WEBSTER: W93: Exposure to excessive cold of man-made origin\`> DROP POD OFF COURSE BY SEVERAL DAYS, LOCATION UNKNOWN\`> BACKUP POWER FAILURE\`> MR HOPKINS NOTICES MOVEMENT AND LIGHTS IN THE NEARBY TREELINE\`> CONTACT WITH 5 HOSTILES\`> CONTACT REPORT FOLLOWS . . .\`    |MR BLAKE DISCHARED HIS FIREARM (KOSTNOV REVOLUTIONARY BATTLE RIFLE) TOWARDS "HOSTILE 2" (ADULT FEMALE, CAUCASIAN) HITTING HER IN THE CHEST, PIERCING HER BODY ARMOUR AND CAUSING INSTANT PARAPLEGIA\`    |BOTH "HOSTILE 3" AND "HOSTILE 4" RETURNED FIRE USING HIGH CALIBER LONG GUNS, MISSING ALL MEMBERS OF THE TEAM\`    |"HOSTILE 1" ATTEMPTED TO MOVE "HOSTILE 2" TOWARDS THE TREELINE\`    |MR SCHULTZ MOVED NORTH WEST IN AN AGRESSIVE FLANKING MANEUVER, FIRING HIS BLOEMBERGEN ROEDE-3 SUB MACHINE GUN AT "HOSTILE 1" AT HITTING HIM MULTIPLE TIMES IN THE LEGS, CHEST AND ABDOMEN\`    |MR SHERMAN MOVED WEST, TAKING COVER BEHIND A ROCK AND FIRED AT "HOSTILE 3" WITH HIS KOSTNOV INSURGENT ASSAULT RIFLE, HITTING HIM MULTIPLE TIMES\`    |DR CRAIG FIRED HIS RIFLE (TYPE UNKNOWN) AT "HOSTILE 4" HITTING HIM IN THE HEAD AND KILLING HIM INSTANTLY\`    |ALL MEMBERS OF THE TEAM FIRED CONTINUOUSLY AT "HOSTILE 1", "HOSTILE 3" AND "HOSTILE 5" UNTIL "HOSTILE 1" AND "HOSTILE 3" STOPPED MOVING AND "HOSTILE 5" SURRENDERED\`> CONTACT REPORT ENDS\`> 3 ENEMY K.I.A\`>    - 1 ADULT FEMALE, CAUCASIAN:\`>        - Y35.0:  Legal intervention involving firearm discharge\`>        - S21.1:  Open wound of front wall of thorax\`>        - S22.1:  Multiple fractures of thoracic spine\`>        - S22.4:  Multiple fractures of ribs\`>        - S24.11: Complete Lesion of thoracic Spinal cord\`>        - S27.1:  Traumatic haemothorax\`>        - G82.2:  Paraplegia, unspecified\`>    - ADULT MALE, CAUCASIAN:\`>        - Y35.0:  Legal intervention involving firearm discharge\`>        - S01.8:  Open wound of other parts of head\`>        - S06.3:  Focal brain injury\`>        - S06.6:  Traumatic subarachnoid haemorrhage\`>        - S10.9:  Superficial injury of neck, part unspecified\`>    - ADULT MALE, HISPANIC:\`>        - Y35.0:  Legal intervention involving firearm discharge\`>        - S21.7:  Multiple open wounds of thoracic wall\`>        - S22.4:  Multiple fractures of ribs\`>        - S22.5:  Flail chest\`>        - S25.7:  Injury of multiple blood vessels of thorax\`>        - S27.7:  Multiple injuries of intrathoracic organs\`>        - S31.7:  Multiple open wounds of abdomen, lower back and pelvis\`>        - S32.1:  Fracture of sacrum\`>        - S81.8:  Open wound of other parts of lower leg\`>        - S82.7:  Multiple fractures of lower leg\`> 1 ENEMY INJURED, CRITICAL\`> 1 ENEMY SURRENDERED\`[LOG CONTINUES . . .]\`==================\`LOG ENDS\`DONE.`
+                    setTimeout(addChar, speed);
+                    return 0;
+                }
+            }
 
             function new_char() {
-                cg = new MothershipCharGenerator();
-                characters.push(cg)
-                text = cg.output+'@3';
-                navigator.clipboard.writeText(cg.output.replace(/`/g, '\n').replace('@2', '').replace('@3', '').toUpperCase());
-                setTimeout(addChar, speed);
-                return 0;
+                if(!printing) {
+                    printing = true;
+                    cg = new MothershipCharGenerator();
+                    characters.push(cg)
+                    text = cg.output+'@3';
+                    navigator.clipboard.writeText(cg.output.replace(/`/g, '\n').replace('@2', '').replace('@3', '').toUpperCase());
+                    setTimeout(addChar, speed);
+                    return 0;
+                }
+                return 1;
             }
 
             // Function to download data to a file
