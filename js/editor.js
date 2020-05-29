@@ -368,10 +368,10 @@ function Editor(canvas, gridCanvas, toolCanvas) {
     this.changeTool = changeTool;
 
     function changeTool(tool) {
-        // console.log("changeTool(): "+tool)
+        console.log("changeTool(): "+tool)
         this.prevTool = this.currentTool;
         this.currentTool = tool;
-
+        console.log(this.currentTool)
         //reset 'process' tools
         if (this.currentTool !== 'marquee') {
             this.marqueeStage = 1;
@@ -919,17 +919,66 @@ function Editor(canvas, gridCanvas, toolCanvas) {
                 this.lineToolCoords[2] = this.mouseGridPos[0];
                 this.lineToolCoords[3] = this.mouseGridPos[1];
                 this.renderLine('tool', this.penColor, this.lineToolCoords); //draw new line (on tool canvas)
+                this.renderToolPixel(this.mouseGridPos, this.penColor, undefined, this.symbol)
                 break;
             case 3: //user let go of mouse at second position
                 this.lineToolCoords[2] = this.mouseGridPos[0];
                 this.lineToolCoords[3] = this.mouseGridPos[1];
                 this.renderLine('main', this.penColor, this.lineToolCoords); //draw FINAL line on main canvas
+                this.drawPixel(this.mouseGridPos, this.penColor, this.symbol);
                 this.lineToolStage = -1;
                 break;
             default:
                 // console.log("Error: straight line tool stage not recognised.");
         }
     }
+
+    /*======================
+        MEASURE TOOL
+      ======================*/
+      this.measureToolCoords = [0, 0, 0, 0];
+      this.measureToolStage = -1;
+      this.measureTool = measureTool;
+
+    function measureTool() {
+        console.log(this.measureToolStage);
+
+          switch (this.measureToolStage) {
+              case 1: //user moused down at first postion
+                  this.measureToolCoords[0] = this.mouseGridPos[0];
+                  this.measureToolCoords[1] = this.mouseGridPos[1];
+                  this.measureToolStage = 2;
+                //   this.renderToolPixel(this.mouseGridPos, this.penColor, undefined, this.symbol)
+                  break;
+              case 2: //user is moving mouse to second position TODO CALL AT EACH GIRD PIXEL NOT EACH SCREEN PIXEL
+                  this.renderLine('tool', -1, this.measureToolCoords); //clear old line (from tool canvas)
+                  this.measureToolCoords[2] = this.mouseGridPos[0];
+                  this.measureToolCoords[3] = this.mouseGridPos[1];
+                  this.renderLine('tool', this.penColor, this.measureToolCoords); //draw new line (on tool canvas)
+                  var a = this.measureToolCoords[0]  - this.mouseGridPos[0];
+                  var b = this.measureToolCoords[1] - this.mouseGridPos[1];
+                  var c = Math.sqrt(a * a + b * b);
+                  c = Math.floor((c + 1) * 5);
+                  // console.log(c);
+                  if (this.mouseGridPos[0] > this.measureToolCoords[0]) {
+                      this.renderToolPixel([this.mouseGridPos[0] + 1, this.mouseGridPos[1]], this.penColor, undefined, c)
+                  } else {
+                        if (c.toString().length > 2) {
+                            this.renderToolPixel([this.mouseGridPos[0] - 2, this.mouseGridPos[1]], this.penColor, undefined, c)
+                        } else {
+                            this.renderToolPixel([this.mouseGridPos[0] - 1.5, this.mouseGridPos[1]], this.penColor, undefined, c)
+                        }
+                  }
+                  this.renderToolPixel(this.mouseGridPos, this.penColor, undefined, this.symbol)
+                  break;
+              case 3: //user let go of mouse at second position
+                  this.renderLine('tool', -1, this.measureToolCoords); //clear old line (from tool canvas)
+                  this.measureToolStage = -1;
+                  break;
+              default:
+                  console.log("Error: measure tool stage not recognised.");
+          }
+      }
 
     this.renderLine = renderLine;
 
@@ -1080,8 +1129,11 @@ function Editor(canvas, gridCanvas, toolCanvas) {
                     case 'line':
                         this.lineTool();
                         break;
+                    case 'measure':
+                        this.measureTool();
+                        break;
                     default:
-                        // console.log("Error: No tool selected.");
+                        console.log("Error: No tool selected.");
                 }
             }
         }
@@ -1151,6 +1203,10 @@ function Editor(canvas, gridCanvas, toolCanvas) {
                     this.lineToolStage = 1;
                     this.lineTool();
                     break;
+                case 'measure':
+                    this.measureToolStage = 1;
+                    this.measureTool();
+                    break;
                 default:
                     console.log("Error: No tool selected.");
             }
@@ -1196,6 +1252,11 @@ function Editor(canvas, gridCanvas, toolCanvas) {
             if (this.lineToolStage == 2) {
                 this.lineToolStage = 3;
                 this.lineTool();
+            }
+        } else if (this.currentTool == 'measure') {
+            if (this.measureToolStage == 2) {
+                this.measureToolStage = 3;
+                this.measureTool();
             }
         } else if (this.currentTool == 'pen') {
             if (this.penToolStage == 2) {
