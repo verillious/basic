@@ -1422,13 +1422,6 @@ function Editor(canvas, gridCanvas, toolCanvas) {
         if (this.currentTool == 'eraser') this.changeTool('pen');
     }, this));
 
-    $('.menu-bar .dungeon-fill-button').click($.proxy(function() {
-        this.dungeonFill();
-    }, this));
-    $('.menu-bar .cell-fill-button').click($.proxy(function () {
-        this.cellFill();
-    }, this));
-
     //Toggle grid
     $('.menu-bar .grid-button').click($.proxy(function() {
         this.toggleGrid();
@@ -1829,6 +1822,12 @@ function Editor(canvas, gridCanvas, toolCanvas) {
 
             $('.menu-bar .random-fill-button').click($.proxy(function() {
                 this.randomFill();
+            }, this));
+            $('.menu-bar .dungeon-fill-button').click($.proxy(function() {
+                this.dungeonFill();
+            }, this));
+            $('.menu-bar .cell-fill-button').click($.proxy(function () {
+                this.cellFill();
             }, this));
         }
 
