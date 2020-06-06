@@ -327,6 +327,10 @@ class MothershipCharGenerator {
         this.currentSkills = [];
         this.skills = ['Exertion', 'Interaction', 'Academics', 'Engineering', 'Combat', 'Vehicles', 'Survival'];
         this.loadout = "";
+        this.enc = 0;
+        this.r_enc = 0;
+        this.ap = 0;
+        this.ac = 0;
         this.pyschology = {
             big_five: {
                 Openness: ['LOW`      - Appreciates routine, practicality, established ideas.`      - Uninterested in abstractions, imagination or fantasy.`      - Gains fulfillment through perseverance.`      - Potentially characterized as pragmatic and data-driven.`      - Sometimes dogmatic and closed-minded.', 'HIGH`      - Appreciates art, emotion, adventure, unusual ideas.`      - High desire for imagination, curiosity, and variety of experience.`      - Intellectually curious.`      - Willing to try new things.`      - Likely to hold unconventional beliefs.`      - Potentially unpredictable and lacking focus.`      - Likely to engage in risky behavior or drug-taking.`      - Seeks self-actualization by seeking out intense, euphoric experiences.'][this.rollDie(2)-1],
@@ -371,6 +375,7 @@ class MothershipCharGenerator {
                 this.weapons = weapons.filter(weapon => weapon["COST"] <= 1000 && weapon["COST"] >= 500);
                 this.attachments = attachments.filter(attachment => attachment["COST"] <= 750);
                 this.clothing = clothing.CLOTHING[2];
+                this.harness = chance.pickone(clothing.HARNESS)
                 this.vest = {
                     rating: chance.pickone(clothing.ARMOUR.PLATE.RATING.slice(1, 4)),
                     plate: chance.pickone(clothing.ARMOUR.PLATE.MATERIAL.slice(1, 4)),
@@ -436,6 +441,7 @@ class MothershipCharGenerator {
         for (var i = 0; i < this.weapon.length; i++){
             // console.log(this.weapon[i])
             this.loadout += `   - ${this.weapon[i]["WEAPON"]}\``;
+            this.r_enc += this.weapon[i].ENC;
             for (var key in this.weapon[i]) {
                 if (key != "COST" && key != "NAME" && key != "WEAPON" && key != "AVG DAM" && key != "AUTO" && key != "BURST" && this.weapon[i][key] != "N/A" && this.weapon[i][key] != "N") {
                     this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.weapon[i][key]).padStart(3, ' ')} \``;
@@ -445,6 +451,7 @@ class MothershipCharGenerator {
         this.loadout += `      - ATTACHMENTS\``;
         for (var i = 0; i < this.attachment.length; i++) {
             this.loadout += `         - ${this.attachment[i].NAME.padEnd(13, ' ')}\``
+            this.r_enc += this.attachment[i].ENC;
             for (var key in this.attachment[i]) {
                 if (key != "COST" && key != "NAME" && key != "COMPATIBILITY") {
                     this.loadout += `            - ${key.padEnd(7, ' ')}:    ${String(this.attachment[i][key]).padStart(3, ' ')} \``;
@@ -453,13 +460,30 @@ class MothershipCharGenerator {
         }
 
         this.loadout += `   - ${this.clothing["NAME"]}\``;
+        this.enc += this.clothing.ENC;
         for (var key in this.clothing) {
             if (key != "COST" && key != "NAME") {
                 this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.clothing[key]).padStart(3, ' ')} \``;
             }
         }
+        if (this.harness) {
+            this.loadout += `   - ${this.harness["NAME"]}\``;
+            this.enc += this.harness.ENC;
+            this.ac += this.harness.AC;
+
+            for (var key in this.harness) {
+                if (key != "COST" && key != "NAME") {
+                    this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.harness[key]).padStart(3, ' ')} \``;
+                }
+            }
+        } else {
+            this.ac += this.clothing.AC;
+        }
+
         for (var i = 0; i < this.accessory.length; i++) {
             this.loadout += `   - ${this.accessory[i]["NAME"]}\``;
+            this.enc += this.accessory[i].ENC;
+            this.ac += this.accessory[i].AC;
             for (var key in this.accessory[i]) {
                 if (key != "COST" && key != "NAME") {
                     this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.accessory[i][key]).padStart(3, ' ')} \``;
@@ -467,23 +491,32 @@ class MothershipCharGenerator {
             }
         }
 
-
+        var ap = Math.max(0, Number(this.vest.rating.AP) + Number(this.vest.plate.AP) + Number(this.vest.style.AP) + Number(this.vest.material.AP));
+        var vest_enc = Math.max(0, Number(this.vest.rating.ENC) + Number(this.vest.plate.ENC) + Number(this.vest.style.ENC) + Number(this.vest.material.ENC))
         this.loadout += `   - ${this.vest.rating.NAME} ${this.vest.plate.NAME} VEST [${this.vest.style.NAME}, ${this.vest.material.NAME}]\``
-        this.loadout += `      - ${'AP'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.AP) + Number(this.vest.plate.AP) + Number(this.vest.style.AP) + Number(this.vest.material.AP))).padStart(3, ' ')}\``
-        this.loadout += `      - ${'ENC'.padEnd(13, ' ')}:    ${String(Math.max(0, Number(this.vest.rating.ENC) + Number(this.vest.plate.ENC) + Number(this.vest.style.ENC) + Number(this.vest.material.ENC))).padStart(3, ' ')}\``
-
+        this.loadout += `      - ${'AP'.padEnd(13, ' ')}:    ${String(ap).padStart(3, ' ')}\``
+        this.loadout += `      - ${'ENC'.padEnd(13, ' ')}:    ${String(vest_enc).padStart(3, ' ')}\``
+        this.enc += vest_enc;
+        this.ap = ap;
         for (var key in this.vest) {
             if (this.vest[key].SPECIAL != "") {
                 this.loadout += `      - ${this.vest[key].SPECIAL}\``;
             }
         }
+        var mags = chance.d4() - 1;
+        this.loadout += `   - spare mags (${mags})\``
+        if (this.vest.style.NAME == 'Military') {
+            this.r_enc +=  Math.min(mags, 1);
+        } else {
+            this.r_enc += mags;
+        }
 
-        this.loadout += `   - spare mags (${chance.d4() - 1})\``
-        this.loudout += `   - ${['machete', 'scalpel', 'crowbar'][this.rollDie(3) - 1] }\``;
+        this.loadout += `   - ${['machete', 'scalpel', 'crowbar'][this.rollDie(3) - 1] }\``;
         this.loadout += `   - ${['flare gun', 'Binoculars', 'Flashlight'][this.rollDie(3) - 1]}\``;
         this.loadout += `   - ${['IFAK', 'METATOOL', 'SURVIVAL KIT'][this.rollDie(3) - 1]}\``;
         this.loadout += `   - SLURRY PACK (3)\``
         this.loadout += `   - 24HR AIR FILTER (3)\``
+        this.enc += 5;
         this.loadout += `   - CREDSTICK (${chance.d100() * 30}CR)\``
         var drug = chance.pickone(drugs);
         this.loadout += `   - ${chance.pickone(['Automed (2)', 'Pain pills (2)'])}\``;
@@ -496,6 +529,8 @@ class MothershipCharGenerator {
 
         this.loadout += `   - patch: ${this.patch}\``;
         this.loadout += `   - trinket: ${this.trinket}\``;
+
+
         this.health = this.rollDie(6)
         this.health += Number(this.stats.Constitution.bonus);
         this.health = Math.max(1, this.health);
@@ -511,10 +546,10 @@ class MothershipCharGenerator {
         this.saves.mental = 15 - Math.max(this.stats.Wisdom.bonus, this.stats.Charisma.bonus);
         this.saves.evasion = 15 - Math.max(this.stats.Dexterity.bonus, this.stats.Intelligence.bonus);
         this.output = "\`// HEILIKON PERSONNEL RECORD\`";
-
         this.output += `   - ${this.name}\``;
         this.output += `   - ${chance.profession()}\``;
         this.output += `// Stat profile\``;
+
         for (var key in this.stats){
             this.output += `   - ${key.padEnd(16, ' ')}:    ${String(this.stats[key].score).padStart(3, ' ')} ${this.stats[key].bonus}\``;
         }
@@ -523,8 +558,11 @@ class MothershipCharGenerator {
             this.output += `   - ${this.currentSkills[i]}\``;
         }
         this.output += `// Loadout\``;
+        this.output += `   - ${'ENC'.padEnd(16, ' ')}:    ${String(Math.floor(this.enc)+'/'+this.stats.Strength.score).padStart(3, ' ')}\``
+        this.output += `   - ${'READIED'.padEnd(16, ' ')}:    ${String(Math.floor(this.r_enc)+'/'+Math.floor(this.stats.Strength.score / 2)).padStart(3, ' ')}\``
         this.output += `${this.loadout}`;
         this.output += `// Medical history\``;
+
         this.output += `   - ${'HP'.padEnd(16, ' ')}:    ${String(this.health).padStart(3, ' ')}\``;
         this.output += `   - ${'STRESS'.padEnd(16, ' ')}:    ${String(this.pyschology.stress).padStart(3, ' ')}\``;
         this.output += `   - ${'RESOLVE'.padEnd(16, ' ')}:    ${String(this.pyschology.resolve).padStart(3, ' ')}\``;
@@ -588,6 +626,20 @@ class MothershipCharGenerator {
             this.output += `   - ${key}: ${this.pyschology.big_five[key]}\``;
         }
         this.output += ``
+        this.simple_output = '';
+        this.simple_output += `// ${this.name}\``;
+        this.simple_output += `// Info\``;
+        this.simple_output += `   - ${'AP'.padEnd(16, ' ')}:    ${String(this.ap).padStart(3, ' ')}\``;
+        this.simple_output += `   - ${'HP'.padEnd(16, ' ')}:    ${String(this.health).padStart(3, ' ')}\``;
+        this.simple_output += `   - ${'AC'.padEnd(16, ' ')}:    ${String(this.ac).padStart(3, ' ')}\``;
+        this.simple_output += `   - ${'ENC'.padEnd(16, ' ')}:    ${String(Math.floor(this.enc)+'/'+this.stats.Strength.score).padStart(3, ' ')}\``
+        this.simple_output += `   - ${'READIED'.padEnd(16, ' ')}:    ${String(Math.floor(this.r_enc)+'/'+Math.floor(this.stats.Strength.score / 2)).padStart(3, ' ')}\``
+        for (var key in this.stats){
+            this.simple_output += `   - ${key.padEnd(16, ' ')}:    ${String(this.stats[key].score).padStart(3, ' ')} ${this.stats[key].bonus}\``;
+        }
+        this.simple_output += `// Loadout\``;
+        this.simple_output += `${this.loadout}`;
+
 
     }
 

@@ -186,12 +186,6 @@ clothing = {
           "ENC": 0.5
        },
        {
-          "NAME": "SHIELD",
-          "AC": 1,
-          "COST": 100,
-          "ENC": 1
-       },
-       {
           "NAME": "GLOVES",
           "AC": 1,
           "COST": 350,
@@ -199,29 +193,72 @@ clothing = {
        },
        {
           "NAME": "TACTICAL HEADSET",
+          "AC": 0,
           "SPECIAL": "+1 TO SKILLCHECKS RELIANT ON HEARING",
           "ENC": 0.5
        },
        {
           "NAME": "TACTICAL EYE PROTECTION",
-          "SPECIAL": "+1 TO SKILLCHECKS RELIANT ON SIGHT"
+          "AC": 0,
+          "SPECIAL": "+1 TO SKILLCHECKS RELIANT ON SIGHT",
+          "ENC": 0.5
        },
        {
           "NAME": "FACEMASK",
-          "SPECIAL": "+1 TO Stealth checks RELIANT ON SIGHT"
+          "AC": 0,
+          "SPECIAL": "+1 TO Stealth checks RELIANT ON SIGHT",
+          "ENC": 0.5
        },
        {
           "NAME": "TACTICAL BELT",
-          "SPECIAL": "3 ITEMS CAN BE READIED WITHOUT COUNTING AGAINST READIED ITEMS"
+          "AC": 0,
+          "SPECIAL": "3 ITEMS CAN BE READIED WITHOUT COUNTING AGAINST READIED ITEMS",
+          "ENC": 0.5
        },
        {
           "NAME": "TACTICAL POUCH",
-          "SPECIAL": "2 items packed to 1 enc, readied"
+          "AC": 0,
+          "SPECIAL": "2 items packed to 1 enc, readied",
+          "ENC": 0.5
        },
        {
           "NAME": "HOLSTER",
-          "SPECIAL": "You can draw, holster or transition to a pistol type weapon as a free action"
+          "AC": 0,
+          "SPECIAL": "You can draw, holster or transition to a pistol type weapon as a free action",
+          "ENC": 0.5
        }
+    ],
+    "HARNESS": [
+        {
+           "NAME": "ICARUS HARNESS",
+           "AC": 16,
+           "COST": "8,000",
+           "ENC": 1
+         },
+         {
+           "NAME": "DEFLECTOR ARRAY",
+           "AC": 18,
+           "COST": "30,000",
+           "ENC": 0
+         },
+         {
+           "NAME": "ASSAULT SUIT",
+           "AC": 18,
+           "COST": "10,000",
+           "ENC": 2
+         },
+         {
+           "NAME": "STORM ARMOR",
+           "AC": 19,
+           "COST": "20,000",
+           "ENC": 2
+         },
+         {
+           "NAME": "FIELD EMITTER PANOPLY",
+           "AC": 20,
+           "COST": "40,000",
+           "ENC": 1
+         }
     ]
  }
 
