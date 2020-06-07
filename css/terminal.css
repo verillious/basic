@@ -148,6 +148,18 @@ img {
     margin-bottom: 0.25em;
 }
 
+span {
+    font-family: 'VT323';
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0rem 0.2rem 1rem #26754e;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+.string {
+    /* display:table; Enable line-wrapping in IE8+ */
+    white-space:normal;
+}
+
 span.mod_span {
     display: inline-block;
     width: 2rem;
@@ -417,4 +429,20 @@ background: #FF0000;
 
 img {
     mix-blend-mode: color-dodge;
+}
+
+
+
+a {
+    text-decoration: none;
+    -ms-word-break: break-all;
+    /* Be VERY careful with this, breaks normal words wh_erever */
+    word-break: break-all;
+    /* Non standard for webkit */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    color: inherit;
+    font: inherit;
 }

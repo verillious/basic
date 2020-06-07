@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>heilikon_transmission</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../js/vendor/jquery.js"></script>
+        <script src="../js/vendor/renderjson.js"></script>
+        <link rel="stylesheet" href="../css/terminal.css">
+        <script src="../json/weapons.json"></script>
+        <script src="../json/clothing.json"></script>
+        <script src="../json/drugs.json"></script>
+    </head>
+
+    <body id="body">
+        <pre style="line-height: 0.8em; font-size: 1vw;" class="noselect">
+
+
+██╗  ██╗ ███████╗ ██╗ ██╗      ██╗ ██╗  ██╗ ██████╗  ███╗   ██╗
+██║  ██║ ██╔════╝ ██║ ██║      ██║ ██║ ██╔╝██╔═══██╗ ████╗  ██║
+███████║ █████╗   ██║ ██║      ██║ █████╔╝ ██║   ██║ ██╔██╗ ██║
+██╔══██║ ██╔══╝   ██║ ██║      ██║ ██╔═██╗ ██║   ██║ ██║╚██╗██║
+██║  ██║ ███████╗ ██║ ███████╗ ██║ ██║ ╚██╗╚██████╔╝ ██║ ╚████║
+╚═╝  ╚═╝ ╚══════╝ ╚═╝ ╚══════╝ ╚═╝ ╚═╝  ╚═╝ ╚═════╝  ╚═╝  ╚═══╝
+
+
+
+        </pre>
+        <p class="terminal-mode noselect">Live Well®</p>
+        <div id="tree"></div>
+        <div id="glow" class="glow noclick"></div>
+        <div id="noisy" class="noisy noclick"></div>
+        <div id="scanline" class="scanlines noclick"></div>
+
+    </body>
+    <script>
+        data = {weapons:{}, attachments:{}, drugs:{}, clothing:{}, armour:{plate:{rating:{}, material:{}}, vest:{style:{}, material:{}}}};
+        for(var i = 0; i<weapons.length; i++){
+            data.weapons[`${weapons[i].WEAPON}`] = weapons[i];
+        }
+        for(var i = 0; i<attachments.length; i++){
+            data.attachments[`${attachments[i].NAME}`] = attachments[i];
+        }
+        for(var i = 0; i<drugs.length; i++){
+            data.drugs[`${drugs[i].DRUG}`] = drugs[i];
+        }
+        for(var i = 0; i<clothing.CLOTHING.length; i++){
+            data.clothing[`${clothing.CLOTHING[i].NAME}`] = clothing.CLOTHING[i];
+        }
+        for(var i = 0; i<clothing.ARMOUR.PLATE.RATING.length; i++){
+            data.armour.plate.rating[`${clothing.ARMOUR.PLATE.RATING[i].NAME}`] = clothing.ARMOUR.PLATE.RATING[i];
+        }
+        for(var i = 0; i<clothing.ARMOUR.PLATE.MATERIAL.length; i++){
+            data.armour.plate.material[`${clothing.ARMOUR.PLATE.MATERIAL[i].NAME}`] = clothing.ARMOUR.PLATE.MATERIAL[i];
+        }
+        for(var i = 0; i<clothing.ARMOUR.VEST.STYLE.length; i++){
+            data.armour.vest.style[`${clothing.ARMOUR.VEST.STYLE[i].NAME}`] = clothing.ARMOUR.VEST.STYLE[i];
+        }
+        for(var i = 0; i<clothing.ARMOUR.VEST.MATERIAL.length; i++){
+            data.armour.vest.material[`${clothing.ARMOUR.VEST.MATERIAL[i].NAME}`] = clothing.ARMOUR.VEST.MATERIAL[i];
+        }
+        for(var i = 0; i<clothing.CLOTHING.length; i++){
+            data.clothing[`${clothing.CLOTHING[i].NAME}`] = clothing.CLOTHING[i];
+        }
+        // create json tree object
+        // const tree = JsonView.createTree(weapons);
+        // // render tree into dom element
+        // JsonView.render(tree, document.querySelector('.tree'));
+        renderjson.set_icons('+', '-');
+        renderjson.set_sort_objects(true);
+        document.getElementById("tree").appendChild(renderjson(data));
+    </script>
+
+</html>
