@@ -363,6 +363,7 @@ class MothershipCharGenerator {
                 };
                 this.accessory = chance.pickset(clothing.ACCESSORY);
                 this.weapon = chance.pickset(this.weapons);
+                this.attachments = this.attachments.filter(attachment => attachment["COST"] <= 200 && attachment.COMPATIBILITY.includes(this.weapon[0].TYPE));
                 this.attachment = chance.pickset(this.attachments);
                 break;
             case "soldier":
@@ -395,7 +396,6 @@ class MothershipCharGenerator {
                     current: []
                 }
                 this.weapons = weapons.filter(weapon => weapon["COST"] <= 200 && weapon["COST"] >= 50);
-                this.attachments = attachments.filter(attachment => attachment["COST"] <= 200 && attachment.COMPATIBILITY.includes(this.weapons[0].TYPE));
                 this.clothing = chance.pickone(clothing.CLOTHING);
                 this.vest = {
                     rating: chance.pickone(clothing.ARMOUR.PLATE.RATING.slice(0, 2)),
@@ -405,6 +405,7 @@ class MothershipCharGenerator {
                 };
                 this.accessory = chance.pickset(clothing.ACCESSORY);
                 this.weapon = chance.pickset(this.weapons);
+                this.attachments = attachments.filter(attachment => attachment["COST"] <= 200 && attachment.COMPATIBILITY.includes(this.weapon[0].TYPE));
                 this.attachment = chance.pickset(this.attachments);
                 break;
         }
@@ -440,10 +441,10 @@ class MothershipCharGenerator {
         // console.log(this.weapon);
         for (var i = 0; i < this.weapon.length; i++){
             // console.log(this.weapon[i])
-            this.loadout += `   - ${this.weapon[i]["WEAPON"]}\``;
+            this.loadout += `   - ${this.weapon[i]["WEAPON"]} [${this.weapon[i]["SUBTYPE"]} ${this.weapon[i]["TYPE"]}]\``;
             this.r_enc += this.weapon[i].ENC;
             for (var key in this.weapon[i]) {
-                if (key != "COST" && key != "NAME" && key != "WEAPON" && key != "AVG DAM" && key != "AUTO" && key != "BURST" && this.weapon[i][key] != "N/A" && this.weapon[i][key] != "N") {
+                if (key != "COST" && key != "NAME" && key != "WEAPON" && key != "URL" && key != "SUBTYPE" && key != "TYPE" && key != "AVG DAM" && this.weapon[i][key] != "N/A" && this.weapon[i][key] != "N") {
                     this.loadout += `      - ${key.padEnd(13, ' ')}:    ${String(this.weapon[i][key]).padStart(3, ' ')} \``;
                 }
             }

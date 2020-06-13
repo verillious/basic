@@ -36,27 +36,42 @@
         data = {weapons:{}, attachments:{}, drugs:{}, clothing:{}, armour:{plate:{rating:{}, material:{}}, vest:{style:{}, material:{}}}};
         for(var i = 0; i<weapons.length; i++){
             data.weapons[`${weapons[i].WEAPON}`] = weapons[i];
+            delete data.weapons[`${weapons[i].WEAPON}`]['URL'];
+            delete data.weapons[`${weapons[i].WEAPON}`]['COST'];
+            delete data.weapons[`${weapons[i].WEAPON}`]['WEAPON'];
         }
         for(var i = 0; i<attachments.length; i++){
             data.attachments[`${attachments[i].NAME}`] = attachments[i];
+            delete data.attachments[`${attachments[i].NAME}`]['COST'];
+            delete data.attachments[`${attachments[i].NAME}`]['NAME'];
         }
         for(var i = 0; i<drugs.length; i++){
             data.drugs[`${drugs[i].DRUG}`] = drugs[i];
         }
         for(var i = 0; i<clothing.CLOTHING.length; i++){
             data.clothing[`${clothing.CLOTHING[i].NAME}`] = clothing.CLOTHING[i];
+            delete data.clothing[`${clothing.CLOTHING[i].NAME}`]['COST'];
+            delete data.clothing[`${clothing.CLOTHING[i].NAME}`]['NAME'];
         }
         for(var i = 0; i<clothing.ARMOUR.PLATE.RATING.length; i++){
             data.armour.plate.rating[`${clothing.ARMOUR.PLATE.RATING[i].NAME}`] = clothing.ARMOUR.PLATE.RATING[i];
+            delete data.armour.plate.rating[`${clothing.ARMOUR.PLATE.RATING[i].NAME}`]['COST'];
+            delete data.armour.plate.rating[`${clothing.ARMOUR.PLATE.RATING[i].NAME}`]['NAME'];
         }
         for(var i = 0; i<clothing.ARMOUR.PLATE.MATERIAL.length; i++){
             data.armour.plate.material[`${clothing.ARMOUR.PLATE.MATERIAL[i].NAME}`] = clothing.ARMOUR.PLATE.MATERIAL[i];
+            delete data.armour.plate.material[`${clothing.ARMOUR.PLATE.MATERIAL[i].NAME}`]['COST'];
+            delete data.armour.plate.material[`${clothing.ARMOUR.PLATE.MATERIAL[i].NAME}`]['NAME'];
         }
         for(var i = 0; i<clothing.ARMOUR.VEST.STYLE.length; i++){
             data.armour.vest.style[`${clothing.ARMOUR.VEST.STYLE[i].NAME}`] = clothing.ARMOUR.VEST.STYLE[i];
+            delete data.armour.vest.style[`${clothing.ARMOUR.VEST.STYLE[i].NAME}`]['COST'];
+            delete data.armour.vest.style[`${clothing.ARMOUR.VEST.STYLE[i].NAME}`]['NAME'];
         }
         for(var i = 0; i<clothing.ARMOUR.VEST.MATERIAL.length; i++){
             data.armour.vest.material[`${clothing.ARMOUR.VEST.MATERIAL[i].NAME}`] = clothing.ARMOUR.VEST.MATERIAL[i];
+            delete data.armour.vest.material[`${clothing.ARMOUR.VEST.MATERIAL[i].NAME}`]['COST'];
+            delete data.armour.vest.material[`${clothing.ARMOUR.VEST.MATERIAL[i].NAME}`]['NAME'];
         }
         for(var i = 0; i<clothing.CLOTHING.length; i++){
             data.clothing[`${clothing.CLOTHING[i].NAME}`] = clothing.CLOTHING[i];
